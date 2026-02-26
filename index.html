@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offsite Growth — Revenue Engine for Trades & Construction</title>
+<meta name="description" content="Offsite Growth installs and operates predictable lead generation systems for trades & construction companies doing $500k–$5M+ annually.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Dark palette */
+  --ink:    #0c0c0c;
+  --ink-2:  #141414;
+  --ink-3:  #1c1c1c;
+  --ink-4:  #222222;
+
+  /* Light palette */
+  --cream:       #f2efe8;
+  --cream-2:     #e8e3d8;
+  --cream-text:  #1a1814;
+  --cream-dim:   rgba(26,24,20,0.5);
+  --cream-dimmer:rgba(26,24,20,0.25);
+
+  /* Type on dark */
+  --paper: #f0ece5;
+  --dim:   rgba(240,236,229,0.48);
+  --faint: rgba(240,236,229,0.16);
+
+  /* Accent */
+  --fire:    #c85a1e;
+  --fire-2:  #e06428;
+  --fire-dim: rgba(200,90,30,0.12);
+
+  --ff-d: 'Clash Display', sans-serif;
+  --ff-b: 'Outfit', sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--ff-b);
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03; pointer-events: none; z-index: 9998;
+}
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: var(--fire); }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+
+/* ─── HEADER ─── */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 26px 0;
+  transition: padding .4s var(--ease), background .4s, border-color .4s;
+  border-bottom: 1px solid transparent;
+}
+header.stuck {
+  padding: 14px 0;
+  background: rgba(12,12,12,0.97);
+  backdrop-filter: blur(16px);
+  border-color: rgba(240,236,229,0.06);
+}
+.hdr-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.logo { font-family: var(--ff-d); font-size: 21px; letter-spacing: 0.07em; display: flex; align-items: baseline; gap: 1px; }
+.logo-fire { color: var(--fire); }
+nav { display: flex; align-items: center; gap: 36px; }
+nav a { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); transition: color .2s; }
+nav a:hover { color: var(--paper); }
+.hdr-apply {
+  font-family: var(--ff-d); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 10px 26px; background: var(--fire); color: #fff; border-radius: 2px;
+  transition: all .25s var(--ease); white-space: nowrap;
+}
+.hdr-apply:hover { background: var(--fire-2); transform: translateY(-1px); }
+.burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.burger span { width: 20px; height: 1.5px; background: var(--paper); }
+
+/* ─── SHARED BUTTONS ─── */
+.btn-fire {
+  font-family: var(--ff-d); font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 36px; background: var(--fire); color: #fff; border-radius: 2px;
+  transition: all .3s var(--ease);
+}
+.btn-fire:hover { background: var(--fire-2); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(200,90,30,.3); }
+.btn-ghost {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--dim); transition: color .2s;
+}
+.btn-ghost .arr { transition: transform .25s; }
+.btn-ghost:hover { color: var(--paper); }
+.btn-ghost:hover .arr { transform: translateX(4px); }
+
+/* ─── REVEAL ─── */
+.r { opacity: 0; transform: translateY(28px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.r.on { opacity: 1; transform: none; }
+.d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; }
+.d3 { transition-delay: .24s; } .d4 { transition-delay: .32s; }
+.d5 { transition-delay: .40s; }
+
+/* ─── SECTION LABELS ─── */
+.stag {
+  font-size: 10px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--fire); display: flex; align-items: center; gap: 10px;
+}
+.stag::before { content: ''; width: 20px; height: 1px; background: var(--fire); }
+.stag-cream { color: var(--fire); }
+.stag-cream::before { background: var(--fire); }
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 140px 0 60px;
+  background: var(--ink);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: 0; bottom: 0; left: 58%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(200,90,30,.25) 35%, rgba(200,90,30,.12) 70%, transparent);
+  transform: skewX(-8deg);
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1fr 400px; gap: 80px; align-items: end;
+}
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 10px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--fire);
+  margin-bottom: 28px;
+  opacity: 0; animation: up .9s .1s var(--ease) forwards;
+}
+.hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--fire); }
+.hero-h1 {
+  font-family: var(--ff-d);
+  font-size: clamp(68px, 9.5vw, 124px);
+  line-height: .91; letter-spacing: .01em; text-transform: uppercase;
+  margin-bottom: 32px;
+  opacity: 0; animation: up .9s .2s var(--ease) forwards;
+}
+.hero-h1 .acc { color: var(--fire); }
+.hero-h1 .ghost { -webkit-text-stroke: 1px var(--paper); color: transparent; }
+.hero-sub {
+  font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--dim);
+  max-width: 500px; margin-bottom: 16px;
+  opacity: 0; animation: up .9s .32s var(--ease) forwards;
+}
+.hero-excl {
+  font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--faint); margin-bottom: 36px;
+  display: flex; align-items: center; gap: 10px;
+  opacity: 0; animation: up .9s .38s var(--ease) forwards;
+}
+.hero-excl::before { content: '—'; color: var(--fire); }
+.hero-actions {
+  display: flex; gap: 20px; align-items: center; flex-wrap: wrap;
+  opacity: 0; animation: up .9s .46s var(--ease) forwards;
+}
+.hero-machine {
+  align-self: center;
+  opacity: 0; animation: fadeR 1.1s .55s var(--ease) forwards;
+}
+.hero-bottom {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(240,236,229,.07);
+  margin-top: 60px;
+  opacity: 0; animation: up .9s .72s var(--ease) forwards;
+}
+.hstat { padding: 28px 0; border-right: 1px solid rgba(240,236,229,.07); }
+.hstat:nth-child(n+2) { padding-left: 40px; }
+.hstat:last-child { border-right: none; }
+.hstat-val { font-family: var(--ff-d); font-size: 40px; line-height: 1; margin-bottom: 4px; }
+.hstat-val .f { color: var(--fire); }
+.hstat-lbl { font-size: 10px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); }
+
+@keyframes up    { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
+@keyframes fadeR { from { opacity:0; transform:translateX(20px); } to { opacity:.88; transform:none; } }
+
+/* ─── TICKER ─── */
+.ticker { background: var(--fire); padding: 14px 0; overflow: hidden; white-space: nowrap; }
+.ticker-track { display: inline-flex; animation: scroll 30s linear infinite; }
+.ticker-item {
+  font-family: var(--ff-d); font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
+  color: #fff; padding: 0 40px; display: flex; align-items: center; gap: 20px;
+}
+.ticker-item::after { content: '·'; color: rgba(255,255,255,.4); }
+@keyframes scroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+
+/* ═══════════════════════════════════════════
+   CREDIBILITY — "Built for Operators"
+═══════════════════════════════════════════ */
+.credibility { padding: 100px 0; background: var(--ink-2); }
+.cred-inner {
+  display: grid; grid-template-columns: 5fr 4fr; gap: 80px; align-items: start;
+}
+.cred-h2 {
+  font-family: var(--ff-d); font-size: clamp(48px, 5.5vw, 76px);
+  line-height: .9; text-transform: uppercase; margin: 16px 0 36px;
+}
+.cred-copy { display: flex; flex-direction: column; gap: 20px; }
+.cred-copy p { font-size: 14px; font-weight: 300; color: var(--dim); line-height: 1.85; }
+.cred-copy p strong { font-weight: 600; color: var(--paper); }
+.cred-right { padding-top: 8px; }
+.cred-pillars { list-style: none; margin-top: 8px; }
+.cred-pillar {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 20px 0; border-bottom: 1px solid rgba(240,236,229,.06);
+}
+.cred-pillar:first-child { border-top: 1px solid rgba(240,236,229,.06); }
+.cp-icon { color: var(--fire); flex-shrink: 0; margin-top: 2px; }
+.cp-body {}
+.cp-title { font-family: var(--ff-d); font-size: 20px; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 4px; }
+.cp-desc { font-size: 12px; font-weight: 300; color: var(--dim); line-height: 1.7; }
+
+/* ═══════════════════════════════════════════
+   PROBLEM — CREAM SECTION
+═══════════════════════════════════════════ */
+.problem {
+  padding: 100px 0;
+  background: var(--cream);
+  color: var(--cream-text);
+}
+.problem .stag { color: var(--fire); }
+.problem .stag::before { background: var(--fire); }
+.prob-head {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 40px; margin-bottom: 64px;
+}
+.prob-h2 {
+  font-family: var(--ff-d); font-size: clamp(44px, 5vw, 68px);
+  line-height: .93; text-transform: uppercase; margin: 14px 0 0;
+  color: var(--cream-text);
+}
+.prob-intro {
+  font-size: 14px; font-weight: 300; color: var(--cream-dim); line-height: 1.8;
+  max-width: 340px; align-self: flex-end; padding-bottom: 4px;
+}
+.problems { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.prob-item {
+  padding: 40px 40px 40px 0;
+  border-top: 1px solid rgba(26,24,20,.1);
+  position: relative;
+  transition: border-color .3s;
+}
+.prob-item:hover { border-color: var(--fire); }
+.prob-num {
+  position: absolute; top: 20px; right: 0;
+  font-family: var(--ff-d); font-size: 72px; line-height: 1; letter-spacing: -.02em;
+  color: rgba(26,24,20,.05); transition: color .3s;
+}
+.prob-item:hover .prob-num { color: rgba(200,90,30,.07); }
+.prob-icon-wrap { margin-bottom: 18px; }
+.prob-icon-wrap svg { color: var(--fire); }
+.prob-title { font-family: var(--ff-d); font-size: 26px; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 10px; color: var(--cream-text); }
+.prob-body { font-size: 13px; font-weight: 300; color: var(--cream-dim); line-height: 1.8; }
+
+/* ═══════════════════════════════════════════
+   ENGINE
+═══════════════════════════════════════════ */
+.engine { padding: 100px 0; background: var(--ink-2); }
+.engine-super {
+  font-family: var(--ff-d); font-size: clamp(56px, 8.5vw, 108px);
+  line-height: .9; text-transform: uppercase; margin-bottom: 56px;
+}
+.engine-super .ghost-line { -webkit-text-stroke: 1px rgba(240,236,229,.12); color: transparent; display: block; }
+.engine-super .solid-line { display: block; margin-left: 56px; }
+.engine-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+.eng-card {
+  background: var(--ink); padding: 48px; position: relative; overflow: hidden;
+  transition: background .35s var(--ease);
+}
+.eng-card::after {
+  content: ''; position: absolute; left: 0; bottom: 0; right: 0; height: 2px;
+  background: var(--fire); transform: scaleX(0); transform-origin: left;
+  transition: transform .4s var(--ease);
+}
+.eng-card:hover { background: var(--ink-3); }
+.eng-card:hover::after { transform: scaleX(1); }
+.eng-n {
+  font-family: var(--ff-d); font-size: 56px; line-height: 1;
+  color: rgba(240,236,229,.06); margin-bottom: 8px; letter-spacing: -.01em;
+}
+.eng-label { font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--fire); margin-bottom: 16px; }
+.eng-title { font-family: var(--ff-d); font-size: 34px; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 14px; }
+.eng-body { font-size: 13px; font-weight: 300; color: var(--dim); line-height: 1.85; }
+
+/* ═══════════════════════════════════════════
+   WHO WE WORK WITH
+═══════════════════════════════════════════ */
+.who { padding: 100px 0; background: var(--ink); }
+.who-inner { display: grid; grid-template-columns: 5fr 4fr; gap: 80px; align-items: start; }
+.who-h2 {
+  font-family: var(--ff-d); font-size: clamp(44px, 5.5vw, 76px);
+  line-height: .9; text-transform: uppercase; margin: 14px 0 36px;
+}
+.fit-lbl { font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); margin-bottom: 12px; }
+.fit-list { list-style: none; }
+.fit-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 15px 0; border-bottom: 1px solid rgba(240,236,229,.06);
+  font-size: 14px; font-weight: 300; line-height: 1.6;
+  transition: border-color .25s;
+}
+.fit-item:hover { border-color: rgba(200,90,30,.25); }
+.fit-check {
+  width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px;
+  border: 1px solid var(--fire); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.fit-x {
+  width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px;
+  border: 1px solid rgba(240,236,229,.12); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(240,236,229,.2);
+}
+.nf-wrap { margin-top: 36px; }
+.nf-lbl { font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: rgba(240,236,229,.2); margin-bottom: 12px; }
+.nf-wrap .fit-item { color: rgba(240,236,229,.3); }
+.who-card {
+  background: var(--ink-2); border: 1px solid rgba(240,236,229,.07);
+  padding: 44px; position: sticky; top: 100px;
+}
+.who-card-top { position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--fire); }
+.wct { font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--fire); margin-bottom: 28px; }
+.wm { padding: 22px 0; border-bottom: 1px solid rgba(240,236,229,.06); }
+.wm:last-child { border-bottom: none; padding-bottom: 0; }
+.wm-val { font-family: var(--ff-d); font-size: 42px; line-height: 1; color: var(--paper); }
+.wm-val .f { color: var(--fire); }
+.wm-lbl { font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--dim); margin-top: 3px; }
+.wm-sub { font-size: 11px; font-weight: 300; color: rgba(240,236,229,.28); margin-top: 3px; }
+
+/* ═══════════════════════════════════════════
+   RESULTS
+═══════════════════════════════════════════ */
+.results { padding: 100px 0; background: var(--ink-2); overflow: hidden; }
+.res-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(240,236,229,.08); margin-top: 56px; }
+.res-block { padding: 52px 0; border-right: 1px solid rgba(240,236,229,.08); }
+.res-block:nth-child(n+2) { padding-left: 44px; }
+.res-block:last-child { border-right: none; }
+.res-val {
+  font-family: var(--ff-d); font-size: clamp(40px, 6vw, 78px); line-height: 1; margin-bottom: 10px;
+}
+.res-val .fire { color: var(--fire); }
+.res-name { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); }
+.res-sub { font-size: 12px; font-weight: 300; color: rgba(240,236,229,.25); margin-top: 5px; }
+
+/* ═══════════════════════════════════════════
+   DEPT
+═══════════════════════════════════════════ */
+.dept { padding: 100px 0; background: var(--ink); }
+.dept-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.dept-h2 { font-family: var(--ff-d); font-size: clamp(44px, 5.5vw, 76px); line-height: .9; text-transform: uppercase; margin: 14px 0 28px; }
+.dept-body { font-size: 14px; font-weight: 300; color: var(--dim); line-height: 1.85; max-width: 400px; margin-bottom: 32px; }
+.dept-svc-list { list-style: none; padding-top: 8px; }
+.dsvc {
+  display: flex; align-items: center; gap: 18px;
+  padding: 18px 0; border-bottom: 1px solid rgba(240,236,229,.06);
+  font-family: var(--ff-d); font-size: 22px; letter-spacing: .06em; text-transform: uppercase;
+  transition: all .25s;
+}
+.dsvc:hover { color: var(--fire); border-color: rgba(200,90,30,.2); padding-left: 6px; }
+.dsvc-n { font-size: 10px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--fire); min-width: 28px; }
+.dsvc svg { width: 16px; height: 16px; color: rgba(240,236,229,.18); margin-left: auto; transition: color .25s; flex-shrink: 0; }
+.dsvc:hover svg { color: var(--fire); }
+
+/* ═══════════════════════════════════════════
+   PROCESS
+═══════════════════════════════════════════ */
+.process { padding: 100px 0; background: var(--ink-2); }
+.proc-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; }
+.proc-h2 { font-family: var(--ff-d); font-size: clamp(44px, 5vw, 68px); line-height: .9; text-transform: uppercase; margin: 14px 0; }
+.proc-note { font-size: 13px; font-weight: 300; color: var(--dim); line-height: 1.8; max-width: 260px; margin-top: 20px; }
+.proc-steps {}
+.pstep {
+  display: grid; grid-template-columns: 56px 1fr; gap: 28px;
+  padding: 36px 0; border-top: 1px solid rgba(240,236,229,.07);
+  transition: border-color .3s;
+}
+.pstep:hover { border-color: rgba(200,90,30,.22); }
+.pstep:last-child { border-bottom: 1px solid rgba(240,236,229,.07); }
+.pstep:hover:last-child { border-color: rgba(200,90,30,.22); }
+.pn { font-family: var(--ff-d); font-size: 40px; line-height: 1; color: rgba(240,236,229,.1); }
+.ptag { font-size: 9px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--fire); margin-bottom: 8px; }
+.ptitle { font-family: var(--ff-d); font-size: 26px; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 10px; }
+.pbody { font-size: 13px; font-weight: 300; color: var(--dim); line-height: 1.8; }
+
+/* ─── PLATFORMS ─── */
+.platforms { padding: 44px 0; border-top: 1px solid rgba(240,236,229,.06); border-bottom: 1px solid rgba(240,236,229,.06); background: var(--ink); }
+.plat-inner { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+.plat-lbl { font-size: 9px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: rgba(240,236,229,.18); white-space: nowrap; }
+.plat-items { display: flex; gap: 44px; flex-wrap: wrap; align-items: center; }
+.plat-item { font-family: var(--ff-d); font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: rgba(240,236,229,.18); transition: color .2s; }
+.plat-item:hover { color: var(--dim); }
+
+/* ═══════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════ */
+.faq { padding: 100px 0; background: var(--ink-2); }
+.faq-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; }
+.faq-h2 { font-family: var(--ff-d); font-size: clamp(44px, 5vw, 68px); line-height: .9; text-transform: uppercase; margin: 14px 0 20px; }
+.faq-note { font-size: 13px; font-weight: 300; color: var(--dim); line-height: 1.8; }
+.faq-list {}
+.faq-row { border-top: 1px solid rgba(240,236,229,.07); }
+.faq-row:last-child { border-bottom: 1px solid rgba(240,236,229,.07); }
+.faq-btn {
+  width: 100%; background: none; border: none; color: var(--paper);
+  font-family: var(--ff-d); font-size: 21px; letter-spacing: .04em; text-transform: uppercase;
+  text-align: left; padding: 26px 0;
+  display: flex; justify-content: space-between; align-items: center; gap: 20px;
+  cursor: pointer; transition: color .2s;
+}
+.faq-btn:hover { color: var(--fire); }
+.faq-ico {
+  width: 26px; height: 26px; flex-shrink: 0;
+  border: 1px solid rgba(240,236,229,.14); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .35s var(--ease); color: var(--paper);
+}
+.faq-row.open .faq-ico { background: var(--fire); border-color: var(--fire); transform: rotate(45deg); }
+.faq-ans { max-height: 0; overflow: hidden; transition: max-height .45s var(--ease); }
+.faq-ans-in { padding: 0 0 26px; font-size: 14px; font-weight: 300; color: var(--dim); line-height: 1.85; max-width: 520px; }
+
+/* ═══════════════════════════════════════════
+   BOOK / FORM SECTION
+═══════════════════════════════════════════ */
+.book { padding: 100px 0; background: var(--ink-3); border-top: 1px solid rgba(240,236,229,.06); }
+.book-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.book-left {}
+.book-h2 { font-family: var(--ff-d); font-size: clamp(44px, 5.5vw, 76px); line-height: .9; text-transform: uppercase; margin: 14px 0 20px; }
+.book-sub { font-size: 14px; font-weight: 300; color: var(--dim); line-height: 1.85; max-width: 380px; margin-bottom: 36px; }
+.book-pre {
+  font-size: 11px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--dim); padding: 14px 20px;
+  border: 1px solid rgba(240,236,229,.1); border-left: 2px solid var(--fire);
+  margin-bottom: 32px; line-height: 1.6;
+}
+.book-pre strong { color: var(--paper); font-weight: 600; }
+.book-trust { display: flex; flex-direction: column; gap: 14px; }
+.bt-item { display: flex; align-items: flex-start; gap: 12px; font-size: 12px; font-weight: 300; color: var(--dim); line-height: 1.6; }
+.bt-dot { width: 6px; height: 6px; background: var(--fire); border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+
+/* FORM */
+.book-form { background: var(--ink-2); border: 1px solid rgba(240,236,229,.07); padding: 44px; position: relative; }
+.book-form::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--fire); }
+.form-row { margin-bottom: 20px; }
+.form-row:last-of-type { margin-bottom: 28px; }
+label {
+  display: block; font-size: 10px; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--dim); margin-bottom: 8px;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%; background: var(--ink-3); border: 1px solid rgba(240,236,229,.1);
+  border-radius: 2px; padding: 13px 16px;
+  font-family: var(--ff-b); font-size: 14px; font-weight: 300; color: var(--paper);
+  outline: none; appearance: none; transition: border-color .25s, box-shadow .25s;
+  -webkit-appearance: none;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: rgba(200,90,30,.5);
+  box-shadow: 0 0 0 3px rgba(200,90,30,.07);
+}
+select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(240,236,229,0.35)' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; cursor: pointer; }
+select option { background: var(--ink-3); color: var(--paper); }
+textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+::placeholder { color: rgba(240,236,229,.22); }
+.form-submit {
+  width: 100%;
+  font-family: var(--ff-d); font-size: 15px; letter-spacing: .12em; text-transform: uppercase;
+  padding: 17px 24px; background: var(--fire); color: #fff; border: none; border-radius: 2px;
+  cursor: pointer; transition: all .3s var(--ease);
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.form-submit:hover { background: var(--fire-2); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(200,90,30,.3); }
+
+/* ═══════════════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════════════ */
+.cta-final { padding: 120px 0; background: var(--ink); text-align: center; position: relative; overflow: hidden; }
+.cta-final::before {
+  content: 'SCALE';
+  position: absolute; left: -20px; bottom: -30px;
+  font-family: var(--ff-d); font-size: 260px; text-transform: uppercase;
+  color: transparent; -webkit-text-stroke: 1px rgba(240,236,229,.04);
+  pointer-events: none; user-select: none; line-height: 1;
+}
+.ctaf-inner { position: relative; z-index: 2; }
+.ctaf-tag { justify-content: center; margin-bottom: 24px; }
+.ctaf-h2 {
+  font-family: var(--ff-d); font-size: clamp(48px, 8vw, 100px);
+  line-height: .9; text-transform: uppercase; margin: 0 auto 28px; max-width: 860px;
+}
+.ctaf-h2 .fire { color: var(--fire); }
+.ctaf-sub { font-size: 15px; font-weight: 300; color: var(--dim); max-width: 420px; margin: 0 auto 44px; line-height: 1.8; }
+.ctaf-note { font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: rgba(240,236,229,.2); margin-top: 18px; }
+
+/* ─── FOOTER ─── */
+footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); padding: 32px 0; }
+.foot-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+.foot-logo { font-family: var(--ff-d); font-size: 18px; letter-spacing: .07em; }
+.foot-logo span { color: var(--fire); }
+.foot-links { display: flex; gap: 28px; flex-wrap: wrap; }
+.foot-links a { font-size: 10px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: rgba(240,236,229,.2); transition: color .2s; }
+.foot-links a:hover { color: var(--dim); }
+.foot-copy { font-size: 11px; color: rgba(240,236,229,.18); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .hero-grid, .cred-inner, .who-inner, .dept-inner, .proc-inner, .faq-inner, .book-inner { grid-template-columns: 1fr; gap: 48px; }
+  .hero-machine { display: none; }
+  .who-card { position: static; }
+}
+@media (max-width: 768px) {
+  .container { padding: 0 24px; }
+  nav { display: none; }
+  .burger { display: flex; }
+  .problems, .engine-cards { grid-template-columns: 1fr; }
+  .res-grid { grid-template-columns: 1fr; }
+  .res-block { border-right: none !important; padding-left: 0 !important; border-bottom: 1px solid rgba(240,236,229,.08); }
+  .hero-bottom { grid-template-columns: 1fr 1fr; }
+  .hstat:nth-child(n+2) { padding-left: 0; }
+  .prob-head { flex-direction: column; }
+  .engine-super .solid-line { margin-left: 0; }
+  .form-row-half { grid-template-columns: 1fr !important; }
+  .book-inner { gap: 40px; }
+}
+/* ─── FORM TABS ─── */
+.form-tabs {
+  display: flex; gap: 2px; margin-bottom: 28px;
+  background: var(--ink); border-radius: 2px; padding: 4px;
+}
+.ftab {
+  flex: 1; font-family: var(--ff-d); font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
+  padding: 11px 16px; background: transparent; border: none; color: var(--dim);
+  border-radius: 2px; cursor: pointer; transition: all .25s var(--ease);
+}
+.ftab:hover { color: var(--paper); }
+.ftab-active { background: var(--fire) !important; color: #fff !important; }
+
+.ftab-panel { }
+.ftab-panel-hidden { display: none; }
+
+.form-row-half { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* ─── ALTERNATING CREAM SECTIONS ─── */
+/* Results — cream */
+.results {
+  background: var(--cream) !important;
+  color: var(--cream-text) !important;
+  border-top: none !important;
+}
+.results .stag { color: var(--fire); }
+.results .stag::before { background: var(--fire); }
+.results .res-grid { border-top-color: rgba(26,24,20,.1); }
+.results .res-block { border-right-color: rgba(26,24,20,.1) !important; border-bottom-color: rgba(26,24,20,.1) !important; }
+.results .res-val { color: var(--cream-text); }
+.results .res-val .fire { color: var(--fire); }
+.results .res-name { color: rgba(26,24,20,.5); }
+.results .res-sub { color: rgba(26,24,20,.3); }
+
+/* Dept — dark for contrast with cream on both sides */
+.dept { background: var(--ink-2) !important; }
+
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header id="hdr">
+  <div class="container">
+    <div class="hdr-inner">
+      <div class="logo">OFFSITE<span class="logo-fire">.</span>GROWTH</div>
+      <nav>
+        <a href="#engine">The Engine</a>
+        <a href="#who">Fit</a>
+        <a href="#process">Process</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="#form" class="hdr-apply">Apply Now</a>
+        <div class="burger" id="burg"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">Revenue Partner — Trades &amp; Construction</div>
+        <h1 class="hero-h1">
+          You Run<br>The <span class="ghost">Jobsite.</span><br>We Build<br>The <span class="acc">Revenue</span><br>Engine.
+        </h1>
+        <p class="hero-sub">Offsite Growth installs and operates predictable lead generation systems for trades &amp; construction companies doing $500k–$5M+ annually.</p>
+        <p class="hero-excl">We partner with a limited number of operators per market.</p>
+        <div class="hero-actions">
+          <a href="#form" class="btn-fire">Apply for Your Growth Plan <span>→</span></a>
+          <a href="#engine" class="btn-ghost">See How It Works <span class="arr">→</span></a>
+        </div>
+      </div>
+
+      <div class="hero-machine">
+        <svg viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+          <line x1="0" y1="60" x2="400" y2="60" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="0" y1="120" x2="400" y2="120" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="0" y1="180" x2="400" y2="180" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="0" y1="240" x2="400" y2="240" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="0" y1="300" x2="400" y2="300" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="0" y1="360" x2="400" y2="360" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="0" y1="420" x2="400" y2="420" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="60" y1="0" x2="60" y2="500" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="120" y1="0" x2="120" y2="500" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="180" y1="0" x2="180" y2="500" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="240" y1="0" x2="240" y2="500" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="300" y1="0" x2="300" y2="500" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="360" y1="0" x2="360" y2="500" stroke="rgba(240,236,229,0.04)"/>
+          <path d="M200 60 L200 110 L80 110 L80 170" stroke="#c85a1e" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
+          <path d="M200 60 L200 110 L320 110 L320 170" stroke="#c85a1e" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
+          <path d="M80 232 L80 280 L200 280" stroke="rgba(238,235,228,0.1)" stroke-width="1"/>
+          <path d="M320 232 L320 280 L200 280" stroke="rgba(238,235,228,0.1)" stroke-width="1"/>
+          <path d="M200 310 L200 368" stroke="#c85a1e" stroke-width="1.5" opacity="0.7"/>
+          <rect x="140" y="20" width="120" height="44" rx="2" fill="rgba(200,90,30,0.12)" stroke="#c85a1e" stroke-width="1"/>
+          <text x="200" y="47" text-anchor="middle" fill="#c85a1e" font-family="Clash Display, sans-serif" font-weight="600" font-size="11" letter-spacing="1.5">MARKET STRATEGY</text>
+          <rect x="20" y="170" width="120" height="62" rx="2" fill="rgba(238,235,228,0.03)" stroke="rgba(238,235,228,0.08)"/>
+          <text x="80" y="198" text-anchor="middle" fill="rgba(238,235,228,0.5)" font-family="Clash Display, sans-serif" font-weight="600" font-size="10" letter-spacing="1.5">DEMAND</text>
+          <text x="80" y="214" text-anchor="middle" fill="rgba(238,235,228,0.5)" font-family="Clash Display, sans-serif" font-weight="600" font-size="10" letter-spacing="1.5">ACQUISITION</text>
+          <rect x="260" y="170" width="120" height="62" rx="2" fill="rgba(238,235,228,0.03)" stroke="rgba(238,235,228,0.08)"/>
+          <text x="320" y="198" text-anchor="middle" fill="rgba(238,235,228,0.5)" font-family="Clash Display, sans-serif" font-weight="600" font-size="10" letter-spacing="1.5">CONVERSION</text>
+          <text x="320" y="214" text-anchor="middle" fill="rgba(238,235,228,0.5)" font-family="Clash Display, sans-serif" font-weight="600" font-size="10" letter-spacing="1.5">INFRA</text>
+          <rect x="120" y="280" width="160" height="44" rx="2" fill="rgba(200,90,30,0.06)" stroke="rgba(200,90,30,0.2)"/>
+          <text x="200" y="307" text-anchor="middle" fill="rgba(238,235,228,0.7)" font-family="Clash Display, sans-serif" font-weight="600" font-size="10" letter-spacing="1.5">REVENUE OPTIMIZATION</text>
+          <rect x="100" y="368" width="200" height="56" rx="2" fill="#c85a1e"/>
+          <text x="200" y="393" text-anchor="middle" fill="#fff" font-family="Clash Display, sans-serif" font-weight="700" font-size="12" letter-spacing="2">PREDICTABLE</text>
+          <text x="200" y="411" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="Clash Display, sans-serif" font-weight="600" font-size="10" letter-spacing="2">REVENUE GROWTH</text>
+          <circle cx="200" cy="20" r="4" fill="#c85a1e"/>
+          <circle cx="80" cy="170" r="3" fill="rgba(200,90,30,0.5)"/>
+          <circle cx="320" cy="170" r="3" fill="rgba(200,90,30,0.5)"/>
+          <circle cx="200" cy="280" r="3.5" fill="rgba(200,90,30,0.4)"/>
+          <circle cx="200" cy="368" r="4" fill="#c85a1e"/>
+          <circle cx="80" cy="110" r="3" fill="rgba(200,90,30,0.3)"/>
+          <circle cx="320" cy="110" r="3" fill="rgba(200,90,30,0.3)"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="hero-bottom">
+      <div class="hstat">
+        <div class="hstat-val">$500K<span class="f">–</span>5M<span class="f">+</span></div>
+        <div class="hstat-lbl">Target Revenue Tier</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-val">$3<span class="f">–</span>10K<span class="f">/mo</span></div>
+        <div class="hstat-lbl">Engagement Range</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-val">90<span class="f">d</span></div>
+        <div class="hstat-lbl">To Pipeline Clarity</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TICKER ─── -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item">Revenue Engine</div>
+    <div class="ticker-item">Booked Jobs</div>
+    <div class="ticker-item">Predictable Pipeline</div>
+    <div class="ticker-item">Trades &amp; Construction</div>
+    <div class="ticker-item">Demand Acquisition</div>
+    <div class="ticker-item">$500K+ Operators</div>
+    <div class="ticker-item">External Growth Dept</div>
+    <div class="ticker-item">Market Strategy</div>
+    <div class="ticker-item">Revenue Engine</div>
+    <div class="ticker-item">Booked Jobs</div>
+    <div class="ticker-item">Predictable Pipeline</div>
+    <div class="ticker-item">Trades &amp; Construction</div>
+    <div class="ticker-item">Demand Acquisition</div>
+    <div class="ticker-item">$500K+ Operators</div>
+    <div class="ticker-item">External Growth Dept</div>
+    <div class="ticker-item">Market Strategy</div>
+  </div>
+</div>
+
+<!-- ═══════ CREDIBILITY ═══════ -->
+<section class="credibility">
+  <div class="container">
+    <div class="cred-inner">
+      <div>
+        <div class="stag r">Built for Operators</div>
+        <h2 class="cred-h2 r d1">Built for<br>Operators.<br><span style="color:var(--fire);">Not Browsers.</span></h2>
+        <div class="cred-copy r d2">
+          <p><strong>Offsite Growth is not a freelancer, a lead broker, or a digital marketing agency.</strong> We are a revenue-focused growth partner that installs and operates customer acquisition systems on behalf of established trades businesses.</p>
+          <p>We take ownership of the machine. Campaigns, funnels, automation, and analytics — built, run, and optimized by us. You keep focus on the jobsite. We keep focus on filling your pipeline.</p>
+          <p>We measure our performance in cost per booked job, pipeline value, and revenue growth. Not impressions. Not clicks. <strong>Revenue.</strong></p>
+        </div>
+      </div>
+      <div class="cred-right r d3">
+        <ul class="cred-pillars">
+          <li class="cred-pillar">
+            <svg class="cp-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="10" cy="10" r="8"/><path d="M6 10 L9 13 L14 7"/></svg>
+            <div class="cp-body">
+              <div class="cp-title">Revenue Accountability</div>
+              <div class="cp-desc">We track cost per booked job, not vanity metrics. Monthly reporting tied directly to pipeline and revenue impact.</div>
+            </div>
+          </li>
+          <li class="cred-pillar">
+            <svg class="cp-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="4" width="14" height="12" rx="1.5"/><path d="M7 8 L13 8 M7 11.5 L10 11.5"/></svg>
+            <div class="cp-body">
+              <div class="cp-title">System Ownership</div>
+              <div class="cp-desc">We build and operate the full acquisition stack — not just one channel. Every component is engineered to work as a unified system.</div>
+            </div>
+          </li>
+          <li class="cred-pillar">
+            <svg class="cp-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 14 L8 10 L11 13 L16 7"/><path d="M13 7 L16 7 L16 10"/></svg>
+            <div class="cp-body">
+              <div class="cp-title">Built to Scale</div>
+              <div class="cp-desc">Designed for operators doing $500K+ who are ready to install a repeatable, scalable inbound demand engine.</div>
+            </div>
+          </li>
+          <li class="cred-pillar">
+            <svg class="cp-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="10" cy="10" r="8"/><path d="M10 6 L10 10 L13 13"/></svg>
+            <div class="cp-body">
+              <div class="cp-title">Limited Availability</div>
+              <div class="cp-desc">We operate in one market per vertical at a time. Exclusive, focused, and fully committed to each partner's success.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROBLEM — CREAM ═══════ -->
+<section class="problem" id="problem">
+  <div class="container">
+    <div class="prob-head">
+      <div>
+        <div class="stag r">02 — Why Growth Stalls</div>
+        <h2 class="prob-h2 r d1">The Gap Most<br>Owners Can't<br>Close</h2>
+      </div>
+      <p class="prob-intro r d2">Your business is capable of more. The bottleneck isn't your crew or your quality. It's the acquisition system — or the absence of one.</p>
+    </div>
+    <div class="problems">
+      <div class="prob-item r d1">
+        <div class="prob-num">01</div>
+        <div class="prob-icon-wrap">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3">
+            <path d="M4 26 L10 18 L15 22 L21 13 L28 16"/><circle cx="28" cy="16" r="3"/>
+          </svg>
+        </div>
+        <div class="prob-title">Inconsistent Demand</div>
+        <p class="prob-body">Revenue swings from feast to famine. No reliable system driving qualified leads month after month — just referrals, seasonality, and hope.</p>
+      </div>
+      <div class="prob-item r d2">
+        <div class="prob-num">02</div>
+        <div class="prob-icon-wrap">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3">
+            <rect x="4" y="8" width="24" height="16" rx="1.5"/><path d="M10 16 L14 16 M18 16 L22 16 M10 20 L13 20"/><path d="M16 4 L16 8"/>
+          </svg>
+        </div>
+        <div class="prob-title">Marketing That Stalls</div>
+        <p class="prob-body">Generic agencies promise results, deliver metrics. Campaigns run. Leads don't book. No one in the room owns the revenue outcome. Budgets burn.</p>
+      </div>
+      <div class="prob-item r d3">
+        <div class="prob-num">03</div>
+        <div class="prob-icon-wrap">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3">
+            <path d="M16 6 L16 24 M10 16 L16 6 L22 16"/>
+            <path d="M6 28 L26 28" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="prob-title">Growth Ceiling</div>
+        <p class="prob-body">The team is capable. Quality is there. But without a scalable acquisition system, the business can't grow beyond what the owner can personally hustle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ENGINE ═══════ -->
+<section class="engine" id="engine">
+  <div class="container">
+    <div class="r" style="margin-bottom:56px;">
+      <div class="stag" style="margin-bottom:20px;">03 — Core System</div>
+      <div class="engine-super">
+        <span class="ghost-line">The Offsite</span>
+        <span class="solid-line">Growth Engine</span>
+      </div>
+    </div>
+    <div class="engine-cards">
+      <div class="eng-card r d1">
+        <div class="eng-n">01</div>
+        <div class="eng-label">Strategy</div>
+        <div class="eng-title">Market Strategy</div>
+        <p class="eng-body">We map your local market opportunity, define your ideal customer, build your positioning, and create the blueprint every campaign runs against. Before a dollar is spent on media, we know exactly where the opportunity is.</p>
+      </div>
+      <div class="eng-card r d2">
+        <div class="eng-n">02</div>
+        <div class="eng-label">Acquisition</div>
+        <div class="eng-title">Demand Acquisition</div>
+        <p class="eng-body">Paid search and social campaigns engineered for trades. Built, launched, and optimized on Google and Meta to consistently surface your business to buyers actively looking to hire right now.</p>
+      </div>
+      <div class="eng-card r d3">
+        <div class="eng-n">03</div>
+        <div class="eng-label">Conversion</div>
+        <div class="eng-title">Conversion Infrastructure</div>
+        <p class="eng-body">Landing pages, CRM integration, and automated follow-up built to turn clicks into booked calls. Every lead is tracked from first touch to booked job. Your pipeline doesn't leak.</p>
+      </div>
+      <div class="eng-card r d4">
+        <div class="eng-n">04</div>
+        <div class="eng-label">Optimization</div>
+        <div class="eng-title">Revenue Optimization</div>
+        <p class="eng-body">Monthly performance reviews and continuous system refinement. We measure cost per booked job and optimize ruthlessly against it — treating your ad spend as a capital investment, not an expense.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ WHO ═══════ -->
+<section class="who" id="who">
+  <div class="container">
+    <div class="who-inner">
+      <div>
+        <div class="stag r">04 — Qualification</div>
+        <h2 class="who-h2 r d1">Built for<br>Businesses<br>Ready to Scale</h2>
+        <div class="r d2">
+          <div class="fit-lbl">A strong fit if you…</div>
+          <ul class="fit-list">
+            <li class="fit-item"><div class="fit-check"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1.5 4 L3.5 6 L6.5 2" stroke="#c85a1e" stroke-width="1.5" stroke-linecap="round"/></svg></div>Generate $500K–$5M+ in annual revenue</li>
+            <li class="fit-item"><div class="fit-check"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1.5 4 L3.5 6 L6.5 2" stroke="#c85a1e" stroke-width="1.5" stroke-linecap="round"/></svg></div>Have a team capable of handling consistent inbound demand</li>
+            <li class="fit-item"><div class="fit-check"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1.5 4 L3.5 6 L6.5 2" stroke="#c85a1e" stroke-width="1.5" stroke-linecap="round"/></svg></div>Deliver quality work and have strong close rates</li>
+            <li class="fit-item"><div class="fit-check"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1.5 4 L3.5 6 L6.5 2" stroke="#c85a1e" stroke-width="1.5" stroke-linecap="round"/></svg></div>Want a partner accountable to revenue outcomes — not reports</li>
+            <li class="fit-item"><div class="fit-check"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1.5 4 L3.5 6 L6.5 2" stroke="#c85a1e" stroke-width="1.5" stroke-linecap="round"/></svg></div>Are serious about building a scalable, system-driven business</li>
+          </ul>
+        </div>
+        <div class="nf-wrap r d3">
+          <div class="nf-lbl">Not a fit if you…</div>
+          <ul class="fit-list">
+            <li class="fit-item"><div class="fit-x"><svg width="7" height="7" viewBox="0 0 7 7" fill="none"><path d="M1.5 1.5 L5.5 5.5 M5.5 1.5 L1.5 5.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div><span style="color:rgba(240,236,229,.3)">Are hunting for the cheapest option available</span></li>
+            <li class="fit-item"><div class="fit-x"><svg width="7" height="7" viewBox="0 0 7 7" fill="none"><path d="M1.5 1.5 L5.5 5.5 M5.5 1.5 L1.5 5.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div><span style="color:rgba(240,236,229,.3)">Can't respond to inbound leads within a few hours</span></li>
+            <li class="fit-item"><div class="fit-x"><svg width="7" height="7" viewBox="0 0 7 7" fill="none"><path d="M1.5 1.5 L5.5 5.5 M5.5 1.5 L1.5 5.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div><span style="color:rgba(240,236,229,.3)">Want to buy leads instead of owning a system</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="who-card r d2" style="position:relative;">
+        <div class="who-card-top"></div>
+        <div class="wct">Typical Client Profile</div>
+        <div class="wm"><div class="wm-val">$1M<span class="f">+</span></div><div class="wm-lbl">Annual Revenue</div><div class="wm-sub">Established operator with room to scale</div></div>
+        <div class="wm"><div class="wm-val">5<span class="f">–</span>50</div><div class="wm-lbl">Team Size</div><div class="wm-sub">Capacity to handle consistent inbound</div></div>
+        <div class="wm"><div class="wm-val">90<span class="f">d</span></div><div class="wm-lbl">To Pipeline Clarity</div><div class="wm-sub">System operational within one quarter</div></div>
+        <div class="wm"><div class="wm-val">$3<span class="f">–</span>10K</div><div class="wm-lbl">Monthly Investment</div><div class="wm-sub">Retainer only — media spend is separate</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ RESULTS ═══════ -->
+<section class="results" id="results">
+  <div class="container">
+    <div class="stag r">05 — Outcomes</div>
+    <div class="res-grid">
+      <div class="res-block r d1">
+        <div class="res-val">Predictable<br><span class="fire">Monthly</span><br>Pipeline</div>
+        <div class="res-name" style="margin-top:14px;">Pipeline Visibility</div>
+        <div class="res-sub">Consistent, trackable demand each month</div>
+      </div>
+      <div class="res-block r d2">
+        <div class="res-val"><span class="fire">↓</span> Cost</div>
+        <div class="res-val" style="font-size:clamp(28px,3.5vw,46px);margin-top:4px;">Per Booked Job</div>
+        <div class="res-name" style="margin-top:14px;">Acquisition Efficiency</div>
+        <div class="res-sub">vs. previous untracked spend</div>
+      </div>
+      <div class="res-block r d3">
+        <div class="res-val"><span class="fire">↑</span> Close</div>
+        <div class="res-val" style="font-size:clamp(28px,3.5vw,46px);margin-top:4px;">Rate &amp; Quality</div>
+        <div class="res-name" style="margin-top:14px;">Funnel Optimization</div>
+        <div class="res-sub">Better leads, better fit, better conversion</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ DEPT ═══════ -->
+<section class="dept" id="dept">
+  <div class="container">
+    <div class="dept-inner">
+      <div>
+        <div class="stag r">06 — What You Get</div>
+        <h2 class="dept-h2 r d1">Your External<br>Growth<br>Department</h2>
+        <p class="dept-body r d2">Think of us as the growth team you never had to hire. Embedded in your business, accountable to your revenue — operating with the discipline of an in-house department, without the overhead or turnover.</p>
+        <a href="#form" class="btn-fire r d3">Apply for Growth Plan <span>→</span></a>
+      </div>
+      <div class="r d2">
+        <ul class="dept-svc-list">
+          <li class="dsvc"><span class="dsvc-n">01</span> Strategy &amp; Positioning<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 13 L13 3 M8 3 L13 3 L13 8"/></svg></li>
+          <li class="dsvc"><span class="dsvc-n">02</span> Paid Acquisition<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 13 L13 3 M8 3 L13 3 L13 8"/></svg></li>
+          <li class="dsvc"><span class="dsvc-n">03</span> Funnels &amp; Landing Pages<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 13 L13 3 M8 3 L13 3 L13 8"/></svg></li>
+          <li class="dsvc"><span class="dsvc-n">04</span> CRM &amp; Automation<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 13 L13 3 M8 3 L13 3 L13 8"/></svg></li>
+          <li class="dsvc"><span class="dsvc-n">05</span> Analytics &amp; Reporting<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 13 L13 3 M8 3 L13 3 L13 8"/></svg></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROCESS ═══════ -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="proc-inner">
+      <div>
+        <div class="stag r">07 — How It Works</div>
+        <h2 class="proc-h2 r d1">Three<br>Phases.<br>One<br>Outcome.</h2>
+        <p class="proc-note r d2">Structured, repeatable deployment — from blank slate to revenue machine in 90 days.</p>
+      </div>
+      <div class="proc-steps r d2">
+        <div class="pstep">
+          <div class="pn">01</div>
+          <div><div class="ptag">Phase One</div><div class="ptitle">Growth Blueprint</div><p class="pbody">Deep audit of your market, competitors, and acquisition channels. We map the full opportunity landscape and build the strategic foundation before a single campaign launches.</p></div>
+        </div>
+        <div class="pstep">
+          <div class="pn">02</div>
+          <div><div class="ptag">Phase Two</div><div class="ptitle">Engine Deployment</div><p class="pbody">We build and launch every system simultaneously — campaigns, landing pages, automation, CRM workflows. The machine goes live and begins generating qualified demand within 30 days.</p></div>
+        </div>
+        <div class="pstep">
+          <div class="pn">03</div>
+          <div><div class="ptag">Phase Three</div><div class="ptitle">Scale &amp; Optimize</div><p class="pbody">Monthly performance reviews and continuous optimization. We measure cost per booked job and scale what works — turning a functional system into a compounding revenue asset.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PLATFORMS ─── -->
+<div class="platforms r">
+  <div class="container">
+    <div class="plat-inner">
+      <div class="plat-lbl">Platforms We Operate</div>
+      <div class="plat-items">
+        <div class="plat-item">Google Ads</div>
+        <div class="plat-item">Meta Ads</div>
+        <div class="plat-item">Google Business</div>
+        <div class="plat-item">CRM Systems</div>
+        <div class="plat-item">Analytics</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ FAQ ═══════ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-inner">
+      <div>
+        <div class="stag r">08 — Questions</div>
+        <h2 class="faq-h2 r d1">Straight<br>Answers</h2>
+        <p class="faq-note r d2">No runaround. No vague promises. If we're a fit, you'll know it in the first call.</p>
+      </div>
+      <div class="faq-list r d2">
+        <div class="faq-row">
+          <button class="faq-btn">What does "revenue engine operator" mean?<div class="faq-ico"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></div></button>
+          <div class="faq-ans"><div class="faq-ans-in">It means we don't hand you a strategy deck and walk away. We build the acquisition infrastructure, write the ads, build the funnels, set up the automation — and operate every system on your behalf. We function as your embedded growth department, accountable to revenue, not just deliverables.</div></div>
+        </div>
+        <div class="faq-row">
+          <button class="faq-btn">Do you require long-term contracts?<div class="faq-ico"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></div></button>
+          <div class="faq-ans"><div class="faq-ans-in">We require a minimum 3-month commitment to allow systems to build momentum — paid acquisition campaigns need time to optimize. After that, it's rolling monthly. We keep clients by delivering results, not by locking them into contracts.</div></div>
+        </div>
+        <div class="faq-row">
+          <button class="faq-btn">How do you measure ROI?<div class="faq-ico"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></div></button>
+          <div class="faq-ans"><div class="faq-ans-in">We track cost per booked job, lead volume, pipeline value, and close rate — not impressions or clicks. Every month you get a clear performance report showing exactly what your marketing spend produced. If the numbers aren't moving, we own it and fix it.</div></div>
+        </div>
+        <div class="faq-row">
+          <button class="faq-btn">What investment level should I expect?<div class="faq-ico"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></div></button>
+          <div class="faq-ans"><div class="faq-ans-in">Our management fees range from $3,000–$10,000/month depending on scope and market. This is separate from media spend (Google/Meta ad budget), which goes directly to the platforms. You'll receive a specific recommendation after your Growth Plan session — no vague estimates, no surprises.</div></div>
+        </div>
+        <div class="faq-row">
+          <button class="faq-btn">How quickly will I see results?<div class="faq-ico"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></div></button>
+          <div class="faq-ans"><div class="faq-ans-in">Most clients see qualified leads within 30 days of launch. Pipeline clarity — consistent, predictable demand flow — typically solidifies in 60–90 days as campaigns optimize. We set clear benchmarks in the Growth Blueprint so you know exactly what to expect and when.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FORM SECTION ═══════ -->
+<section class="book" id="form">
+  <div class="container">
+    <div class="book-inner">
+      <div>
+        <div class="stag r">Apply</div>
+        <h2 class="book-h2 r d1">Request Your<br>Growth Plan</h2>
+        <p class="book-sub r d2">Tell us about your business and we'll assess your market opportunity. If it's a fit, we'll map the path to a predictable pipeline in your first session.</p>
+
+        <div class="book-pre r d3">
+          <strong>Engagements start at $3,000/month.</strong><br>
+          Media spend (ad budget) is separate and goes directly to platforms.
+        </div>
+
+        <div class="book-trust r d4">
+          <div class="bt-item"><div class="bt-dot"></div>We review every application personally</div>
+          <div class="bt-item"><div class="bt-dot"></div>One operator accepted per market, per vertical</div>
+          <div class="bt-item"><div class="bt-dot"></div>No obligation — first session is strategic, not a pitch</div>
+          <div class="bt-item"><div class="bt-dot"></div>Response within 1 business day</div>
+        </div>
+      </div>
+
+      <div class="book-form r d2">
+
+        <!-- TAB SWITCHER -->
+        <div class="form-tabs">
+          <button class="ftab ftab-active" data-tab="apply">Apply by Form</button>
+          <button class="ftab" data-tab="schedule">Schedule a Call</button>
+        </div>
+
+        <!-- TAB: APPLICATION FORM -->
+        <div class="ftab-panel" id="tab-apply">
+          <form onsubmit="return false;">
+            <div class="form-row">
+              <label for="fname">Full Name</label>
+              <input type="text" id="fname" name="full_name" placeholder="John Miller" required>
+            </div>
+            <div class="form-row">
+              <label for="company">Company Name</label>
+              <input type="text" id="company" name="company" placeholder="Miller Roofing Co." required>
+            </div>
+            <div class="form-row form-row-half">
+              <div>
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john@millerroofing.com" required>
+              </div>
+              <div>
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
+              </div>
+            </div>
+            <div class="form-row form-row-half">
+              <div>
+                <label for="revenue">Annual Revenue</label>
+                <select id="revenue" name="revenue">
+                  <option value="" disabled selected>Select range</option>
+                  <option>Under $500k</option>
+                  <option>$500k – $1M</option>
+                  <option>$1M – $3M</option>
+                  <option>$3M+</option>
+                </select>
+              </div>
+              <div>
+                <label for="trade">Primary Trade</label>
+                <select id="trade" name="trade">
+                  <option value="" disabled selected>Select trade</option>
+                  <option>Roofing</option>
+                  <option>HVAC</option>
+                  <option>Plumbing</option>
+                  <option>Electrical</option>
+                  <option>General Contracting</option>
+                  <option>Landscaping / Hardscaping</option>
+                  <option>Painting</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="goals">Growth Goals</label>
+              <textarea id="goals" name="goals" placeholder="What does growth look like for your business in the next 12 months?"></textarea>
+            </div>
+            <button type="submit" class="form-submit" id="submit-btn">Apply for Growth Plan <span>→</span></button>
+          </form>
+        </div>
+
+        <!-- TAB: CALENDLY -->
+        <div class="ftab-panel ftab-panel-hidden" id="tab-schedule">
+          <p style="font-size:13px;font-weight:300;color:var(--dim);margin-bottom:20px;line-height:1.7;">Pick a time below. The first session is strategic — we'll assess your market and walk through what a revenue engine looks like for your business.</p>
+          <div class="calendly-inline-widget"
+               data-url="https://calendly.com/YOUR_LINK"
+               style="min-width:280px; height:630px; border-radius:2px; overflow:hidden;">
+          </div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FINAL CTA ═══════ -->
+<section class="cta-final">
+  <div class="container">
+    <div class="ctaf-inner">
+      <div class="stag ctaf-tag r">Ready When You Are</div>
+      <h2 class="ctaf-h2 r d1">Ready to Install<br>a <span class="fire">Predictable</span><br>Revenue Engine?</h2>
+      <p class="ctaf-sub r d2">Book your Growth Plan session. We'll map the opportunity in your local market and show you exactly what a working acquisition system looks like for your business.</p>
+      <a href="#form" class="btn-fire r d3" style="font-size:15px; padding:18px 48px;">Apply for Your Growth Plan <span>→</span></a>
+      <p class="ctaf-note r d4">Engagements start at $3,000/month — limited availability per market</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <div class="foot-inner">
+      <div class="foot-logo">OFFSITE<span>.</span>GROWTH</div>
+      <div class="foot-links">
+        <a href="#engine">The Engine</a>
+        <a href="#process">Process</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#form">Apply</a>
+      </div>
+      <div class="foot-copy">© 2024 Offsite Growth. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Sticky header
+const hdr = document.getElementById('hdr');
+window.addEventListener('scroll', () => hdr.classList.toggle('stuck', scrollY > 50), {passive:true});
+
+// Reveal on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+}, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
+document.querySelectorAll('.r').forEach(el => obs.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const row = btn.closest('.faq-row');
+    const ans = row.querySelector('.faq-ans');
+    const isOpen = row.classList.contains('open');
+    document.querySelectorAll('.faq-row').forEach(r => { r.classList.remove('open'); r.querySelector('.faq-ans').style.maxHeight = '0'; });
+    if (!isOpen) { row.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+  });
+});
+
+// Smooth anchors
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+
+// Form / Calendly tab switcher
+document.querySelectorAll('.ftab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.tab;
+    document.querySelectorAll('.ftab').forEach(t => t.classList.remove('ftab-active'));
+    tab.classList.add('ftab-active');
+    document.querySelectorAll('.ftab-panel').forEach(p => p.classList.add('ftab-panel-hidden'));
+    const panel = document.getElementById('tab-' + target);
+    if (panel) panel.classList.remove('ftab-panel-hidden');
+  });
+});
+
+// Form submit feedback
+const submitBtn = document.getElementById('submit-btn');
+if (submitBtn) {
+  submitBtn.addEventListener('click', function() {
+    const form = this.closest('form');
+    const name = form.querySelector('#fname').value.trim();
+    const email = form.querySelector('#email').value.trim();
+    const revenue = form.querySelector('#revenue').value;
+    if (!name || !email || !revenue) {
+      this.textContent = 'Please fill required fields';
+      this.style.background = '#555';
+      setTimeout(() => { this.innerHTML = 'Apply for Growth Plan <span>→</span>'; this.style.background = ''; }, 2400);
+      return;
+    }
+    this.innerHTML = '✓ Application Received — We\'ll be in touch within 1 business day.';
+    this.style.background = '#2a6e3f';
+    this.disabled = true;
+  });
+}
+
+// Mobile nav toggle
+const burg = document.getElementById('burg');
+const mobileNav = document.querySelector('nav');
+if (burg && mobileNav) {
+  burg.addEventListener('click', () => {
+    const open = mobileNav.style.display === 'flex';
+    mobileNav.style.display = open ? 'none' : 'flex';
+    mobileNav.style.flexDirection = 'column';
+    mobileNav.style.position = 'absolute';
+    mobileNav.style.top = '100%';
+    mobileNav.style.left = '0';
+    mobileNav.style.right = '0';
+    mobileNav.style.background = 'rgba(12,12,12,0.98)';
+    mobileNav.style.padding = '20px 40px 28px';
+    mobileNav.style.gap = '20px';
+    mobileNav.style.borderBottom = '1px solid rgba(240,236,229,0.08)';
+    mobileNav.style.backdropFilter = 'blur(16px)';
+    if (open) mobileNav.style.display = 'none';
+  });
+}
+</script>
+</body>
+</html>
