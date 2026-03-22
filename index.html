@@ -615,7 +615,7 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
         <a href="#about">About</a>
         <a href="#engine">Services</a>
         <a href="#process">Process</a>
-        <a href="pricing.html">Pricing</a>
+        <a href="/pricing">Pricing</a>
         <a href="#results">Results</a>
       </nav>
       <div style="display:flex;align-items:center;gap:16px;">
@@ -1057,7 +1057,7 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
 
         <!-- TAB: APPLICATION FORM -->
         <div class="ftab-panel" id="tab-apply">
-          <form>
+          <form onsubmit="return false;">
             <div class="form-row">
               <label for="fname">Full Name</label>
               <input type="text" id="fname" name="full_name" placeholder="John Miller" required>
@@ -1147,7 +1147,7 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
         <a href="#about">About</a>
         <a href="#engine">Services</a>
         <a href="#process">Process</a>
-        <a href="pricing.html">Pricing</a>
+        <a href="/pricing">Pricing</a>
         <a href="#results">Results</a>
         <a href="#form">Get Started</a>
       </div>
@@ -1225,68 +1225,23 @@ document.querySelectorAll('.ftab').forEach(tab => {
   });
 });
 
-// Form submit — HubSpot Forms API
-const applyForm = document.querySelector('#tab-apply form');
-if (applyForm) {
-  applyForm.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const submitBtn = document.getElementById('submit-btn');
-
-    const fullName = this.querySelector('#fname').value.trim();
-    const email    = this.querySelector('#email').value.trim();
-    const revenue  = this.querySelector('#revenue').value;
-
-    // Basic validation
-    if (!fullName || !email || !revenue) {
-      submitBtn.textContent = 'Please fill required fields';
-      submitBtn.style.background = '#555';
-      setTimeout(() => { submitBtn.innerHTML = 'Get a Free Assessment <span>→</span>'; submitBtn.style.background = ''; }, 2400);
+// Form submit feedback
+const submitBtn = document.getElementById('submit-btn');
+if (submitBtn) {
+  submitBtn.addEventListener('click', function() {
+    const form = this.closest('form');
+    const name = form.querySelector('#fname').value.trim();
+    const email = form.querySelector('#email').value.trim();
+    const revenue = form.querySelector('#revenue').value;
+    if (!name || !email || !revenue) {
+      this.textContent = 'Please fill required fields';
+      this.style.background = '#555';
+      setTimeout(() => { this.innerHTML = 'Apply for Growth Plan <span>→</span>'; this.style.background = ''; }, 2400);
       return;
     }
-
-    // Split full name into first / last
-    const nameParts = fullName.split(' ');
-    const firstname = nameParts[0] || fullName;
-    const lastname  = nameParts.slice(1).join(' ') || '';
-
-    const fields = [
-      { name: 'firstname',               value: firstname },
-      { name: 'lastname',                value: lastname },
-      { name: 'email',                   value: email },
-      { name: 'phone',                   value: this.querySelector('#phone').value.trim() },
-      { name: 'company',                 value: this.querySelector('#company').value.trim() },
-      { name: 'annual_company_revenue',  value: revenue },
-      { name: 'primary_trade',           value: this.querySelector('#trade').value },
-      { name: 'growth_goals',            value: this.querySelector('#goals').value.trim() },
-    ];
-
-    submitBtn.textContent = 'Sending…';
-    submitBtn.disabled = true;
-
-    try {
-      const res = await fetch(
-        'https://api.hsforms.com/submissions/v3/integration/submit/244383549/2a5b8726-08ba-4cb7-8593-3b12886c5b6a',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            fields,
-            context: { pageUri: window.location.href, pageName: document.title }
-          })
-        }
-      );
-
-      if (res.ok) {
-        submitBtn.innerHTML = '✓ Got it — we\'ll be in touch within 1 business day.';
-        submitBtn.style.background = '#2a6e3f';
-      } else {
-        throw new Error('HubSpot error');
-      }
-    } catch (err) {
-      submitBtn.innerHTML = 'Something went wrong — please email us directly.';
-      submitBtn.style.background = '#555';
-      submitBtn.disabled = false;
-    }
+    this.innerHTML = '✓ Got it — we\'ll be in touch within 1 business day.';
+    this.style.background = '#2a6e3f';
+    this.disabled = true;
   });
 }
 
