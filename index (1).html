@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offsite Growth — Marketing Partner for Trades & Construction</title>
+<meta name="description" content="Offsite Growth runs your Google Ads, Local Services campaigns, and lead tracking — so trades and construction businesses doing $500K–$5M+ get more booked jobs every month.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Offsite Growth — Marketing Partner for Trades & Construction">
+<meta property="og:description" content="We run your Google Ads, Local Services campaigns, and lead tracking — more booked jobs every month. Built for trades and construction businesses doing $500K–$5M+.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://offsite-growth.com">
+<meta property="og:image" content="https://offsite-growth.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Offsite Growth — Marketing Partner for Trades & Construction">
+<meta name="twitter:description" content="More booked jobs every month. Built for trades and construction businesses doing $500K–$5M+.">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230c0c0c'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='18' fill='%23c85a1e'%3EO%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Dark palette */
+  --ink:    #0c0c0c;
+  --ink-2:  #141414;
+  --ink-3:  #1c1c1c;
+  --ink-4:  #222222;
+
+  /* Light palette */
+  --cream:       #f2efe8;
+  --cream-2:     #e8e3d8;
+  --cream-text:  #1a1814;
+  --cream-dim:   rgba(26,24,20,0.5);
+  --cream-dimmer:rgba(26,24,20,0.25);
+
+  /* Type on dark */
+  --paper: #f0ece5;
+  --dim:   rgba(240,236,229,0.48);
+  --faint: rgba(240,236,229,0.16);
+
+  /* Accent */
+  --fire:    #c85a1e;
+  --fire-2:  #e06428;
+  --fire-dim: rgba(200,90,30,0.12);
+
+  --ff-d: 'Clash Display', sans-serif;
+  --ff-b: 'Outfit', sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--ff-b);
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03; pointer-events: none; z-index: 9998;
+}
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: var(--fire); }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+
+/* ─── HEADER ─── */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 26px 0;
+  transition: padding .4s var(--ease), background .4s, border-color .4s;
+  border-bottom: 1px solid transparent;
+}
+header.stuck {
+  padding: 14px 0;
+  background: rgba(12,12,12,0.97);
+  backdrop-filter: blur(16px);
+  border-color: rgba(240,236,229,0.06);
+}
+.hdr-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.logo { font-family: var(--ff-d); font-size: 21px; letter-spacing: 0.07em; display: flex; align-items: baseline; gap: 1px; }
+.logo-fire { color: var(--fire); }
+nav { display: flex; align-items: center; gap: 36px; }
+nav a { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); transition: color .2s; }
+nav a:hover, nav a.active { color: var(--paper); }
+.hdr-apply {
+  font-family: var(--ff-d); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 10px 26px; background: var(--fire); color: #fff; border-radius: 2px;
+  transition: all .25s var(--ease); white-space: nowrap;
+}
+.hdr-apply:hover { background: var(--fire-2); transform: translateY(-1px); }
+.burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.burger span { width: 20px; height: 1.5px; background: var(--paper); }
+
+/* ─── SHARED BUTTONS ─── */
+.btn-fire {
+  font-family: var(--ff-d); font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 15px 36px; background: var(--fire); color: #fff; border-radius: 2px;
+  transition: all .3s var(--ease);
+}
+.btn-fire:hover { background: var(--fire-2); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(200,90,30,.3); }
+.btn-ghost {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--dim); transition: color .2s;
+}
+.btn-ghost .arr { transition: transform .25s; }
+.btn-ghost:hover { color: var(--paper); }
+.btn-ghost:hover .arr { transform: translateX(4px); }
+
+/* ─── REVEAL ─── */
+.r { opacity: 0; transform: translateY(28px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.r.on { opacity: 1; transform: none; }
+.d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; }
+.d3 { transition-delay: .24s; } .d4 { transition-delay: .32s; }
+.d5 { transition-delay: .40s; }
+
+/* ─── SECTION LABELS ─── */
+.stag {
+  font-size: 10px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--fire); display: flex; align-items: center; gap: 10px;
+}
+.stag::before { content: ''; width: 20px; height: 1px; background: var(--fire); }
+.stag-cream { color: var(--fire); }
+.stag-cream::before { background: var(--fire); }
+
+/* ═══════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 140px 0 60px;
+  background: var(--ink);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: 0; bottom: 0; left: 58%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(200,90,30,.25) 35%, rgba(200,90,30,.12) 70%, transparent);
+  transform: skewX(-8deg);
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1fr 400px; gap: 80px; align-items: center;
+}
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 10px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--fire);
+  margin-bottom: 28px;
+  opacity: 0; animation: up .9s .1s var(--ease) forwards;
+}
+.hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--fire); }
+.hero-h1 {
+  font-family: var(--ff-d);
+  font-size: clamp(68px, 9.5vw, 124px);
+  line-height: .91; letter-spacing: .01em; text-transform: uppercase;
+  margin-bottom: 32px;
+  opacity: 0; animation: up .9s .2s var(--ease) forwards;
+}
+.hero-h1 .acc { color: var(--fire); }
+.hero-h1 .ghost { -webkit-text-stroke: 1px var(--paper); color: transparent; }
+.hero-sub {
+  font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--dim);
+  max-width: 500px; margin-bottom: 16px;
+  border-left: 3px solid rgba(200,90,30,0.5); padding-left: 20px;
+  opacity: 0; animation: up .9s .32s var(--ease) forwards;
+}
+.hero-excl {
+  font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--faint); margin-bottom: 36px;
+  display: flex; align-items: center; gap: 10px;
+  opacity: 0; animation: up .9s .38s var(--ease) forwards;
+}
+.hero-excl::before { content: '—'; color: var(--fire); }
+.hero-actions {
+  display: flex; gap: 20px; align-items: center; flex-wrap: wrap;
+  opacity: 0; animation: up .9s .46s var(--ease) forwards;
+}
+.hero-machine {
+  align-self: center;
+  max-height: 500px;
+  overflow: visible;
+  opacity: 0; animation: fadeR 1.1s .55s var(--ease) forwards;
+}
+.hero-bottom {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(240,236,229,.07);
+  margin-top: 60px;
+  opacity: 0; animation: up .9s .72s var(--ease) forwards;
+}
+.hstat { padding: 28px 0; border-right: 1px solid rgba(240,236,229,.07); }
+.hstat:nth-child(n+2) { padding-left: 40px; }
+.hstat:last-child { border-right: none; }
+.hstat-val { font-family: var(--ff-d); font-size: 40px; line-height: 1; margin-bottom: 4px; }
+.hstat-val .f { color: var(--fire); }
+.hstat-lbl { font-size: 10px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); }
+
+@keyframes up    { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
+@keyframes fadeR { from { opacity:0; transform:translateX(20px); } to { opacity:.88; transform:none; } }
+
+/* ─── MATERIAL ICONS ─── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 48;
+  vertical-align: middle;
+}
+
+/* ─── HERO IMAGE ─── */
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.hero-bg img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: contrast(1.1) brightness(0.35) saturate(0.8);
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(12,12,12,0.95) 45%, rgba(12,12,12,0.4) 100%);
+}
+.hero-content { position: relative; z-index: 1; }
+
+
+.ticker { background: var(--fire); padding: 14px 0; overflow: hidden; white-space: nowrap; }
+.ticker-track { display: inline-flex; animation: scroll 30s linear infinite; }
+.ticker-item {
+  font-family: var(--ff-d); font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
+  color: #fff; padding: 0 40px; display: flex; align-items: center; gap: 20px;
+}
+.ticker-item::after { content: '·'; color: rgba(255,255,255,.4); }
+@keyframes scroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+
+/* ═══════════════════════════════════════════
+   CREDIBILITY — "Built for Operators"
+═══════════════════════════════════════════ */
+.credibility { padding: 100px 0; background: var(--ink-2); }
+.cred-inner {
+  display: grid; grid-template-columns: 5fr 4fr; gap: 80px; align-items: start;
+}
+.cred-h2 {
+  font-family: var(--ff-d); font-size: clamp(48px, 5.5vw, 76px);
+  line-height: .9; text-transform: uppercase; margin: 16px 0 36px;
+}
+.cred-copy { display: flex; flex-direction: column; gap: 20px; }
+.cred-copy p { font-size: 14px; font-weight: 300; color: var(--dim); line-height: 1.85; }
+.cred-copy p strong { font-weight: 600; color: var(--paper); }
+.cred-right { padding-top: 8px; }
+.cred-pillars { list-style: none; margin-top: 8px; }
+.cred-pillar {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 20px 0; border-bottom: 1px solid rgba(240,236,229,.06);
+}
+.cred-pillar:first-child { border-top: 1px solid rgba(240,236,229,.06); }
+.cp-num {
+  font-family: var(--ff-d); font-size: 28px; font-weight: 700; color: var(--fire);
+  flex-shrink: 0; line-height: 1; margin-top: 2px; letter-spacing: -.01em;
+  opacity: 0.9;
+}
+.cp-body {}
+.cp-title { font-family: var(--ff-d); font-size: 20px; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 4px; }
+.cp-desc { font-size: 12px; font-weight: 300; color: var(--dim); line-height: 1.7; }
+
+/* ═══════════════════════════════════════════
+   PROBLEM — CREAM SECTION
+═══════════════════════════════════════════ */
+.problem {
+  padding: 100px 0;
+  background: var(--cream);
+  color: var(--cream-text);
+}
+.problem .stag { color: var(--fire); }
+.problem .stag::before { background: var(--fire); }
+.prob-head {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 40px; margin-bottom: 64px;
+}
+.prob-h2 {
+  font-family: var(--ff-d); font-size: clamp(44px, 5vw, 68px);
+  line-height: .93; text-transform: uppercase; margin: 14px 0 0;
+  color: var(--cream-text);
+}
+.prob-intro {
+  font-size: 14px; font-weight: 300; color: var(--cream-dim); line-height: 1.8;
+  max-width: 340px; align-self: flex-end; padding-bottom: 4px;
+}
+.problems { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.prob-item {
+  padding: 40px;
+  background: #fff;
+  border: 1px solid rgba(26,24,20,.08);
+  box-shadow: 0 8px 32px rgba(26,24,20,.06);
+  position: relative;
+  transition: border-color .3s, box-shadow .3s;
+}
+.prob-item:hover { border-color: var(--fire); box-shadow: 0 12px 48px rgba(200,90,30,.1); }
+.prob-num { display: none; }
+.prob-icon-wrap { margin-bottom: 18px; }
+.prob-icon-wrap svg { color: var(--fire); }
+.prob-title { font-family: var(--ff-d); font-size: 26px; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 10px; color: var(--cream-text); }
+.prob-body { font-size: 13px; font-weight: 300; color: var(--cream-dim); line-height: 1.8; }
+
+/* ═══════════════════════════════════════════
+   ENGINE
+═══════════════════════════════════════════ */
+.engine { padding: 100px 0; background: var(--ink-2); }
+.engine-super {
+  font-family: var(--ff-d); font-size: clamp(56px, 8.5vw, 108px);
+  line-height: .9; text-transform: uppercase; margin-bottom: 56px;
+}
+.engine-super .ghost-line { -webkit-text-stroke: 1px rgba(240,236,229,.45); color: transparent; display: block; }
+.engine-super .solid-line { display: block; margin-left: 56px; }
+.engine-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+.eng-card {
+  background: var(--ink); padding: 48px; position: relative; overflow: hidden;
+  transition: background .35s var(--ease);
+}
+.eng-card::after {
+  content: ''; position: absolute; left: 0; bottom: 0; right: 0; height: 2px;
+  background: var(--fire); transform: scaleX(0); transform-origin: left;
+  transition: transform .4s var(--ease);
+}
+.eng-card:hover { background: var(--ink-3); }
+.eng-card:hover::after { transform: scaleX(1); }
+.eng-n {
+  font-family: var(--ff-d); font-size: 56px; line-height: 1;
+  color: rgba(240,236,229,.06); margin-bottom: 8px; letter-spacing: -.01em;
+}
+.eng-label { font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--fire); margin-bottom: 16px; }
+.eng-title { font-family: var(--ff-d); font-size: 34px; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 14px; }
+.eng-body { font-size: 13px; font-weight: 300; color: var(--dim); line-height: 1.85; }
+
+/* ═══════════════════════════════════════════
+   WHO WE WORK WITH
+═══════════════════════════════════════════ */
+.who { padding: 100px 0; background: var(--ink); }
+.who-inner { display: grid; grid-template-columns: 5fr 4fr; gap: 80px; align-items: start; }
+.who-h2 {
+  font-family: var(--ff-d); font-size: clamp(44px, 5.5vw, 76px);
+  line-height: .9; text-transform: uppercase; margin: 14px 0 36px;
+}
+.fit-lbl { font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--dim); margin-bottom: 12px; }
+.fit-list { list-style: none; }
+.fit-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 15px 0; border-bottom: 1px solid rgba(240,236,229,.06);
+  font-size: 14px; font-weight: 300; line-height: 1.6;
+  transition: border-color .25s;
+}
+.fit-item:hover { border-color: rgba(200,90,30,.25); }
+.fit-check {
+  width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px;
+  border: 1px solid var(--fire); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.fit-x {
+  width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px;
+  border: 1px solid rgba(240,236,229,.12); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(240,236,229,.2);
+}
+.nf-wrap { margin-top: 36px; }
+.nf-lbl { font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: rgba(240,236,229,.2); margin-bottom: 12px; }
+.nf-wrap .fit-item { color: rgba(240,236,229,.3); }
+.who-card {
+  background: var(--ink-2); border: 1px solid rgba(240,236,229,.07);
+  padding: 44px; position: sticky; top: 100px;
+}
+.who-card-top { position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--fire); }
+.wct { font-size: 10px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--fire); margin-bottom: 28px; }
+.wm { padding: 22px 0; border-bottom: 1px solid rgba(240,236,229,.06); }
+.wm:last-child { border-bottom: none; padding-bottom: 0; }
+.wm-val { font-family: var(--ff-d); font-size: 42px; line-height: 1; color: var(--paper); }
+.wm-val .f { color: var(--fire); }
+.wm-lbl { font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--dim); margin-top: 3px; }
+.wm-sub { font-size: 11px; font-weight: 300; color: rgba(240,236,229,.28); margin-top: 3px; }
+
+/* ═══════════════════════════════════════════
+   RESULTS
+═══════════════════════════════════════════ */
+.results { padding: 100px 0; background: var(--ink-2); overflow: hidden; }
+.res-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(240,236,229,.08); margin-top: 56px; }
+.res-block { padding: 52px 0; border-right: 1px solid rgba(240,236,229,.08); }
+.res-block:nth-child(n+2) { padding-left: 44px; }
+.res-block:last-child { border-right: none; }
+.res-val {
+  font-family: var(--ff-d); font-size: clamp(40px, 6vw, 78px); line-height: 1; margin-bottom: 10px;
+}
+.res-val .fire { color: var(--fire); }
+.res-name { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); }
+.res-sub { font-size: 12px; font-weight: 300; color: rgba(240,236,229,.25); margin-top: 5px; }
+
+/* ═══════════════════════════════════════════
+   DEPT
+═══════════════════════════════════════════ */
+.dept { padding: 100px 0; background: var(--ink); }
+.dept-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.dept-h2 { font-family: var(--ff-d); font-size: clamp(44px, 5.5vw, 76px); line-height: .9; text-transform: uppercase; margin: 14px 0 28px; }
+.dept-body { font-size: 14px; font-weight: 300; color: var(--dim); line-height: 1.85; max-width: 400px; margin-bottom: 32px; }
+.dept-svc-list { list-style: none; padding-top: 8px; }
+.dsvc {
+  display: flex; align-items: center; gap: 18px;
+  padding: 18px 0; border-bottom: 1px solid rgba(240,236,229,.06);
+  font-family: var(--ff-d); font-size: 22px; letter-spacing: .06em; text-transform: uppercase;
+  transition: all .25s;
+}
+.dsvc:hover { color: var(--fire); border-color: rgba(200,90,30,.2); padding-left: 6px; }
+.dsvc-n { font-size: 10px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--fire); min-width: 28px; }
+.dsvc svg { width: 16px; height: 16px; color: rgba(240,236,229,.18); margin-left: auto; transition: color .25s; flex-shrink: 0; }
+.dsvc:hover svg { color: var(--fire); }
+
+/* ═══════════════════════════════════════════
+   PROCESS
+═══════════════════════════════════════════ */
+.process { padding: 100px 0; background: var(--ink-2); }
+.proc-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; }
+.proc-h2 { font-family: var(--ff-d); font-size: clamp(44px, 5vw, 68px); line-height: .9; text-transform: uppercase; margin: 14px 0; }
+.proc-note { font-size: 13px; font-weight: 300; color: var(--dim); line-height: 1.8; max-width: 260px; margin-top: 20px; }
+.proc-steps {}
+.pstep {
+  display: grid; grid-template-columns: 56px 1fr; gap: 28px;
+  padding: 36px 0; border-top: 1px solid rgba(240,236,229,.07);
+  transition: border-color .3s;
+}
+.pstep:hover { border-color: rgba(200,90,30,.22); }
+.pstep:last-child { border-bottom: 1px solid rgba(240,236,229,.07); }
+.pstep:hover:last-child { border-color: rgba(200,90,30,.22); }
+.pn { font-family: var(--ff-d); font-size: 40px; line-height: 1; color: rgba(240,236,229,.1); transition: color .3s; }
+.pstep:hover .pn { color: rgba(200,90,30,.2); }
+.ptag { font-size: 9px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--fire); margin-bottom: 8px; }
+.ptitle { font-family: var(--ff-d); font-size: 26px; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 10px; }
+.pbody { font-size: 13px; font-weight: 300; color: var(--dim); line-height: 1.8; }
+
+/* ─── PLATFORMS ─── */
+.platforms { padding: 44px 0; border-top: 1px solid rgba(240,236,229,.06); border-bottom: 1px solid rgba(240,236,229,.06); background: var(--ink); }
+.plat-inner { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+.plat-lbl { font-size: 9px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: rgba(240,236,229,.3); white-space: nowrap; }
+.plat-items { display: flex; gap: 44px; flex-wrap: wrap; align-items: center; }
+.plat-item { font-family: var(--ff-d); font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: rgba(240,236,229,.3); transition: color .2s; }
+.plat-item:hover { color: var(--dim); }
+
+/* ═══════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════ */
+.faq { padding: 100px 0; background: var(--ink-2); }
+.faq-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; }
+.faq-h2 { font-family: var(--ff-d); font-size: clamp(44px, 5vw, 68px); line-height: .9; text-transform: uppercase; margin: 14px 0 20px; }
+.faq-note { font-size: 13px; font-weight: 300; color: var(--dim); line-height: 1.8; }
+.faq-list {}
+.faq-row { border-top: 1px solid rgba(240,236,229,.07); }
+.faq-row:last-child { border-bottom: 1px solid rgba(240,236,229,.07); }
+.faq-row summary { list-style: none; }
+.faq-row summary::-webkit-details-marker { display: none; }
+.faq-btn {
+  width: 100%; background: none; border: none; color: var(--paper);
+  font-family: var(--ff-d); font-size: 21px; letter-spacing: .04em; text-transform: uppercase;
+  text-align: left; padding: 26px 0;
+  display: flex; justify-content: space-between; align-items: center; gap: 20px;
+  cursor: pointer; transition: color .2s;
+}
+.faq-btn:hover { color: var(--fire); }
+.faq-ico {
+  width: 26px; height: 26px; flex-shrink: 0;
+  border: 1px solid rgba(240,236,229,.14); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .35s var(--ease); color: var(--paper);
+  font-size: 18px !important;
+}
+details[open] .faq-ico { background: var(--fire); border-color: var(--fire); color: #fff; transform: rotate(180deg); }
+.faq-ans { max-height: 0; overflow: hidden; transition: max-height .45s var(--ease); }
+details:not([open]) .faq-ans-in { display: none; }
+.faq-ans-in { padding: 0 0 26px; font-size: 14px; font-weight: 300; color: var(--dim); line-height: 1.85; max-width: 520px; }
+details[open] .faq-ans-in { display: block; }
+
+/* ═══════════════════════════════════════════
+   BOOK / FORM SECTION
+═══════════════════════════════════════════ */
+.book { padding: 100px 0; background: var(--ink-3); border-top: 1px solid rgba(240,236,229,.06); }
+.book-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.book-left {}
+.book-h2 { font-family: var(--ff-d); font-size: clamp(44px, 5.5vw, 76px); line-height: .9; text-transform: uppercase; margin: 14px 0 20px; }
+.book-sub { font-size: 14px; font-weight: 300; color: var(--dim); line-height: 1.85; max-width: 380px; margin-bottom: 36px; }
+.book-pre {
+  font-size: 11px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--dim); padding: 14px 20px;
+  border: 1px solid rgba(240,236,229,.1); border-left: 2px solid var(--fire);
+  margin-bottom: 32px; line-height: 1.6;
+}
+.book-pre strong { color: var(--paper); font-weight: 600; }
+.book-trust { display: flex; flex-direction: column; gap: 14px; }
+.bt-item { display: flex; align-items: flex-start; gap: 12px; font-size: 12px; font-weight: 300; color: var(--dim); line-height: 1.6; }
+.bt-dot { width: 6px; height: 6px; background: var(--fire); border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+
+/* FORM */
+.book-form { background: var(--ink-2); border: 1px solid rgba(240,236,229,.07); padding: 44px; position: relative; }
+.book-form::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--fire); }
+.form-row { margin-bottom: 20px; }
+.form-row:last-of-type { margin-bottom: 28px; }
+label {
+  display: block; font-size: 10px; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--dim); margin-bottom: 8px;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%; background: var(--ink-3); border: 1px solid rgba(240,236,229,.1);
+  border-radius: 2px; padding: 13px 16px;
+  font-family: var(--ff-b); font-size: 14px; font-weight: 300; color: var(--paper);
+  outline: none; appearance: none; transition: border-color .25s, box-shadow .25s;
+  -webkit-appearance: none;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: rgba(200,90,30,.5);
+  box-shadow: 0 0 0 3px rgba(200,90,30,.07);
+}
+select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(240,236,229,0.35)' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; cursor: pointer; }
+select option { background: var(--ink-3); color: var(--paper); }
+textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+::placeholder { color: rgba(240,236,229,.22); }
+.form-submit {
+  width: 100%;
+  font-family: var(--ff-d); font-size: 15px; letter-spacing: .12em; text-transform: uppercase;
+  padding: 17px 24px; background: var(--fire); color: #fff; border: none; border-radius: 2px;
+  cursor: pointer; transition: all .3s var(--ease);
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.form-submit:hover { background: var(--fire-2); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(200,90,30,.3); }
+
+/* ═══════════════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════════════ */
+.cta-final { padding: 120px 0; background: var(--ink); text-align: center; position: relative; overflow: hidden; }
+.cta-final::before {
+  content: 'GROW';
+  position: absolute; left: -20px; bottom: -30px;
+  font-family: var(--ff-d); font-size: 260px; text-transform: uppercase;
+  color: transparent; -webkit-text-stroke: 1px rgba(240,236,229,.04);
+  pointer-events: none; user-select: none; line-height: 1;
+}
+.ctaf-inner { position: relative; z-index: 2; }
+.ctaf-tag { justify-content: center; margin-bottom: 24px; }
+.ctaf-h2 {
+  font-family: var(--ff-d); font-size: clamp(48px, 8vw, 100px);
+  line-height: .9; text-transform: uppercase; margin: 0 auto 28px; max-width: 860px;
+}
+.ctaf-h2 .fire { color: var(--fire); }
+.ctaf-sub { font-size: 15px; font-weight: 300; color: var(--dim); max-width: 420px; margin: 0 auto 44px; line-height: 1.8; }
+.ctaf-note { font-size: 11px; font-weight: 400; letter-spacing: .14em; text-transform: uppercase; color: rgba(240,236,229,.2); margin-top: 18px; }
+
+/* ─── FOOTER ─── */
+footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); padding: 32px 0; }
+.foot-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+.foot-logo { font-family: var(--ff-d); font-size: 18px; letter-spacing: .07em; }
+.foot-logo span { color: var(--fire); }
+.foot-links { display: flex; gap: 28px; flex-wrap: wrap; }
+.foot-links a { font-size: 10px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: rgba(240,236,229,.2); transition: color .2s; }
+.foot-links a:hover { color: var(--dim); }
+.foot-copy { font-size: 11px; color: rgba(240,236,229,.18); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .hero-grid, .cred-inner, .who-inner, .dept-inner, .proc-inner, .faq-inner, .book-inner { grid-template-columns: 1fr; gap: 48px; }
+  .hero-machine { display: none; }
+  .who-card { position: static; }
+}
+@media (max-width: 768px) {
+  .container { padding: 0 24px; }
+  nav { display: none; }
+  .burger { display: flex; }
+  .hdr-apply { display: none; }
+  .problems, .engine-cards { grid-template-columns: 1fr; }
+  .res-grid { grid-template-columns: 1fr; }
+  .res-block { border-right: none !important; padding-left: 0 !important; border-bottom: 1px solid rgba(240,236,229,.08); }
+  .hero-bottom { grid-template-columns: 1fr 1fr; }
+  .hstat:nth-child(n+2) { padding-left: 0; }
+  .prob-head { flex-direction: column; }
+  .engine-super .solid-line { margin-left: 0; }
+  .form-row-half { grid-template-columns: 1fr !important; }
+  .book-inner { gap: 40px; }
+}
+/* ─── FORM TABS ─── */
+.form-tabs {
+  display: flex; gap: 2px; margin-bottom: 28px;
+  background: var(--ink); border-radius: 2px; padding: 4px;
+}
+.ftab {
+  flex: 1; font-family: var(--ff-d); font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
+  padding: 11px 16px; background: transparent; border: none; color: var(--dim);
+  border-radius: 2px; cursor: pointer; transition: all .25s var(--ease);
+}
+.ftab:hover { color: var(--paper); }
+.ftab-active { background: var(--fire) !important; color: #fff !important; }
+
+.ftab-panel { }
+.ftab-panel-hidden { display: none; }
+
+.form-row-half { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* ─── ALTERNATING CREAM SECTIONS ─── */
+/* Results — cream */
+.results {
+  background: var(--cream) !important;
+  color: var(--cream-text) !important;
+  border-top: none !important;
+}
+.results .stag { color: var(--fire); }
+.results .stag::before { background: var(--fire); }
+.results .res-grid { border-top-color: rgba(26,24,20,.1); }
+.results .res-block { border-right-color: rgba(26,24,20,.1) !important; border-bottom-color: rgba(26,24,20,.1) !important; }
+.results .res-val { color: var(--cream-text); }
+.results .res-val .fire { color: var(--fire); }
+.results .res-name { color: rgba(26,24,20,.5); }
+.results .res-sub { color: rgba(26,24,20,.3); }
+
+/* Dept — dark for contrast with cream on both sides */
+.dept { background: var(--ink-2) !important; }
+
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header id="hdr">
+  <div class="container">
+    <div class="hdr-inner">
+      <div class="logo"><span style="width:26px;height:26px;background:var(--fire);display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;letter-spacing:.05em;margin-right:10px;flex-shrink:0;align-self:center;">OG</span>OFFSITE<span class="logo-fire">.</span>GROWTH</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#engine">Services</a>
+        <a href="#process">Process</a>
+        <a href="/pricing">Pricing</a>
+        <a href="#results">Results</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="#form" class="hdr-apply">Get Started</a>
+        <div class="burger" id="burg"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <!-- DROP YOUR HERO IMAGE HERE: <img src="your-image.jpg" alt="Construction site"> -->
+  </div>
+  <div class="container hero-content">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">Marketing Partner for Construction &amp; Trades</div>
+        <h1 class="hero-h1">
+          You Run<br>The <span class="ghost" style="font-style:italic;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:8px;">Jobsite.</span><br>We Keep<br>Your <span class="acc">Phone</span><br>Ringing.
+        </h1>
+        <p class="hero-sub">We install and manage the systems that generate qualified calls, booked jobs, and measurable revenue — without you having to think about marketing. Built specifically for trades and construction businesses doing $500k–$5M+.</p>
+        <div class="hero-actions">
+          <a href="#form" class="btn-fire">Schedule a Call <span>→</span></a>
+          <a href="#engine" class="btn-ghost">See How It Works <span class="arr">→</span></a>
+        </div>
+      </div>
+
+      <div class="hero-machine">
+        <svg viewBox="-10 -20 420 550" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+          <line x1="0" y1="60" x2="400" y2="60" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="0" y1="120" x2="400" y2="120" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="0" y1="180" x2="400" y2="180" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="0" y1="240" x2="400" y2="240" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="0" y1="300" x2="400" y2="300" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="0" y1="360" x2="400" y2="360" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="0" y1="420" x2="400" y2="420" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="60" y1="0" x2="60" y2="500" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="120" y1="0" x2="120" y2="500" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="180" y1="0" x2="180" y2="500" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="240" y1="0" x2="240" y2="500" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="300" y1="0" x2="300" y2="500" stroke="rgba(240,236,229,0.04)"/>
+          <line x1="360" y1="0" x2="360" y2="500" stroke="rgba(240,236,229,0.04)"/>
+          <circle cx="200" cy="20" r="4" fill="#c85a1e"/>
+          <path d="M200 70 L200 110 L80 110 L80 170" stroke="#c85a1e" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
+          <path d="M200 70 L200 110 L320 110 L320 170" stroke="#c85a1e" stroke-width="1" stroke-dasharray="4 4" opacity="0.5"/>
+          <path d="M80 232 L80 280 L200 280" stroke="rgba(238,235,228,0.1)" stroke-width="1"/>
+          <path d="M320 232 L320 280 L200 280" stroke="rgba(238,235,228,0.1)" stroke-width="1"/>
+          <path d="M200 310 L200 368" stroke="#c85a1e" stroke-width="1.5" opacity="0.7"/>
+          <rect x="110" y="20" width="180" height="50" rx="2" fill="rgba(200,90,30,0.12)" stroke="#c85a1e" stroke-width="1"/>
+          <text x="200" y="43" text-anchor="middle" fill="#c85a1e" font-family="Clash Display, sans-serif" font-weight="600" font-size="10" letter-spacing="1.5">MARKET</text>
+          <text x="200" y="58" text-anchor="middle" fill="#c85a1e" font-family="Clash Display, sans-serif" font-weight="600" font-size="10" letter-spacing="1.5">RESEARCH</text>
+          <rect x="20" y="170" width="120" height="62" rx="2" fill="rgba(238,235,228,0.03)" stroke="rgba(238,235,228,0.08)"/>
+          <text x="80" y="198" text-anchor="middle" fill="rgba(238,235,228,0.5)" font-family="Clash Display, sans-serif" font-weight="600" font-size="10" letter-spacing="1.5">SEARCH &amp;</text>
+          <text x="80" y="214" text-anchor="middle" fill="rgba(238,235,228,0.5)" font-family="Clash Display, sans-serif" font-weight="600" font-size="10" letter-spacing="1.5">LSA ADS</text>
+          <rect x="260" y="170" width="120" height="62" rx="2" fill="rgba(238,235,228,0.03)" stroke="rgba(238,235,228,0.08)"/>
+          <text x="320" y="198" text-anchor="middle" fill="rgba(238,235,228,0.5)" font-family="Clash Display, sans-serif" font-weight="600" font-size="10" letter-spacing="1.5">LEAD</text>
+          <text x="320" y="214" text-anchor="middle" fill="rgba(238,235,228,0.5)" font-family="Clash Display, sans-serif" font-weight="600" font-size="10" letter-spacing="1.5">TRACKING</text>
+          <rect x="120" y="280" width="160" height="44" rx="2" fill="rgba(200,90,30,0.06)" stroke="rgba(200,90,30,0.2)"/>
+          <text x="200" y="307" text-anchor="middle" fill="rgba(238,235,228,0.7)" font-family="Clash Display, sans-serif" font-weight="600" font-size="10" letter-spacing="1.5">MONTHLY OPTIMIZATION</text>
+          <rect x="100" y="368" width="200" height="56" rx="2" fill="#c85a1e"/>
+          <text x="200" y="393" text-anchor="middle" fill="#fff" font-family="Clash Display, sans-serif" font-weight="700" font-size="12" letter-spacing="2">MORE BOOKED</text>
+          <text x="200" y="411" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="Clash Display, sans-serif" font-weight="600" font-size="10" letter-spacing="2">JOBS EVERY MONTH</text>
+          <circle cx="200" cy="20" r="4" fill="#c85a1e"/>
+          <circle cx="80" cy="170" r="3" fill="rgba(200,90,30,0.5)"/>
+          <circle cx="320" cy="170" r="3" fill="rgba(200,90,30,0.5)"/>
+          <circle cx="200" cy="280" r="3.5" fill="rgba(200,90,30,0.4)"/>
+          <circle cx="200" cy="368" r="4" fill="#c85a1e"/>
+          <circle cx="80" cy="110" r="3" fill="rgba(200,90,30,0.3)"/>
+          <circle cx="320" cy="110" r="3" fill="rgba(200,90,30,0.3)"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="hero-bottom">
+      <div class="hstat">
+        <div class="hstat-val">$1M<span class="f">+</span></div>
+        <div class="hstat-lbl">Typical Client Revenue</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-val">30<span class="f">d</span></div>
+        <div class="hstat-lbl">To First Leads</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-val">1</div>
+        <div class="hstat-lbl">Client Per Market</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TICKER ─── -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item">More Booked Jobs</div>
+    <div class="ticker-item">Fewer Missed Calls</div>
+    <div class="ticker-item">Steady Work Year-Round</div>
+    <div class="ticker-item">No More Guesswork</div>
+    <div class="ticker-item">Less Chasing. More Closing.</div>
+    <div class="ticker-item">Built for the Trades</div>
+    <div class="ticker-item">Every Lead Tracked</div>
+    <div class="ticker-item">Keep Your Crew Busy</div>
+    <div class="ticker-item">More Booked Jobs</div>
+    <div class="ticker-item">Fewer Missed Calls</div>
+    <div class="ticker-item">Steady Work Year-Round</div>
+    <div class="ticker-item">No More Guesswork</div>
+    <div class="ticker-item">Less Chasing. More Closing.</div>
+    <div class="ticker-item">Built for the Trades</div>
+    <div class="ticker-item">Every Lead Tracked</div>
+    <div class="ticker-item">Keep Your Crew Busy</div>
+  </div>
+</div>
+
+<!-- ═══════ CREDIBILITY ═══════ -->
+<section class="credibility" id="about">
+  <div class="container">
+    <div class="cred-inner">
+      <div>
+        <div class="stag r">Who We Are</div>
+        <h2 class="cred-h2 r d1">We Handle<br>Your Marketing.<br><span style="color:var(--fire);">You Run Your Business.</span></h2>
+        <div class="cred-copy r d2">
+          <p><strong>Offsite Growth is not a freelancer, a lead broker, or a generalist agency.</strong> We partner with established trades businesses to build and manage the systems that generate qualified calls and booked jobs.</p>
+          <p>We set up your tracking, run your search and Local Services campaigns, optimize your landing pages, and monitor every inbound lead. You don't have to manage us. You don't have to guess what's working.</p>
+          <p>We measure performance the only way that matters: <strong>how many calls came in, how many turned into booked jobs, and how much revenue they generated.</strong></p>
+        </div>
+      </div>
+      <div class="cred-right r d3">
+        <ul class="cred-pillars">
+          <li class="cred-pillar">
+            <span class="cp-num">01</span>
+            <div class="cp-body">
+              <div class="cp-title">We Track Booked Jobs — Not Just Clicks</div>
+              <div class="cp-desc">Every month we show you how many calls came in, how many turned into booked jobs, and what each one cost you to get.</div>
+            </div>
+          </li>
+          <li class="cred-pillar">
+            <span class="cp-num">02</span>
+            <div class="cp-body">
+              <div class="cp-title">End-to-End Lead Infrastructure</div>
+              <div class="cp-desc">Search ads, Local Services Ads, landing pages, call tracking, and reporting — built as one connected system instead of scattered tools.</div>
+            </div>
+          </li>
+          <li class="cred-pillar">
+            <span class="cp-num">03</span>
+            <div class="cp-body">
+              <div class="cp-title">For Established Trades Businesses</div>
+              <div class="cp-desc">We work with companies already doing strong work in their market. If you have a solid crew and want consistent inbound demand, we can help you scale responsibly.</div>
+            </div>
+          </li>
+          <li class="cred-pillar">
+            <span class="cp-num">04</span>
+            <div class="cp-body">
+              <div class="cp-title">Protected Markets</div>
+              <div class="cp-desc">We work with one contractor per trade, per market. If we partner with you, we do not take on your direct competitor.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROBLEM — CREAM ═══════ -->
+<section class="problem" id="problem">
+  <div class="container">
+    <div class="prob-head">
+      <div>
+        <div class="stag r">02 — The Problem</div>
+        <h2 class="prob-h2 r d1">Why Good<br>Businesses<br>Stay Stuck</h2>
+      </div>
+      <p class="prob-intro r d2">Your work is solid. Your crew shows up. But some months the phone is ringing — and some months it's not. There's no clear system behind it, and no way to predict what's coming next.</p>
+    </div>
+    <div class="problems">
+      <div class="prob-item r d1">
+        <div class="prob-num">01</div>
+        <div class="prob-icon-wrap">
+          <span class="material-symbols-outlined" style="font-size:40px;color:var(--fire);">trending_down</span>
+        </div>
+        <div class="prob-title">Slow Months Hit Hard</div>
+        <p class="prob-body">Work comes in waves — busy season, then nothing. You're relying on referrals and word of mouth, which works until it doesn't. There's no consistent way to generate new jobs when things slow down.</p>
+      </div>
+      <div class="prob-item r d2">
+        <div class="prob-num">02</div>
+        <div class="prob-icon-wrap">
+          <span class="material-symbols-outlined" style="font-size:40px;color:var(--fire);">money_off</span>
+        </div>
+        <div class="prob-title">Ads That Don't Pay Off</div>
+        <p class="prob-body">You've tried running ads — or hired someone to do it. Money went out, clicks came in, but the jobs didn't follow. Now it's unclear if the problem was the ads, the leads, or what happened after the call.</p>
+      </div>
+      <div class="prob-item r d3">
+        <div class="prob-num">03</div>
+        <div class="prob-icon-wrap">
+          <span class="material-symbols-outlined" style="font-size:40px;color:var(--fire);">settings_accessibility</span>
+        </div>
+        <div class="prob-title">You're the Bottleneck</div>
+        <p class="prob-body">You're quoting jobs, managing crews, answering calls, and trying to figure out marketing on top of it. Growth depends on how much you can personally handle — not on a system that runs consistently.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ENGINE ═══════ -->
+<section class="engine" id="engine">
+  <div class="container">
+    <div class="r" style="margin-bottom:56px;">
+      <div class="stag" style="margin-bottom:20px;">03 — What We Do</div>
+      <div class="engine-super">
+        <span class="ghost-line">How We Get</span>
+        <span class="solid-line"><em style="font-style:italic;color:var(--fire);">You More Jobs</em></span>
+      </div>
+    </div>
+    <div class="engine-cards">
+      <div class="eng-card r d1">
+        <div class="eng-n">01</div>
+        <div class="eng-label">Strategy</div>
+        <div class="eng-title">We Learn Your Market</div>
+        <p class="eng-body">Before we spend a dollar of your ad budget, we look at your local competition, figure out what customers in your area are searching for, and map out exactly how to position your business to win the jobs you actually want.</p>
+      </div>
+      <div class="eng-card r d2">
+        <div class="eng-n">02</div>
+        <div class="eng-label">Advertising</div>
+        <div class="eng-title">We Run High-Intent Search &amp; LSA</div>
+        <p class="eng-body">We manage Google Search and Local Services Ads to capture demand from people actively looking for your services. Tight targeting and ongoing optimization reduce wasted spend and improve lead quality over time.</p>
+      </div>
+      <div class="eng-card r d3">
+        <div class="eng-n">03</div>
+        <div class="eng-label">Tracking</div>
+        <div class="eng-title">We Track Every Call &amp; Lead</div>
+        <p class="eng-body">Call tracking, form tracking, and conversion data are set up from day one. You can see exactly where leads came from, which ones were qualified, and what each one cost.</p>
+      </div>
+      <div class="eng-card r d4">
+        <div class="eng-n">04</div>
+        <div class="eng-label">Ongoing Management</div>
+        <div class="eng-title">We Improve It Every Month</div>
+        <p class="eng-body">We review performance monthly, cut wasted spend, and shift budget toward what's producing real jobs. You get a clear breakdown of calls, cost per lead, and overall performance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ WHO ═══════ -->
+<section class="who" id="who">
+  <div class="container">
+    <div class="who-inner">
+      <div>
+        <div class="stag r">04 — Is This For You?</div>
+        <h2 class="who-h2 r d1">We Work Best<br>With Established<br>Trade Businesses</h2>
+        <div class="r d2">
+          <div class="fit-lbl">A good fit if you…</div>
+          <ul class="fit-list">
+            <li class="fit-item"><div class="fit-check"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1.5 4 L3.5 6 L6.5 2" stroke="#c85a1e" stroke-width="1.5" stroke-linecap="round"/></svg></div>Do $500K–$5M+ in annual revenue</li>
+            <li class="fit-item"><div class="fit-check"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1.5 4 L3.5 6 L6.5 2" stroke="#c85a1e" stroke-width="1.5" stroke-linecap="round"/></svg></div>Have a crew that can handle more work if it came in</li>
+            <li class="fit-item"><div class="fit-check"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1.5 4 L3.5 6 L6.5 2" stroke="#c85a1e" stroke-width="1.5" stroke-linecap="round"/></svg></div>Do quality work and want better, higher-intent customers</li>
+            <li class="fit-item"><div class="fit-check"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1.5 4 L3.5 6 L6.5 2" stroke="#c85a1e" stroke-width="1.5" stroke-linecap="round"/></svg></div>Want clear visibility into what your marketing is producing</li>
+            <li class="fit-item"><div class="fit-check"><svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1.5 4 L3.5 6 L6.5 2" stroke="#c85a1e" stroke-width="1.5" stroke-linecap="round"/></svg></div>Want more consistent inbound work month-to-month</li>
+          </ul>
+        </div>
+        <div class="nf-wrap r d3">
+          <div class="nf-lbl">Not a fit if you…</div>
+          <ul class="fit-list">
+            <li class="fit-item"><div class="fit-x"><svg width="7" height="7" viewBox="0 0 7 7" fill="none"><path d="M1.5 1.5 L5.5 5.5 M5.5 1.5 L1.5 5.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div><span style="color:rgba(240,236,229,.3)">Are just getting started without a team in place</span></li>
+            <li class="fit-item"><div class="fit-x"><svg width="7" height="7" viewBox="0 0 7 7" fill="none"><path d="M1.5 1.5 L5.5 5.5 M5.5 1.5 L1.5 5.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div><span style="color:rgba(240,236,229,.3)">Can't consistently answer or return inbound calls</span></li>
+            <li class="fit-item"><div class="fit-x"><svg width="7" height="7" viewBox="0 0 7 7" fill="none"><path d="M1.5 1.5 L5.5 5.5 M5.5 1.5 L1.5 5.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg></div><span style="color:rgba(240,236,229,.3)">Are looking for a one-time fix or the lowest-cost option</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="who-card r d2" style="position:relative;">
+        <div class="who-card-top"></div>
+        <div class="wct">Who We Typically Work With</div>
+        <div class="wm"><div class="wm-val">$1M<span class="f">+</span></div><div class="wm-lbl">Annual Revenue</div><div class="wm-sub">Established business with proven demand</div></div>
+        <div class="wm"><div class="wm-val">5<span class="f">–</span>50</div><div class="wm-lbl">Employees</div><div class="wm-sub">Team in place to handle incoming calls</div></div>
+        <div class="wm"><div class="wm-val">2<span class="f">–</span>4<span class="f"> Wks</span></div><div class="wm-lbl">To First Leads</div><div class="wm-sub">Campaigns live with tracking fully installed</div></div>
+        <div class="wm"><div class="wm-val">$2.5<span class="f">–</span>6K</div><div class="wm-lbl">Monthly Engagement</div><div class="wm-sub">Ad spend is separate and paid directly to platforms</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ RESULTS ═══════ -->
+<section class="results" id="results">
+  <div class="container">
+    <div class="stag r">05 — What Changes</div>
+    <div class="res-grid">
+      <div class="res-block r d1">
+        <span class="material-symbols-outlined" style="font-size:36px;color:var(--fire);margin-bottom:16px;display:block;">trending_up</span>
+        <div class="res-val">More Calls<br><span class="fire">Every</span><br>Month</div>
+        <div class="res-name" style="margin-top:14px;">More Predictable Lead Flow</div>
+        <div class="res-sub">Built on structured campaigns — not referrals alone</div>
+      </div>
+      <div class="res-block r d2">
+        <span class="material-symbols-outlined" style="font-size:36px;color:var(--fire);margin-bottom:16px;display:block;">money_off</span>
+        <div class="res-val"><span class="fire">↓</span> Cost</div>
+        <div class="res-val" style="font-size:clamp(28px,3.5vw,46px);margin-top:4px;">Per Booked Job</div>
+        <div class="res-name" style="margin-top:14px;">Smarter Ad Spend</div>
+        <div class="res-sub">Clear tracking shows what's working — and what isn't</div>
+      </div>
+      <div class="res-block r d3">
+        <span class="material-symbols-outlined" style="font-size:36px;color:var(--fire);margin-bottom:16px;display:block;">schedule_send</span>
+        <div class="res-val">Less Time<br><span class="fire">Chasing</span><br>Leads</div>
+        <div class="res-name" style="margin-top:14px;">Faster Response Systems</div>
+        <div class="res-sub">Leads are tracked and contacted quickly — before interest fades</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ DEPT ═══════ -->
+<section class="dept" id="dept">
+  <div class="container">
+    <div class="dept-inner">
+      <div>
+        <div class="stag r">06 — What You Get</div>
+        <h2 class="dept-h2 r d1">Your Marketing<br>Team —<br>Without the Hire</h2>
+        <p class="dept-body r d2">Most trades businesses can't justify a full-time marketing hire. We provide the same expertise — someone who understands your business, manages your search and Local Services campaigns, tracks every lead, and optimizes performance — at a fraction of the cost.</p>
+        <a href="#form" class="btn-fire r d3">Get a Free Assessment <span>→</span></a>
+      </div>
+      <div class="r d2">
+        <ul class="dept-svc-list">
+          <li class="dsvc"><span class="dsvc-n">01</span> Google Search &amp; Local Services Ads<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 13 L13 3 M8 3 L13 3 L13 8"/></svg></li>
+          <li class="dsvc"><span class="dsvc-n">02</span> Google Business Profile Management<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 13 L13 3 M8 3 L13 3 L13 8"/></svg></li>
+          <li class="dsvc"><span class="dsvc-n">03</span> Landing Pages &amp; Website Optimization<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 13 L13 3 M8 3 L13 3 L13 8"/></svg></li>
+          <li class="dsvc"><span class="dsvc-n">04</span> Lead Tracking &amp; Follow-Up Systems<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 13 L13 3 M8 3 L13 3 L13 8"/></svg></li>
+          <li class="dsvc"><span class="dsvc-n">05</span> Monthly Performance Reporting<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 13 L13 3 M8 3 L13 3 L13 8"/></svg></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PROCESS ═══════ -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="proc-inner">
+      <div>
+        <div class="stag r">07 — How We Start</div>
+        <h2 class="proc-h2 r d1">Up &amp;<br>Running<br>in 90<br>Days.</h2>
+        <p class="proc-note r d2">We don't drag it out. Here's exactly what happens after you reach out.</p>
+      </div>
+      <div class="proc-steps r d2">
+        <div class="pstep">
+          <div class="pn">01</div>
+          <div><div class="ptag">Week 1–2</div><div class="ptitle">We Learn Your Business</div><p class="pbody">We start with a call to understand your services, your best customers, your service area, and what's worked or hasn't in the past. Then we do a full review of your local market and competition before we plan anything.</p></div>
+        </div>
+        <div class="pstep">
+          <div class="pn">02</div>
+          <div><div class="ptag">Week 2–4</div><div class="ptitle">We Build &amp; Launch Your Ads</div><p class="pbody">We set up your Google Ads and Local Services campaigns, build or optimize your landing page, and launch with tracking in place. Leads are now fully tracked, so you can see exactly where inquiries come from.</p></div>
+        </div>
+        <div class="pstep">
+          <div class="pn">03</div>
+          <div><div class="ptag">Month 2 Onward</div><div class="ptitle">We Manage &amp; Optimize</div><p class="pbody">Every month we review performance, reduce wasted spend, and focus on what's producing results. You get a clear report showing calls, booked jobs, and cost — no jargon, just what matters.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PLATFORMS ─── -->
+<div class="platforms r">
+  <div class="container">
+    <div class="plat-inner">
+      <div class="plat-lbl">Platforms We Operate</div>
+      <div class="plat-items">
+        <div class="plat-item">Google Ads</div>
+        <div class="plat-item">Meta Ads</div>
+        <div class="plat-item">Google Business</div>
+        <div class="plat-item">CRM Systems</div>
+        <div class="plat-item">Analytics</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ FAQ ═══════ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-inner">
+      <div>
+        <div class="stag r">08 — Questions</div>
+        <h2 class="faq-h2 r d1">Straight<br>Answers</h2>
+        <p class="faq-note r d2">No runaround. No vague promises. If we're a fit, you'll know it in the first call.</p>
+      </div>
+      <div class="faq-list r d2">
+        <details class="faq-row">
+          <summary class="faq-btn">What exactly do you do?<span class="faq-ico material-symbols-outlined">expand_more</span></summary>
+          <div class="faq-ans-in">We manage your paid search campaigns on Google and Local Services Ads, build or optimize the landing pages your leads land on, track and manage every inquiry, and maintain your Google Business profile. Each month we review performance, make improvements, and send you a clear report showing what your marketing is producing.</div>
+        </details>
+        <details class="faq-row">
+          <summary class="faq-btn">Do I have to sign a long contract?<span class="faq-ico material-symbols-outlined">expand_more</span></summary>
+          <div class="faq-ans-in">We require a 3-month minimum to allow campaigns time to build momentum and optimize. After that, it's month-to-month. We don't lock clients in — we retain them by producing value, not by contracts.</div>
+        </details>
+        <details class="faq-row">
+          <summary class="faq-btn">How will I know if it's working?<span class="faq-ico material-symbols-outlined">expand_more</span></summary>
+          <div class="faq-ans-in">Every month you'll get a simple, plain-English report showing: total calls and leads, which turned into booked jobs, and the cost per job. No confusing dashboards — just the numbers that matter to your business.</div>
+        </details>
+        <details class="faq-row">
+          <summary class="faq-btn">What does it cost?<span class="faq-ico material-symbols-outlined">expand_more</span></summary>
+          <div class="faq-ans-in">Our management fee depends on scope and market, typically $3,000–$10,000 per month. Ad spend goes directly to the platforms and is separate from our fee. We'll give you an exact quote after our first call.</div>
+        </details>
+        <details class="faq-row">
+          <summary class="faq-btn">How soon will I start getting calls?<span class="faq-ico material-symbols-outlined">expand_more</span></summary>
+          <div class="faq-ans-in">Once your campaigns and tracking are live, you'll start seeing inquiries come in. It typically takes 60–90 days to fully optimize targeting and see more predictable results. We set expectations upfront so you know what the timeline looks like.</div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FORM SECTION ═══════ -->
+<section class="book" id="form">
+  <div class="container">
+    <div class="book-inner">
+      <div>
+        <div class="stag r">Let's Talk</div>
+        <h2 class="book-h2 r d1">See If We're<br>a Good Fit</h2>
+        <p class="book-sub r d2">Tell us about your business and we'll take a look at your local market. If it makes sense, we'll show you exactly what we'd do and what you could expect — no pressure, no fluff.</p>
+
+        <div class="book-pre r d3">
+          <strong>Management fees start at $3,000/month.</strong><br>
+          Your ad budget (Google/Meta spend) is separate and goes directly to the platforms.
+        </div>
+
+        <div class="book-trust r d4">
+          <div class="bt-item"><div class="bt-dot"></div>We review every submission personally</div>
+          <div class="bt-item"><div class="bt-dot"></div>One client per trade, per market — no conflicts</div>
+          <div class="bt-item"><div class="bt-dot"></div>First call is a conversation, not a sales pitch</div>
+          <div class="bt-item"><div class="bt-dot"></div>We'll get back to you within 1 business day</div>
+        </div>
+      </div>
+
+      <div class="book-form r d2">
+
+        <!-- TAB SWITCHER -->
+        <div class="form-tabs">
+          <button class="ftab ftab-active" data-tab="apply">Apply by Form</button>
+          <button class="ftab" data-tab="schedule">Schedule a Call</button>
+        </div>
+
+        <!-- TAB: APPLICATION FORM -->
+        <div class="ftab-panel" id="tab-apply">
+          <form onsubmit="return false;">
+            <div class="form-row">
+              <label for="fname">Full Name</label>
+              <input type="text" id="fname" name="full_name" placeholder="John Miller" required>
+            </div>
+            <div class="form-row">
+              <label for="company">Company Name</label>
+              <input type="text" id="company" name="company" placeholder="Miller Roofing Co." required>
+            </div>
+            <div class="form-row form-row-half">
+              <div>
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john@millerroofing.com" required>
+              </div>
+              <div>
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
+              </div>
+            </div>
+            <div class="form-row form-row-half">
+              <div>
+                <label for="revenue">Annual Revenue</label>
+                <select id="revenue" name="revenue">
+                  <option value="" disabled selected>Select range</option>
+                  <option>Under $500k</option>
+                  <option>$500k – $1M</option>
+                  <option>$1M – $3M</option>
+                  <option>$3M+</option>
+                </select>
+              </div>
+              <div>
+                <label for="trade">Primary Trade</label>
+                <select id="trade" name="trade">
+                  <option value="" disabled selected>Select trade</option>
+                  <option>Roofing</option>
+                  <option>HVAC</option>
+                  <option>Plumbing</option>
+                  <option>Electrical</option>
+                  <option>General Contracting</option>
+                  <option>Landscaping / Hardscaping</option>
+                  <option>Painting</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="goals">Growth Goals</label>
+              <textarea id="goals" name="goals" placeholder="What does growth look like for your business in the next 12 months?"></textarea>
+            </div>
+            <button type="submit" class="form-submit" id="submit-btn">Get a Free Assessment <span>→</span></button>
+          </form>
+        </div>
+
+        <!-- TAB: CALENDLY -->
+        <div class="ftab-panel ftab-panel-hidden" id="tab-schedule">
+          <p style="font-size:13px;font-weight:300;color:var(--dim);margin-bottom:20px;line-height:1.7;">Pick a time below. We'll spend 20–30 minutes learning about your business, look at your local market together, and be straight with you about whether we think we can help.</p>
+          <div class="calendly-inline-widget"
+               data-url="https://calendly.com/YOUR_LINK"
+               style="min-width:280px; height:630px; border-radius:2px; overflow:hidden;">
+          </div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FINAL CTA ═══════ -->
+<section class="cta-final">
+  <div class="container">
+    <div class="ctaf-inner">
+      <div class="stag ctaf-tag r">Ready When You Are</div>
+      <h2 class="ctaf-h2 r d1" style="font-style:italic;">Tired of Slow<br>Months? Let's<br><span class="fire" style="font-style:normal;">Fix That.</span></h2>
+      <p class="ctaf-sub r d2">We'll take a look at your market, show you what's possible, and tell you straight whether we can help. No obligation.</p>
+      <a href="#form" class="btn-fire r d3" style="font-size:15px; padding:18px 48px;">Get a Free Assessment <span>→</span></a>
+      <p class="ctaf-note r d4">$3,000/month to start — one client per trade, per market</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <div class="foot-inner" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:48px;align-items:start;padding:48px 0 32px;">
+      <div style="grid-column:1/3;">
+        <div class="foot-logo" style="margin-bottom:16px;">OFFSITE<span>.</span>GROWTH</div>
+        <p style="font-size:13px;font-weight:300;color:var(--dim);line-height:1.8;max-width:300px;margin-bottom:24px;">Marketing partner for trades and construction businesses doing $500K–$5M+. We run your ads, track your leads, and get you more booked jobs every month.</p>
+      </div>
+      <div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--fire);margin-bottom:20px;">Navigation</div>
+        <div class="foot-links" style="flex-direction:column;gap:12px;">
+          <a href="#about">About</a>
+          <a href="#engine">Services</a>
+          <a href="#process">Process</a>
+          <a href="/pricing">Pricing</a>
+          <a href="#results">Results</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--fire);margin-bottom:20px;">Get Started</div>
+        <p style="font-size:12px;font-weight:300;color:var(--dim);line-height:1.8;margin-bottom:16px;">One client per trade, per market.<br>Response within 1 business day.</p>
+        <a href="#form" class="btn-fire" style="font-size:12px;padding:12px 24px;">Schedule a Call →</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(240,236,229,.06);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <div class="foot-copy">© 2025 Offsite Growth. All rights reserved.</div>
+      <div class="foot-copy" style="font-style:italic;">Reputation is earned. Growth is engineered.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Sticky header
+const hdr = document.getElementById('hdr');
+window.addEventListener('scroll', () => hdr.classList.toggle('stuck', scrollY > 50), {passive:true});
+
+// Reveal on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+}, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
+document.querySelectorAll('.r').forEach(el => obs.observe(el));
+
+// Nav active state on scroll
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+const sections = [...navLinks].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const onScroll = () => {
+  const scrollY = window.scrollY + 120;
+  let current = sections[0];
+  sections.forEach(s => { if (s.offsetTop <= scrollY) current = s; });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current.id);
+  });
+};
+window.addEventListener('scroll', onScroll, { passive: true });
+
+// Mobile sticky CTA
+const stickyCta = document.createElement('div');
+stickyCta.innerHTML = '<a href="#form">Schedule a Call →</a>';
+stickyCta.style.cssText = 'display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;padding:14px 24px 24px;background:linear-gradient(to top,rgba(12,12,12,1) 60%,transparent);';
+stickyCta.querySelector('a').style.cssText = 'display:block;text-align:center;background:var(--fire);color:#fff;font-family:var(--ff-d);font-size:14px;letter-spacing:.1em;text-transform:uppercase;padding:16px;border-radius:2px;';
+document.body.appendChild(stickyCta);
+const form = document.getElementById('form');
+const showSticky = () => {
+  const isMobile = window.innerWidth <= 768;
+  const pastHero = window.scrollY > window.innerHeight * 0.6;
+  const nearForm = form && window.scrollY + window.innerHeight > form.offsetTop - 100;
+  stickyCta.style.display = (isMobile && pastHero && !nearForm) ? 'block' : 'none';
+};
+window.addEventListener('scroll', showSticky, { passive: true });
+window.addEventListener('resize', showSticky);
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+
+// Form / Calendly tab switcher
+document.querySelectorAll('.ftab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.tab;
+    document.querySelectorAll('.ftab').forEach(t => t.classList.remove('ftab-active'));
+    tab.classList.add('ftab-active');
+    document.querySelectorAll('.ftab-panel').forEach(p => p.classList.add('ftab-panel-hidden'));
+    const panel = document.getElementById('tab-' + target);
+    if (panel) panel.classList.remove('ftab-panel-hidden');
+  });
+});
+
+// Form submit feedback
+const submitBtn = document.getElementById('submit-btn');
+if (submitBtn) {
+  submitBtn.addEventListener('click', function() {
+    const form = this.closest('form');
+    const name = form.querySelector('#fname').value.trim();
+    const email = form.querySelector('#email').value.trim();
+    const revenue = form.querySelector('#revenue').value;
+    if (!name || !email || !revenue) {
+      this.textContent = 'Please fill required fields';
+      this.style.background = '#555';
+      setTimeout(() => { this.innerHTML = 'Apply for Growth Plan <span>→</span>'; this.style.background = ''; }, 2400);
+      return;
+    }
+    this.innerHTML = '✓ Got it — we\'ll be in touch within 1 business day.';
+    this.style.background = '#2a6e3f';
+    this.disabled = true;
+  });
+}
+
+// Mobile nav toggle
+const burg = document.getElementById('burg');
+const mobileNav = document.querySelector('nav');
+if (burg && mobileNav) {
+  burg.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.contains('mob-open');
+    if (isOpen) {
+      mobileNav.classList.remove('mob-open');
+      mobileNav.removeAttribute('style');
+    } else {
+      mobileNav.classList.add('mob-open');
+      mobileNav.style.display = 'flex';
+      mobileNav.style.flexDirection = 'column';
+      mobileNav.style.position = 'absolute';
+      mobileNav.style.top = '100%';
+      mobileNav.style.left = '0';
+      mobileNav.style.right = '0';
+      mobileNav.style.background = 'rgba(12,12,12,0.98)';
+      mobileNav.style.padding = '24px 40px 32px';
+      mobileNav.style.gap = '22px';
+      mobileNav.style.borderBottom = '1px solid rgba(240,236,229,0.08)';
+      mobileNav.style.backdropFilter = 'blur(16px)';
+      mobileNav.style.zIndex = '999';
+    }
+  });
+  // Close menu when a link is clicked
+  mobileNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileNav.classList.remove('mob-open');
+      mobileNav.removeAttribute('style');
+    });
+  });
+}
+</script>
+</body>
+</html>
