@@ -18,6 +18,7 @@
 
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230c0c0c'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='18' fill='%23c85a1e'%3EO%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -178,6 +179,7 @@ nav a:hover, nav a.active { color: var(--paper); }
 .hero-sub {
   font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--dim);
   max-width: 500px; margin-bottom: 16px;
+  border-left: 3px solid rgba(200,90,30,0.5); padding-left: 20px;
   opacity: 0; animation: up .9s .32s var(--ease) forwards;
 }
 .hero-excl {
@@ -213,7 +215,28 @@ nav a:hover, nav a.active { color: var(--paper); }
 @keyframes up    { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
 @keyframes fadeR { from { opacity:0; transform:translateX(20px); } to { opacity:.88; transform:none; } }
 
-/* ─── TICKER ─── */
+/* ─── MATERIAL ICONS ─── */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 48;
+  vertical-align: middle;
+}
+
+/* ─── HERO IMAGE ─── */
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.hero-bg img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: contrast(1.1) brightness(0.35) saturate(0.8);
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(12,12,12,0.95) 45%, rgba(12,12,12,0.4) 100%);
+}
+.hero-content { position: relative; z-index: 1; }
+
+
 .ticker { background: var(--fire); padding: 14px 0; overflow: hidden; white-space: nowrap; }
 .ticker-track { display: inline-flex; animation: scroll 30s linear infinite; }
 .ticker-item {
@@ -244,7 +267,11 @@ nav a:hover, nav a.active { color: var(--paper); }
   padding: 20px 0; border-bottom: 1px solid rgba(240,236,229,.06);
 }
 .cred-pillar:first-child { border-top: 1px solid rgba(240,236,229,.06); }
-.cp-icon { color: var(--fire); flex-shrink: 0; margin-top: 2px; }
+.cp-num {
+  font-family: var(--ff-d); font-size: 28px; font-weight: 700; color: var(--fire);
+  flex-shrink: 0; line-height: 1; margin-top: 2px; letter-spacing: -.01em;
+  opacity: 0.9;
+}
 .cp-body {}
 .cp-title { font-family: var(--ff-d); font-size: 20px; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 4px; }
 .cp-desc { font-size: 12px; font-weight: 300; color: var(--dim); line-height: 1.7; }
@@ -272,20 +299,17 @@ nav a:hover, nav a.active { color: var(--paper); }
   font-size: 14px; font-weight: 300; color: var(--cream-dim); line-height: 1.8;
   max-width: 340px; align-self: flex-end; padding-bottom: 4px;
 }
-.problems { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.problems { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .prob-item {
-  padding: 40px 40px 40px 0;
-  border-top: 1px solid rgba(26,24,20,.1);
+  padding: 40px;
+  background: #fff;
+  border: 1px solid rgba(26,24,20,.08);
+  box-shadow: 0 8px 32px rgba(26,24,20,.06);
   position: relative;
-  transition: border-color .3s;
+  transition: border-color .3s, box-shadow .3s;
 }
-.prob-item:hover { border-color: var(--fire); }
-.prob-num {
-  position: absolute; top: 20px; right: 0;
-  font-family: var(--ff-d); font-size: 72px; line-height: 1; letter-spacing: -.02em;
-  color: rgba(26,24,20,.05); transition: color .3s;
-}
-.prob-item:hover .prob-num { color: rgba(200,90,30,.07); }
+.prob-item:hover { border-color: var(--fire); box-shadow: 0 12px 48px rgba(200,90,30,.1); }
+.prob-num { display: none; }
 .prob-icon-wrap { margin-bottom: 18px; }
 .prob-icon-wrap svg { color: var(--fire); }
 .prob-title { font-family: var(--ff-d); font-size: 26px; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 10px; color: var(--cream-text); }
@@ -416,7 +440,8 @@ nav a:hover, nav a.active { color: var(--paper); }
 .pstep:hover { border-color: rgba(200,90,30,.22); }
 .pstep:last-child { border-bottom: 1px solid rgba(240,236,229,.07); }
 .pstep:hover:last-child { border-color: rgba(200,90,30,.22); }
-.pn { font-family: var(--ff-d); font-size: 40px; line-height: 1; color: rgba(240,236,229,.1); }
+.pn { font-family: var(--ff-d); font-size: 40px; line-height: 1; color: rgba(240,236,229,.1); transition: color .3s; }
+.pstep:hover .pn { color: rgba(200,90,30,.2); }
 .ptag { font-size: 9px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--fire); margin-bottom: 8px; }
 .ptitle { font-family: var(--ff-d); font-size: 26px; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 10px; }
 .pbody { font-size: 13px; font-weight: 300; color: var(--dim); line-height: 1.8; }
@@ -439,6 +464,8 @@ nav a:hover, nav a.active { color: var(--paper); }
 .faq-list {}
 .faq-row { border-top: 1px solid rgba(240,236,229,.07); }
 .faq-row:last-child { border-bottom: 1px solid rgba(240,236,229,.07); }
+.faq-row summary { list-style: none; }
+.faq-row summary::-webkit-details-marker { display: none; }
 .faq-btn {
   width: 100%; background: none; border: none; color: var(--paper);
   font-family: var(--ff-d); font-size: 21px; letter-spacing: .04em; text-transform: uppercase;
@@ -452,10 +479,13 @@ nav a:hover, nav a.active { color: var(--paper); }
   border: 1px solid rgba(240,236,229,.14); border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   transition: all .35s var(--ease); color: var(--paper);
+  font-size: 18px !important;
 }
-.faq-row.open .faq-ico { background: var(--fire); border-color: var(--fire); transform: rotate(45deg); }
+details[open] .faq-ico { background: var(--fire); border-color: var(--fire); color: #fff; transform: rotate(180deg); }
 .faq-ans { max-height: 0; overflow: hidden; transition: max-height .45s var(--ease); }
+details:not([open]) .faq-ans-in { display: none; }
 .faq-ans-in { padding: 0 0 26px; font-size: 14px; font-weight: 300; color: var(--dim); line-height: 1.85; max-width: 520px; }
+details[open] .faq-ans-in { display: block; }
 
 /* ═══════════════════════════════════════════
    BOOK / FORM SECTION
@@ -610,7 +640,7 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
 <header id="hdr">
   <div class="container">
     <div class="hdr-inner">
-      <div class="logo">OFFSITE<span class="logo-fire">.</span>GROWTH</div>
+      <div class="logo"><span style="width:26px;height:26px;background:var(--fire);display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;letter-spacing:.05em;margin-right:10px;flex-shrink:0;align-self:center;">OG</span>OFFSITE<span class="logo-fire">.</span>GROWTH</div>
       <nav>
         <a href="#about">About</a>
         <a href="#engine">Services</a>
@@ -628,12 +658,15 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
 
 <!-- ═══════ HERO ═══════ -->
 <section class="hero" id="top">
-  <div class="container">
+  <div class="hero-bg">
+    <!-- DROP YOUR HERO IMAGE HERE: <img src="your-image.jpg" alt="Construction site"> -->
+  </div>
+  <div class="container hero-content">
     <div class="hero-grid">
       <div>
         <div class="hero-eyebrow">Marketing Partner for Construction &amp; Trades</div>
         <h1 class="hero-h1">
-          You Run<br>The <span class="ghost">Jobsite.</span><br>We Keep<br>Your <span class="acc">Phone</span><br>Ringing.
+          You Run<br>The <span class="ghost" style="font-style:italic;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:8px;">Jobsite.</span><br>We Keep<br>Your <span class="acc">Phone</span><br>Ringing.
         </h1>
         <p class="hero-sub">We install and manage the systems that generate qualified calls, booked jobs, and measurable revenue — without you having to think about marketing. Built specifically for trades and construction businesses doing $500k–$5M+.</p>
         <div class="hero-actions">
@@ -743,28 +776,28 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
       <div class="cred-right r d3">
         <ul class="cred-pillars">
           <li class="cred-pillar">
-            <svg class="cp-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="10" cy="10" r="8"/><path d="M6 10 L9 13 L14 7"/></svg>
+            <span class="cp-num">01</span>
             <div class="cp-body">
               <div class="cp-title">We Track Booked Jobs — Not Just Clicks</div>
               <div class="cp-desc">Every month we show you how many calls came in, how many turned into booked jobs, and what each one cost you to get.</div>
             </div>
           </li>
           <li class="cred-pillar">
-            <svg class="cp-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="4" width="14" height="12" rx="1.5"/><path d="M7 8 L13 8 M7 11.5 L10 11.5"/></svg>
+            <span class="cp-num">02</span>
             <div class="cp-body">
               <div class="cp-title">End-to-End Lead Infrastructure</div>
               <div class="cp-desc">Search ads, Local Services Ads, landing pages, call tracking, and reporting — built as one connected system instead of scattered tools.</div>
             </div>
           </li>
           <li class="cred-pillar">
-            <svg class="cp-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 14 L8 10 L11 13 L16 7"/><path d="M13 7 L16 7 L16 10"/></svg>
+            <span class="cp-num">03</span>
             <div class="cp-body">
               <div class="cp-title">For Established Trades Businesses</div>
               <div class="cp-desc">We work with companies already doing strong work in their market. If you have a solid crew and want consistent inbound demand, we can help you scale responsibly.</div>
             </div>
           </li>
           <li class="cred-pillar">
-            <svg class="cp-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="10" cy="10" r="8"/><path d="M10 6 L10 10 L13 13"/></svg>
+            <span class="cp-num">04</span>
             <div class="cp-body">
               <div class="cp-title">Protected Markets</div>
               <div class="cp-desc">We work with one contractor per trade, per market. If we partner with you, we do not take on your direct competitor.</div>
@@ -790,9 +823,7 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
       <div class="prob-item r d1">
         <div class="prob-num">01</div>
         <div class="prob-icon-wrap">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3">
-            <path d="M4 26 L10 18 L15 22 L21 13 L28 16"/><circle cx="28" cy="16" r="3"/>
-          </svg>
+          <span class="material-symbols-outlined" style="font-size:40px;color:var(--fire);">trending_down</span>
         </div>
         <div class="prob-title">Slow Months Hit Hard</div>
         <p class="prob-body">Work comes in waves — busy season, then nothing. You're relying on referrals and word of mouth, which works until it doesn't. There's no consistent way to generate new jobs when things slow down.</p>
@@ -800,9 +831,7 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
       <div class="prob-item r d2">
         <div class="prob-num">02</div>
         <div class="prob-icon-wrap">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3">
-            <rect x="4" y="8" width="24" height="16" rx="1.5"/><path d="M10 16 L14 16 M18 16 L22 16 M10 20 L13 20"/><path d="M16 4 L16 8"/>
-          </svg>
+          <span class="material-symbols-outlined" style="font-size:40px;color:var(--fire);">money_off</span>
         </div>
         <div class="prob-title">Ads That Don't Pay Off</div>
         <p class="prob-body">You've tried running ads — or hired someone to do it. Money went out, clicks came in, but the jobs didn't follow. Now it's unclear if the problem was the ads, the leads, or what happened after the call.</p>
@@ -810,10 +839,7 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
       <div class="prob-item r d3">
         <div class="prob-num">03</div>
         <div class="prob-icon-wrap">
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3">
-            <path d="M16 6 L16 24 M10 16 L16 6 L22 16"/>
-            <path d="M6 28 L26 28" opacity="0.4"/>
-          </svg>
+          <span class="material-symbols-outlined" style="font-size:40px;color:var(--fire);">settings_accessibility</span>
         </div>
         <div class="prob-title">You're the Bottleneck</div>
         <p class="prob-body">You're quoting jobs, managing crews, answering calls, and trying to figure out marketing on top of it. Growth depends on how much you can personally handle — not on a system that runs consistently.</p>
@@ -829,7 +855,7 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
       <div class="stag" style="margin-bottom:20px;">03 — What We Do</div>
       <div class="engine-super">
         <span class="ghost-line">How We Get</span>
-        <span class="solid-line">You More Jobs</span>
+        <span class="solid-line"><em style="font-style:italic;color:var(--fire);">You More Jobs</em></span>
       </div>
     </div>
     <div class="engine-cards">
@@ -905,17 +931,20 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
     <div class="stag r">05 — What Changes</div>
     <div class="res-grid">
       <div class="res-block r d1">
+        <span class="material-symbols-outlined" style="font-size:36px;color:var(--fire);margin-bottom:16px;display:block;">trending_up</span>
         <div class="res-val">More Calls<br><span class="fire">Every</span><br>Month</div>
         <div class="res-name" style="margin-top:14px;">More Predictable Lead Flow</div>
         <div class="res-sub">Built on structured campaigns — not referrals alone</div>
       </div>
       <div class="res-block r d2">
+        <span class="material-symbols-outlined" style="font-size:36px;color:var(--fire);margin-bottom:16px;display:block;">money_off</span>
         <div class="res-val"><span class="fire">↓</span> Cost</div>
         <div class="res-val" style="font-size:clamp(28px,3.5vw,46px);margin-top:4px;">Per Booked Job</div>
         <div class="res-name" style="margin-top:14px;">Smarter Ad Spend</div>
         <div class="res-sub">Clear tracking shows what's working — and what isn't</div>
       </div>
       <div class="res-block r d3">
+        <span class="material-symbols-outlined" style="font-size:36px;color:var(--fire);margin-bottom:16px;display:block;">schedule_send</span>
         <div class="res-val">Less Time<br><span class="fire">Chasing</span><br>Leads</div>
         <div class="res-name" style="margin-top:14px;">Faster Response Systems</div>
         <div class="res-sub">Leads are tracked and contacted quickly — before interest fades</div>
@@ -1000,26 +1029,26 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
         <p class="faq-note r d2">No runaround. No vague promises. If we're a fit, you'll know it in the first call.</p>
       </div>
       <div class="faq-list r d2">
-        <div class="faq-row">
-          <button class="faq-btn">What exactly do you do?<div class="faq-ico"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></div></button>
-          <div class="faq-ans"><div class="faq-ans-in">We manage your paid search campaigns on Google and Local Services Ads, build or optimize the landing pages your leads land on, track and manage every inquiry, and maintain your Google Business profile. Each month we review performance, make improvements, and send you a clear report showing what your marketing is producing.</div></div>
-        </div>
-        <div class="faq-row">
-          <button class="faq-btn">Do I have to sign a long contract?<div class="faq-ico"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></div></button>
-          <div class="faq-ans"><div class="faq-ans-in">We require a 3-month minimum to allow campaigns time to build momentum and optimize. After that, it's month-to-month. We don't lock clients in — we retain them by producing value, not by contracts.</div></div>
-        </div>
-        <div class="faq-row">
-          <button class="faq-btn">How will I know if it's working?<div class="faq-ico"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></div></button>
-          <div class="faq-ans"><div class="faq-ans-in">Every month you'll get a simple, plain-English report showing: total calls and leads, which turned into booked jobs, and the cost per job. No confusing dashboards — just the numbers that matter to your business.</div></div>
-        </div>
-        <div class="faq-row">
-          <button class="faq-btn">What does it cost?<div class="faq-ico"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></div></button>
-          <div class="faq-ans"><div class="faq-ans-in">Our management fee depends on scope and market, typically $3,000–$10,000 per month. Ad spend goes directly to the platforms and is separate from our fee. We'll give you an exact quote after our first call.</div></div>
-        </div>
-        <div class="faq-row">
-          <button class="faq-btn">How soon will I start getting calls?<div class="faq-ico"><svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="5" y1="1" x2="5" y2="9"/><line x1="1" y1="5" x2="9" y2="5"/></svg></div></button>
-          <div class="faq-ans"><div class="faq-ans-in">Once your campaigns and tracking are live, you'll start seeing inquiries come in. It typically takes 60–90 days to fully optimize targeting and see more predictable results. We set expectations upfront so you know what the timeline looks like.</div></div>
-        </div>
+        <details class="faq-row">
+          <summary class="faq-btn">What exactly do you do?<span class="faq-ico material-symbols-outlined">expand_more</span></summary>
+          <div class="faq-ans-in">We manage your paid search campaigns on Google and Local Services Ads, build or optimize the landing pages your leads land on, track and manage every inquiry, and maintain your Google Business profile. Each month we review performance, make improvements, and send you a clear report showing what your marketing is producing.</div>
+        </details>
+        <details class="faq-row">
+          <summary class="faq-btn">Do I have to sign a long contract?<span class="faq-ico material-symbols-outlined">expand_more</span></summary>
+          <div class="faq-ans-in">We require a 3-month minimum to allow campaigns time to build momentum and optimize. After that, it's month-to-month. We don't lock clients in — we retain them by producing value, not by contracts.</div>
+        </details>
+        <details class="faq-row">
+          <summary class="faq-btn">How will I know if it's working?<span class="faq-ico material-symbols-outlined">expand_more</span></summary>
+          <div class="faq-ans-in">Every month you'll get a simple, plain-English report showing: total calls and leads, which turned into booked jobs, and the cost per job. No confusing dashboards — just the numbers that matter to your business.</div>
+        </details>
+        <details class="faq-row">
+          <summary class="faq-btn">What does it cost?<span class="faq-ico material-symbols-outlined">expand_more</span></summary>
+          <div class="faq-ans-in">Our management fee depends on scope and market, typically $3,000–$10,000 per month. Ad spend goes directly to the platforms and is separate from our fee. We'll give you an exact quote after our first call.</div>
+        </details>
+        <details class="faq-row">
+          <summary class="faq-btn">How soon will I start getting calls?<span class="faq-ico material-symbols-outlined">expand_more</span></summary>
+          <div class="faq-ans-in">Once your campaigns and tracking are live, you'll start seeing inquiries come in. It typically takes 60–90 days to fully optimize targeting and see more predictable results. We set expectations upfront so you know what the timeline looks like.</div>
+        </details>
       </div>
     </div>
   </div>
@@ -1130,7 +1159,7 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
   <div class="container">
     <div class="ctaf-inner">
       <div class="stag ctaf-tag r">Ready When You Are</div>
-      <h2 class="ctaf-h2 r d1">Tired of Slow<br>Months? Let's<br><span class="fire">Fix That.</span></h2>
+      <h2 class="ctaf-h2 r d1" style="font-style:italic;">Tired of Slow<br>Months? Let's<br><span class="fire" style="font-style:normal;">Fix That.</span></h2>
       <p class="ctaf-sub r d2">We'll take a look at your market, show you what's possible, and tell you straight whether we can help. No obligation.</p>
       <a href="#form" class="btn-fire r d3" style="font-size:15px; padding:18px 48px;">Get a Free Assessment <span>→</span></a>
       <p class="ctaf-note r d4">$3,000/month to start — one client per trade, per market</p>
@@ -1141,17 +1170,31 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
 <!-- ─── FOOTER ─── -->
 <footer>
   <div class="container">
-    <div class="foot-inner">
-      <div class="foot-logo">OFFSITE<span>.</span>GROWTH</div>
-      <div class="foot-links">
-        <a href="#about">About</a>
-        <a href="#engine">Services</a>
-        <a href="#process">Process</a>
-        <a href="/pricing">Pricing</a>
-        <a href="#results">Results</a>
-        <a href="#form">Get Started</a>
+    <div class="foot-inner" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:48px;align-items:start;padding:48px 0 32px;">
+      <div style="grid-column:1/3;">
+        <div class="foot-logo" style="margin-bottom:16px;">OFFSITE<span>.</span>GROWTH</div>
+        <p style="font-size:13px;font-weight:300;color:var(--dim);line-height:1.8;max-width:300px;margin-bottom:24px;">Marketing partner for trades and construction businesses doing $500K–$5M+. We run your ads, track your leads, and get you more booked jobs every month.</p>
       </div>
+      <div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--fire);margin-bottom:20px;">Navigation</div>
+        <div class="foot-links" style="flex-direction:column;gap:12px;">
+          <a href="#about">About</a>
+          <a href="#engine">Services</a>
+          <a href="#process">Process</a>
+          <a href="/pricing">Pricing</a>
+          <a href="#results">Results</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--fire);margin-bottom:20px;">Get Started</div>
+        <p style="font-size:12px;font-weight:300;color:var(--dim);line-height:1.8;margin-bottom:16px;">One client per trade, per market.<br>Response within 1 business day.</p>
+        <a href="#form" class="btn-fire" style="font-size:12px;padding:12px 24px;">Schedule a Call →</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(240,236,229,.06);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
       <div class="foot-copy">© 2025 Offsite Growth. All rights reserved.</div>
+      <div class="foot-copy" style="font-style:italic;">Reputation is earned. Growth is engineered.</div>
     </div>
   </div>
 </footer>
@@ -1166,17 +1209,6 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
 }, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
 document.querySelectorAll('.r').forEach(el => obs.observe(el));
-
-// FAQ accordion
-document.querySelectorAll('.faq-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const row = btn.closest('.faq-row');
-    const ans = row.querySelector('.faq-ans');
-    const isOpen = row.classList.contains('open');
-    document.querySelectorAll('.faq-row').forEach(r => { r.classList.remove('open'); r.querySelector('.faq-ans').style.maxHeight = '0'; });
-    if (!isOpen) { row.classList.add('open'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
-  });
-});
 
 // Nav active state on scroll
 const navLinks = document.querySelectorAll('nav a[href^="#"]');
