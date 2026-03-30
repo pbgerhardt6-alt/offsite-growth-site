@@ -100,7 +100,8 @@ nav a { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transfor
 nav a:hover, nav a.active { color: var(--paper); }
 .hdr-apply {
   font-family: var(--ff-d); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
-  padding: 10px 26px; background: var(--fire); color: #fff; border-radius: 2px;
+  font-weight: 700;
+  padding: 10px 26px; background: var(--fire); color: #fff; border-radius: 6px;
   transition: all .25s var(--ease); white-space: nowrap;
 }
 .hdr-apply:hover { background: var(--fire-2); transform: translateY(-1px); }
@@ -109,19 +110,24 @@ nav a:hover, nav a.active { color: var(--paper); }
 
 /* ─── SHARED BUTTONS ─── */
 .btn-fire {
-  font-family: var(--ff-d); font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase;
+  font-family: var(--ff-d); font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase;
+  font-weight: 700;
   display: inline-flex; align-items: center; gap: 10px;
-  padding: 15px 36px; background: var(--fire); color: #fff; border-radius: 2px;
+  padding: 18px 36px; background: var(--fire); color: #fff; border-radius: 6px;
   transition: all .3s var(--ease);
 }
-.btn-fire:hover { background: var(--fire-2); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(200,90,30,.3); }
+.btn-fire:hover { background: var(--fire-2); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(200,90,30,.35); }
 .btn-ghost {
-  font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
-  display: inline-flex; align-items: center; gap: 8px;
-  color: var(--dim); transition: color .2s;
+  font-family: var(--ff-d); font-size: 15px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 18px 36px; border-radius: 6px;
+  background: transparent;
+  border: 1px solid rgba(240,236,229,0.25);
+  color: var(--paper);
+  transition: all .3s var(--ease);
 }
+.btn-ghost:hover { border-color: rgba(240,236,229,0.5); background: rgba(240,236,229,0.05); }
 .btn-ghost .arr { transition: transform .25s; }
-.btn-ghost:hover { color: var(--paper); }
 .btn-ghost:hover .arr { transform: translateX(4px); }
 
 /* ─── REVEAL ─── */
@@ -201,12 +207,49 @@ nav a:hover, nav a.active { color: var(--paper); }
 .hstat { padding: 28px 0; border-right: 1px solid rgba(240,236,229,.07); }
 .hstat:nth-child(n+2) { padding-left: 40px; }
 .hstat:last-child { border-right: none; }
-.hstat-val { font-family: var(--ff-d); font-size: 40px; line-height: 1; margin-bottom: 4px; }
-.hstat-val .f { color: var(--fire); }
 .hstat-lbl { font-size: 10px; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); }
 
-@keyframes up    { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
-@keyframes fadeR { from { opacity:0; transform:translateX(20px); } to { opacity:.88; transform:none; } }
+/* ─── CUSTOM CURSOR ─── */
+body { cursor: none; }
+a, button, [role="button"], select, input, textarea, label { cursor: none; }
+.cursor {
+  width: 12px; height: 12px;
+  position: fixed; top: 0; left: 0; z-index: 99999;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform .15s var(--ease), opacity .2s;
+}
+.cursor::before {
+  content: '';
+  position: absolute; inset: 0;
+  border: 1.5px solid var(--fire); border-radius: 50%;
+  transform: scale(1); transition: transform .2s var(--ease);
+}
+.cursor::after {
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  width: 3px; height: 3px;
+  background: var(--fire); border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.cursor-ring {
+  width: 36px; height: 36px;
+  position: fixed; top: 0; left: 0; z-index: 99998;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(200,90,30,0.3); border-radius: 50%;
+  transition: transform .4s var(--ease), width .3s var(--ease), height .3s var(--ease), border-color .3s;
+}
+body:has(a:hover) .cursor-ring,
+body:has(button:hover) .cursor-ring { 
+  width: 52px; height: 52px; 
+  border-color: rgba(200,90,30,0.6);
+}
+
+/* ─── STAT COUNT-UP ─── */
+.hstat-val { font-family: var(--ff-d); font-size: 40px; line-height: 1; margin-bottom: 4px; }
+.hstat-val .f { color: var(--fire); }
+.hstat-val[data-target] { transition: none; }
 
 /* ─── MATERIAL ICONS ─── */
 .material-symbols-outlined {
@@ -225,7 +268,17 @@ nav a:hover, nav a.active { color: var(--paper); }
 .hero-bg::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(to right, rgba(12,12,12,0.95) 45%, rgba(12,12,12,0.4) 100%);
+  background: 
+    linear-gradient(to right, rgba(12,12,12,0.97) 40%, rgba(12,12,12,0.5) 70%, rgba(12,12,12,0.2) 100%),
+    linear-gradient(to bottom, rgba(12,12,12,0.3) 0%, transparent 30%, rgba(12,12,12,0.6) 100%);
+}
+
+/* Hero grain overlay — stronger than global */
+.hero::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.06; mix-blend-mode: overlay;
 }
 .hero-content { position: relative; z-index: 1; }
 
@@ -237,6 +290,8 @@ nav a:hover, nav a.active { color: var(--paper); }
   color: #fff; padding: 0 40px; display: flex; align-items: center; gap: 20px;
 }
 .ticker-item::after { content: '·'; color: rgba(255,255,255,.4); }
+@keyframes up    { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
+@keyframes fadeR { from { opacity:0; transform:translateX(20px); } to { opacity:.88; transform:none; } }
 @keyframes scroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
 
 /* ═══════════════════════════════════════════
@@ -529,9 +584,9 @@ textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
 ::placeholder { color: rgba(240,236,229,.22); }
 .form-submit {
   width: 100%;
-  font-family: var(--ff-d); font-size: 15px; letter-spacing: .12em; text-transform: uppercase;
-  padding: 17px 24px; background: var(--fire); color: #fff; border: none; border-radius: 2px;
-  cursor: pointer; transition: all .3s var(--ease);
+  font-family: var(--ff-d); font-size: 15px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  padding: 18px 24px; background: var(--fire); color: #fff; border: none; border-radius: 6px;
+  cursor: none; transition: all .3s var(--ease);
   display: flex; align-items: center; justify-content: center; gap: 10px;
 }
 .form-submit:hover { background: var(--fire-2); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(200,90,30,.3); }
@@ -628,6 +683,8 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
 </style>
 </head>
 <body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
 <!-- ─── HEADER ─── -->
 <header id="hdr">
@@ -671,15 +728,15 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
 
     <div class="hero-bottom">
       <div class="hstat">
-        <div class="hstat-val">$1M<span class="f">+</span></div>
+        <div class="hstat-val" data-target="1" data-prefix="$" data-suffix="M+">$1M<span class="f">+</span></div>
         <div class="hstat-lbl">Typical Client Revenue</div>
       </div>
       <div class="hstat">
-        <div class="hstat-val">30<span class="f">d</span></div>
+        <div class="hstat-val" data-target="30" data-suffix="d">30<span class="f">d</span></div>
         <div class="hstat-lbl">To First Leads</div>
       </div>
       <div class="hstat">
-        <div class="hstat-val">1</div>
+        <div class="hstat-val" data-target="1">1</div>
         <div class="hstat-lbl">Client Per Market</div>
       </div>
     </div>
@@ -1259,6 +1316,57 @@ if (burg && mobileNav) {
     });
   });
 }
+</script>
+
+<script>
+// ── Custom cursor ──────────────────────────────────────────
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+if (cur && ring && window.matchMedia('(pointer:fine)').matches) {
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  const animCursor = () => {
+    cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+    requestAnimationFrame(animCursor);
+  };
+  animCursor();
+  document.addEventListener('mouseleave', () => { cur.style.opacity = '0'; ring.style.opacity = '0'; });
+  document.addEventListener('mouseenter', () => { cur.style.opacity = '1'; ring.style.opacity = '1'; });
+} else {
+  // Touch device — hide cursor elements and restore default cursor
+  if (cur) cur.style.display = 'none';
+  if (ring) ring.style.display = 'none';
+  document.body.style.cursor = 'auto';
+  const sheet = document.createElement('style');
+  sheet.textContent = '*, *::before, *::after { cursor: auto !important; } a, button { cursor: pointer !important; }';
+  document.head.appendChild(sheet);
+}
+
+// ── Count-up on hero stats ─────────────────────────────────
+const countEls = document.querySelectorAll('.hstat-val[data-target]');
+const countObs = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = +el.dataset.target;
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1200;
+    const start = performance.now();
+    const tick = now => {
+      const p = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      const val = Math.round(ease * target);
+      el.innerHTML = `${prefix}${val}<span class="f">${suffix}</span>`;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    countObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+countEls.forEach(el => countObs.observe(el));
 </script>
 </body>
 </html>
