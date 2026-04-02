@@ -1115,13 +1115,22 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
 
         <!-- TAB: APPLICATION FORM -->
         <div class="ftab-panel" id="tab-apply">
-          <script charset="utf-8" type="text/javascript" src="//js-na2.hsforms.net/forms/embed/v2.js"></script>
+          <div id="hs-form-container"></div>
           <script>
-            hbspt.forms.create({
-              portalId: "245756396",
-              formId: "cb8f5ac4-0e5e-44a2-a4d7-24b0a4f8a3d7",
-              region: "na2"
-            });
+            (function() {
+              var script = document.createElement('script');
+              script.charset = 'utf-8';
+              script.src = '//js-na2.hsforms.net/forms/embed/v2.js';
+              script.onload = function() {
+                hbspt.forms.create({
+                  portalId: "245756396",
+                  formId: "cb8f5ac4-0e5e-44a2-a4d7-24b0a4f8a3d7",
+                  region: "na2",
+                  target: "#hs-form-container"
+                });
+              };
+              document.head.appendChild(script);
+            })();
           </script>
         </div>
 
