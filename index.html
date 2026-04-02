@@ -643,7 +643,30 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
   .form-row-half { grid-template-columns: 1fr !important; }
   .book-inner { gap: 40px; }
 }
-/* ─── FORM TABS ─── */
+/* ─── HUBSPOT FORM OVERRIDES ─── */
+.hs-form fieldset { max-width: 100% !important; }
+.hs-form .hs-input {
+  width: 100% !important; background: var(--ink-3); border: 1px solid rgba(240,236,229,.1);
+  border-radius: 2px; padding: 13px 16px;
+  font-family: var(--ff-b); font-size: 14px; font-weight: 300; color: var(--paper);
+  outline: none; appearance: none; -webkit-appearance: none;
+  transition: border-color .25s, box-shadow .25s;
+}
+.hs-form .hs-input:focus { border-color: rgba(200,90,30,.5); box-shadow: 0 0 0 3px rgba(200,90,30,.07); }
+.hs-form label { display: block; font-size: 10px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); margin-bottom: 8px; }
+.hs-form .hs-form-field { margin-bottom: 20px; }
+.hs-form .hs-error-msgs { list-style: none; margin-top: 6px; }
+.hs-form .hs-error-msgs li label { color: #e05a2b; font-size: 11px; letter-spacing: .06em; text-transform: none; }
+.hs-form select.hs-input { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(240,236,229,0.35)' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; cursor: none; }
+.hs-form textarea.hs-input { min-height: 100px; resize: vertical; line-height: 1.6; }
+.hs-form input[type="submit"], .hs-form .hs-button {
+  width: 100%; font-family: var(--ff-d); font-size: 15px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  padding: 18px 24px; background: var(--fire); color: #fff; border: none; border-radius: 6px;
+  cursor: none; transition: all .3s var(--ease); margin-top: 8px;
+}
+.hs-form input[type="submit"]:hover, .hs-form .hs-button:hover { background: var(--fire-2); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(200,90,30,.3); }
+.hs-form .submitted-message { font-size: 15px; font-weight: 300; color: var(--dim); line-height: 1.8; padding: 24px 0; }
+.hs-richtext { display: none; }
 .form-tabs {
   display: flex; gap: 2px; margin-bottom: 28px;
   background: var(--ink); border-radius: 2px; padding: 4px;
@@ -718,7 +741,7 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
         <h1 class="hero-h1">
           You Run<br>The <span class="ghost" style="font-style:italic;">Jobsite.</span><br>We Keep<br>Your <span class="acc">Phone</span><br>Ringing.
         </h1>
-        <p class="hero-sub">We install and manage the systems that generate qualified calls, booked jobs, and measurable revenue — without you having to think about marketing. Built specifically for trades and construction businesses doing $500k–$5M+.</p>
+        <p class="hero-sub">We install and manage the systems that generate qualified calls, booked jobs, and measurable revenue — without you having to think about marketing. Built specifically for trades and construction businesses ready to dominate their local market.</p>
         <div class="hero-actions">
           <a href="#form" class="btn-fire">Schedule a Call <span>→</span></a>
           <a href="#engine" class="btn-ghost">See How It Works <span class="arr">→</span></a>
@@ -923,8 +946,8 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
         <div class="wct">Who We Typically Work With</div>
         <div class="wm"><div class="wm-val">$1M<span class="f">+</span></div><div class="wm-lbl">Annual Revenue</div><div class="wm-sub">Established business with proven demand</div></div>
         <div class="wm"><div class="wm-val">5<span class="f">–</span>50</div><div class="wm-lbl">Employees</div><div class="wm-sub">Team in place to handle incoming calls</div></div>
-        <div class="wm"><div class="wm-val">2<span class="f">–</span>4<span class="f"> Wks</span></div><div class="wm-lbl">To First Leads</div><div class="wm-sub">Campaigns live with tracking fully installed</div></div>
-        <div class="wm"><div class="wm-val">$2.5<span class="f">–</span>6K</div><div class="wm-lbl">Monthly Engagement</div><div class="wm-sub">Ad spend is separate and paid directly to platforms</div></div>
+        <div class="wm"><div class="wm-val">3<span class="f">+</span></div><div class="wm-lbl">Years in Business</div><div class="wm-sub">Not a startup — an operator ready to scale</div></div>
+        <div class="wm"><div class="wm-val">Local</div><div class="wm-lbl">Market Focus</div><div class="wm-sub">Serving one defined service area they want to own</div></div>
       </div>
     </div>
   </div>
@@ -1092,57 +1115,14 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
 
         <!-- TAB: APPLICATION FORM -->
         <div class="ftab-panel" id="tab-apply">
-          <form onsubmit="return false;">
-            <div class="form-row">
-              <label for="fname">Full Name</label>
-              <input type="text" id="fname" name="full_name" placeholder="John Miller" required>
-            </div>
-            <div class="form-row">
-              <label for="company">Company Name</label>
-              <input type="text" id="company" name="company" placeholder="Miller Roofing Co." required>
-            </div>
-            <div class="form-row form-row-half">
-              <div>
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="john@millerroofing.com" required>
-              </div>
-              <div>
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
-              </div>
-            </div>
-            <div class="form-row form-row-half">
-              <div>
-                <label for="revenue">Annual Revenue</label>
-                <select id="revenue" name="revenue">
-                  <option value="" disabled selected>Select range</option>
-                  <option>Under $500k</option>
-                  <option>$500k – $1M</option>
-                  <option>$1M – $3M</option>
-                  <option>$3M+</option>
-                </select>
-              </div>
-              <div>
-                <label for="trade">Primary Trade</label>
-                <select id="trade" name="trade">
-                  <option value="" disabled selected>Select trade</option>
-                  <option>Roofing</option>
-                  <option>HVAC</option>
-                  <option>Plumbing</option>
-                  <option>Electrical</option>
-                  <option>General Contracting</option>
-                  <option>Landscaping / Hardscaping</option>
-                  <option>Painting</option>
-                  <option>Other</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-row">
-              <label for="goals">Growth Goals</label>
-              <textarea id="goals" name="goals" placeholder="What does growth look like for your business in the next 12 months?"></textarea>
-            </div>
-            <button type="submit" class="form-submit" id="submit-btn">Get a Free Assessment <span>→</span></button>
-          </form>
+          <script charset="utf-8" type="text/javascript" src="//js-na2.hsforms.net/forms/embed/v2.js"></script>
+          <script>
+            hbspt.forms.create({
+              portalId: "245756396",
+              formId: "cb8f5ac4-0e5e-44a2-a4d7-24b0a4f8a3d7",
+              region: "na2"
+            });
+          </script>
         </div>
 
         <!-- TAB: CALENDLY -->
@@ -1262,26 +1242,6 @@ document.querySelectorAll('.ftab').forEach(tab => {
     if (panel) panel.classList.remove('ftab-panel-hidden');
   });
 });
-
-// Form submit feedback
-const submitBtn = document.getElementById('submit-btn');
-if (submitBtn) {
-  submitBtn.addEventListener('click', function() {
-    const form = this.closest('form');
-    const name = form.querySelector('#fname').value.trim();
-    const email = form.querySelector('#email').value.trim();
-    const revenue = form.querySelector('#revenue').value;
-    if (!name || !email || !revenue) {
-      this.textContent = 'Please fill required fields';
-      this.style.background = '#555';
-      setTimeout(() => { this.innerHTML = 'Apply for Growth Plan <span>→</span>'; this.style.background = ''; }, 2400);
-      return;
-    }
-    this.innerHTML = '✓ Got it — we\'ll be in touch within 1 business day.';
-    this.style.background = '#2a6e3f';
-    this.disabled = true;
-  });
-}
 
 // Mobile nav toggle
 const burg = document.getElementById('burg');
