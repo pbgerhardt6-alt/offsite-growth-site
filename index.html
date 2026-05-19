@@ -327,6 +327,26 @@ header.stuck .burger span { background: var(--on-dark); }
 .eng-body { font-size: 13px; font-weight: 300; color: var(--on-dark-dim); line-height: 1.85; padding-top: 5px; }
 
 /* ═══════════════════════════════════════════
+   CREDENTIALS STRIP — Light
+═══════════════════════════════════════════ */
+.creds { background: var(--paper); padding: 80px 0; }
+.creds-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 56px; border-top: 1px solid oklch(13% 0.01 80 / .1);
+}
+.cred-item { padding-top: 32px; }
+.cred-tag {
+  font-family: var(--ff-d); font-size: 10px; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--fire); margin-bottom: 12px;
+}
+.cred-h {
+  font-family: var(--ff-d); font-size: 20px; font-weight: 700;
+  text-transform: uppercase; color: var(--on-light); margin-bottom: 10px; line-height: 1.1;
+}
+.cred-body { font-size: 13px; font-weight: 300; color: var(--on-light-dim); line-height: 1.75; }
+
+/* ═══════════════════════════════════════════
    WHO — Light
 ═══════════════════════════════════════════ */
 .who { background: var(--paper); padding: 100px 0; }
@@ -661,9 +681,12 @@ footer {
   .hero-actions .btn-outline { display: none; }
   .prob-row, .eng-row { grid-template-columns: 52px 1fr; }
   .prob-body, .eng-body { grid-column: 2; }
+  .creds-grid { grid-template-columns: 1fr; gap: 0; }
+  .cred-item { padding-bottom: 32px; border-bottom: 1px solid oklch(13% 0.01 80 / .1); }
+  .cred-item:last-child { border-bottom: none; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
   .foot-grid > :first-child { grid-column: 1/-1; }
-  .about, .problem, .engine, .who, .process, .faq, .book { padding: 72px 0; }
+  .about, .problem, .engine, .creds, .who, .process, .faq, .book { padding: 72px 0; }
   .exclusive { padding: 72px 0; }
   .cta-final { padding: 80px 0; }
 }
@@ -690,7 +713,6 @@ footer {
         <a href="#about">About</a>
         <a href="#engine">Services</a>
         <a href="#process">Process</a>
-        <a href="/pricing">Pricing</a>
         <a href="#faq">FAQ</a>
       </nav>
       <div style="display:flex;align-items:center;gap:16px;">
@@ -831,39 +853,62 @@ footer {
   <div class="container">
     <div class="engine-head r">
       <div class="stag" style="color:var(--fire);">03 — What We Do</div>
-      <h2 class="engine-h2">How We Get<br><em>You More Jobs</em></h2>
+      <h2 class="engine-h2">Four Things.<br><em>Done Right.</em></h2>
     </div>
     <div class="eng-row r d1">
       <div class="eng-n">01</div>
       <div class="eng-meta">
-        <div class="eng-label">Strategy</div>
-        <div class="eng-title">We Learn Your Market</div>
+        <div class="eng-label">Search &amp; Local Services Ads</div>
+        <div class="eng-title">High-Intent Traffic, Qualified Leads</div>
       </div>
-      <p class="eng-body">Before we spend a dollar of your ad budget, we look at your local competition, figure out what customers in your area are searching for, and map out exactly how to position your business to win the jobs you actually want.</p>
+      <p class="eng-body">We run Google Search and Local Services Ads targeting people actively looking for your trade in your service area. You pay for calls that can turn into jobs — not clicks from people browsing.</p>
     </div>
     <div class="eng-row r d2">
       <div class="eng-n">02</div>
       <div class="eng-meta">
-        <div class="eng-label">Advertising</div>
-        <div class="eng-title">We Run High-Intent Search &amp; LSA</div>
+        <div class="eng-label">Google Business Profile</div>
+        <div class="eng-title">Own Your Local Pack</div>
       </div>
-      <p class="eng-body">We manage Google Search and Local Services Ads to capture demand from people actively looking for your services. Tight targeting and ongoing optimization reduce wasted spend and improve lead quality over time.</p>
+      <p class="eng-body">Your GBP listing is the first thing a homeowner sees when they search your trade. We optimize your profile and build review velocity so you consistently show up at the top of local results.</p>
     </div>
     <div class="eng-row r d3">
       <div class="eng-n">03</div>
       <div class="eng-meta">
-        <div class="eng-label">Tracking</div>
-        <div class="eng-title">We Track Every Call &amp; Lead</div>
+        <div class="eng-label">Lead Infrastructure &amp; CRM</div>
+        <div class="eng-title">No Lead Falls Through</div>
       </div>
-      <p class="eng-body">Call tracking, form tracking, and conversion data are set up from day one. You can see exactly where leads came from, which ones were qualified, and what each one cost.</p>
+      <p class="eng-body">We set up call tracking, form tracking, and automated follow-up so every inquiry is captured and followed up. You see exactly where each lead came from, whether it booked, and what it cost.</p>
     </div>
     <div class="eng-row r d4">
       <div class="eng-n">04</div>
       <div class="eng-meta">
-        <div class="eng-label">Ongoing Management</div>
-        <div class="eng-title">We Improve It Every Month</div>
+        <div class="eng-label">Landing Pages</div>
+        <div class="eng-title">Pages Built to Convert</div>
       </div>
-      <p class="eng-body">We review performance monthly, cut wasted spend, and shift budget toward what's producing real jobs. You get a clear breakdown of calls, cost per lead, and overall performance — no jargon.</p>
+      <p class="eng-body">We build and maintain the pages your ads send traffic to — mobile-first, fast-loading, one offer. Most agency traffic goes to homepages that were never built to convert. Ours aren't.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CREDENTIALS ═══════ -->
+<section class="creds">
+  <div class="container">
+    <div class="creds-grid">
+      <div class="cred-item r">
+        <div class="cred-tag">Contracts</div>
+        <div class="cred-h">Month-to-Month After 90 Days</div>
+        <p class="cred-body">We require 3 months for campaigns to build and optimize. After that, it's month-to-month. No 12-month contracts. We keep clients by producing results, not by locking them in.</p>
+      </div>
+      <div class="cred-item r d1">
+        <div class="cred-tag">Who You Work With</div>
+        <div class="cred-h">The Founder, Not a Coordinator</div>
+        <p class="cred-body">You work directly with Peter — not an account manager or a junior team member. One point of contact. You have his number.</p>
+      </div>
+      <div class="cred-item r d2">
+        <div class="cred-tag">Reporting</div>
+        <div class="cred-h">Booked Jobs. Cost Per Job.</div>
+        <p class="cred-body">Monthly reports show calls, booked jobs, and what each one cost. Not clicks, not impressions — the numbers that tell you whether your marketing is paying for itself.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1037,7 +1082,7 @@ footer {
         </details>
         <details class="faq-row">
           <summary class="faq-btn">What does it cost?<span class="faq-ico"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
-          <div class="faq-ans-in">Our management fee depends on scope and market, typically $3,000–$10,000 per month. Ad spend goes directly to the platforms and is separate from our fee. We'll give you an exact quote after our first call.</div>
+          <div class="faq-ans-in">Management starts at $3,000/month depending on scope and market. Ad spend goes directly to the platforms and is separate from our fee. We'll give you an exact quote after our first call.</div>
         </details>
         <details class="faq-row">
           <summary class="faq-btn">How soon will I start getting calls?<span class="faq-ico"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
@@ -1135,7 +1180,6 @@ footer {
           <li><a href="#about">About</a></li>
           <li><a href="#engine">Services</a></li>
           <li><a href="#process">Process</a></li>
-          <li><a href="/pricing">Pricing</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
