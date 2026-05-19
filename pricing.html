@@ -3,449 +3,671 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pricing — Offsite Growth | Marketing Partner for Trades & Construction</title>
-<meta name="description" content="Three engagement tiers for trades and construction businesses doing $500K–$5M+. No freelancer rates. No agency bloat.">
-
-<!-- Open Graph -->
+<title>Pricing — Offsite Growth | Marketing Partner for Trades &amp; Construction</title>
+<meta name="description" content="Three engagement tiers for trades and construction businesses doing $500K–$5M+. Retainer-based. No freelancer rates. No agency bloat.">
 <meta property="og:title" content="Pricing — Offsite Growth">
-<meta property="og:description" content="Three engagement tiers built around where your business is today. No freelancer rates. No agency bloat.">
+<meta property="og:description" content="Three tiers built around where your business is today. No freelancer rates. No agency bloat.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://offsite-growth.com/pricing">
 <meta property="og:image" content="https://offsite-growth.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-
-<!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230c0c0c'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='18' fill='%23c85a1e'%3EO%3C/text%3E%3C/svg%3E">
-
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23f2efe8'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='18' fill='%23c85a1e'%3EOG%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,700&family=Barlow:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
 :root {
-  --ink:    #0c0c0c;
-  --ink-2:  #141414;
-  --ink-3:  #1c1c1c;
-  --ink-4:  #222222;
-  --paper:  #f0ece5;
-  --dim:    rgba(240,236,229,0.48);
-  --faint:  rgba(240,236,229,0.14);
-  --fire:   #c85a1e;
-  --fire-2: #e06428;
-  --ff-d: 'Clash Display', sans-serif;
-  --ff-b: 'Outfit', sans-serif;
+  --paper:    oklch(97% 0.008 82);
+  --paper-2:  oklch(93% 0.009 82);
+  --ink:      oklch(13% 0.010 80);
+  --ink-2:    oklch(18% 0.010 80);
+  --fire:     oklch(58% 0.190 43);
+  --fire-2:   oklch(63% 0.185 43);
+  --on-dark:      oklch(93% 0.006 82);
+  --on-dark-dim:  oklch(58% 0.007 82);
+  --on-light:     oklch(13% 0.010 80);
+  --on-light-dim: oklch(42% 0.008 82);
+  --ff-d: 'Barlow Semi Condensed', sans-serif;
+  --ff-b: 'Barlow', sans-serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
-html { scroll-behavior: smooth; }
-body { background: var(--ink); color: var(--paper); font-family: var(--ff-b); font-weight: 400; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-body::after { content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E"); opacity:.03; pointer-events:none; z-index:9998; }
-::-webkit-scrollbar { width:3px; } ::-webkit-scrollbar-track { background:var(--ink); } ::-webkit-scrollbar-thumb { background:var(--fire); }
-.container { max-width:1280px; margin:0 auto; padding:0 40px; }
 
-/* HEADER */
-header { position:fixed; top:0; left:0; right:0; z-index:200; padding:26px 0; transition:padding .4s var(--ease), background .4s, border-color .4s; border-bottom:1px solid transparent; }
-header.stuck { padding:14px 0; background:rgba(12,12,12,.97); backdrop-filter:blur(16px); border-color:rgba(240,236,229,.06); }
-.hdr-inner { display:flex; align-items:center; justify-content:space-between; }
-.logo { font-family:var(--ff-d); font-size:21px; letter-spacing:.07em; color:var(--paper); text-decoration:none; }
-.logo .f { color:var(--fire); }
-nav { display:flex; align-items:center; gap:36px; }
-nav a { font-size:11px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--dim); transition:color .2s; }
-nav a:hover, nav a.active { color:var(--paper); }
-.hdr-apply { font-family:var(--ff-d); font-size:13px; letter-spacing:.12em; text-transform:uppercase; padding:10px 26px; background:var(--fire); color:#fff; border-radius:2px; transition:all .25s var(--ease); }
-.hdr-apply:hover { background:var(--fire-2); transform:translateY(-1px); }
+body {
+  background: var(--paper);
+  color: var(--on-light);
+  font-family: var(--ff-b);
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
 
-/* REVEAL */
-.r { opacity:0; transform:translateY(28px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
-.r.on { opacity:1; transform:none; }
-.d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s} .d4{transition-delay:.32s}
+a { text-decoration: none; color: inherit; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
 
-/* HERO */
-.hero-p {
+/* ── REVEAL ── */
+.r { opacity: 0; transform: translateY(22px); transition: opacity .65s var(--ease), transform .65s var(--ease); }
+.r.on { opacity: 1; transform: none; }
+.d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; }
+.d3 { transition-delay: .24s; } .d4 { transition-delay: .32s; }
+
+/* ── SECTION LABEL ── */
+.stag {
+  font-family: var(--ff-d); font-size: 11px; font-weight: 600;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--fire);
+}
+
+/* ── BUTTONS ── */
+.btn-fire {
+  font-family: var(--ff-d); font-size: 13px; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 32px; background: var(--fire);
+  color: oklch(97% 0.008 82); border: 2px solid var(--fire);
+  transition: background .22s var(--ease), transform .22s var(--ease), box-shadow .22s var(--ease);
+}
+.btn-fire:hover {
+  background: var(--fire-2); border-color: var(--fire-2);
+  transform: translateY(-2px); box-shadow: 0 8px 28px oklch(58% 0.19 43 / .28);
+}
+.btn-outline {
+  font-family: var(--ff-d); font-size: 13px; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 32px; background: transparent;
+  border: 2px solid oklch(13% 0.01 80 / .2); color: var(--on-light);
+  transition: border-color .22s, background .22s;
+}
+.btn-outline:hover { border-color: oklch(13% 0.01 80 / .45); background: oklch(13% 0.01 80 / .04); }
+
+/* ═══════════════════════════════════════════
+   HEADER
+═══════════════════════════════════════════ */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 24px 0;
+  transition: padding .35s var(--ease), background .35s, border-color .35s;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+}
+header.stuck {
+  padding: 14px 0;
+  background: oklch(13% 0.010 80 / .97);
+  backdrop-filter: blur(16px);
+  border-color: oklch(93% 0.006 82 / .07);
+}
+.hdr-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.logo {
+  font-family: var(--ff-d); font-size: 17px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  display: flex; align-items: center; gap: 10px;
+  color: var(--on-light); transition: color .35s;
+}
+header.stuck .logo { color: var(--on-dark); }
+.logo-mark {
+  width: 26px; height: 26px; background: var(--fire);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700; color: oklch(97% 0.008 82);
+  letter-spacing: .04em; flex-shrink: 0;
+}
+nav { display: flex; align-items: center; gap: 32px; }
+nav a {
+  font-family: var(--ff-d); font-size: 11px; font-weight: 600;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--on-light-dim); transition: color .2s;
+}
+header.stuck nav a { color: var(--on-dark-dim); }
+nav a:hover, nav a.active { color: var(--on-light); }
+header.stuck nav a:hover, header.stuck nav a.active { color: var(--on-dark); }
+.hdr-cta {
+  font-family: var(--ff-d); font-size: 11px; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase;
+  padding: 9px 20px; background: var(--fire);
+  color: oklch(97% 0.008 82); transition: background .2s;
+}
+.hdr-cta:hover { background: var(--fire-2); }
+.burger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; border: none; background: none; padding: 4px;
+}
+.burger span {
+  width: 22px; height: 1.5px; display: block;
+  background: var(--on-light); transition: background .35s;
+}
+header.stuck .burger span { background: var(--on-dark); }
+
+/* ═══════════════════════════════════════════
+   PAGE HERO
+═══════════════════════════════════════════ */
+.page-hero {
   padding: 160px 0 80px;
-  background: var(--ink);
-  text-align: center;
-  position: relative; overflow: hidden;
+  background: var(--paper);
+  border-bottom: 1px solid oklch(13% 0.01 80 / .08);
 }
-.hero-p::before {
-  content: '$';
-  position: absolute; left: 50%; bottom: -60px; transform: translateX(-50%);
-  font-family: var(--ff-d); font-size: 400px; line-height: 1;
-  color: transparent; -webkit-text-stroke: 1px rgba(240,236,229,.03);
-  pointer-events: none; user-select: none;
+.page-hero-inner { max-width: 760px; }
+.page-hero .stag { margin-bottom: 20px; }
+.page-h1 {
+  font-family: var(--ff-d);
+  font-size: clamp(56px, 8vw, 108px);
+  font-weight: 700; line-height: .92; letter-spacing: .01em; text-transform: uppercase;
+  color: var(--on-light); margin-bottom: 28px;
 }
-.hero-p-inner { position: relative; z-index: 2; }
-.stag { font-size:10px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--fire); display:flex; align-items:center; gap:10px; justify-content:center; }
-.stag::before { content:''; width:20px; height:1px; background:var(--fire); }
-.stag::after { content:''; width:20px; height:1px; background:var(--fire); }
-.hero-p h1 {
-  font-family: var(--ff-d); font-size: clamp(52px, 8vw, 100px);
-  line-height: .9; text-transform: uppercase; margin: 20px auto 24px; max-width: 860px;
+.page-h1 .acc { color: var(--fire); }
+.page-hero-sub {
+  font-size: 16px; font-weight: 300; color: var(--on-light-dim);
+  line-height: 1.75; max-width: 520px; margin-bottom: 28px;
 }
-.hero-p h1 .fire { color: var(--fire); }
-.hero-p p { font-size:15px; font-weight:300; color:var(--dim); max-width:460px; margin:0 auto; line-height:1.8; }
-.price-disclaimer {
-  display:inline-flex; align-items:center; gap:12px;
-  margin-top:28px; padding:14px 24px;
-  border:1px solid rgba(240,236,229,.08); border-left:2px solid var(--fire);
-  font-size:12px; font-weight:400; letter-spacing:.06em; color:var(--dim); line-height:1.6;
+.media-note {
+  display: inline-flex; align-items: flex-start; gap: 16px;
+  padding: 16px 20px;
+  background: var(--paper-2);
+  font-size: 13px; font-weight: 400; color: var(--on-light-dim); line-height: 1.65;
 }
-.price-disclaimer strong { color:var(--paper); font-weight:600; }
+.media-note strong { color: var(--on-light); font-weight: 600; }
 
-/* TIERS */
-.tiers { padding:80px 0 100px; background:var(--ink); }
-.tiers-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+/* ═══════════════════════════════════════════
+   TIERS
+═══════════════════════════════════════════ */
+.tiers { background: var(--paper); }
 
-/* CARD */
-.tier-card {
-  background: var(--ink-2);
-  padding: 48px 40px;
-  position: relative;
-  transition: background .3s var(--ease), transform .3s var(--ease);
-  display: flex; flex-direction: column;
+.tier-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  border-top: 1px solid oklch(13% 0.01 80 / .1);
+  padding: 64px 0;
 }
-.tier-card:hover { background: var(--ink-3); transform: translateY(-4px); }
-.tier-card.featured { background: var(--ink-3); border: 1px solid rgba(200,90,30,.25); }
-.tier-card.featured::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--fire); }
-.tier-badge {
-  position: absolute; top: -1px; right: 36px;
-  font-family:var(--ff-d); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
-  background:var(--fire); color:#fff; padding:6px 14px;
+.tier-row:last-child { border-bottom: 1px solid oklch(13% 0.01 80 / .1); }
+
+.tier-n {
+  font-family: var(--ff-d); font-size: 72px; font-weight: 700;
+  line-height: 1; color: oklch(13% 0.01 80 / .08);
+  letter-spacing: -.01em; padding-top: 4px;
 }
-.tier-name { font-size:10px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--dim); margin-bottom:16px; }
+
+.tier-body { display: grid; grid-template-columns: 280px 1fr; gap: 64px; }
+
+.tier-meta { }
+.tier-label {
+  font-family: var(--ff-d); font-size: 10px; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--on-light-dim); margin-bottom: 12px;
+}
+.tier-name {
+  font-family: var(--ff-d); font-size: 32px; font-weight: 700;
+  text-transform: uppercase; line-height: 1;
+  color: var(--on-light); margin-bottom: 16px;
+}
 .tier-price {
-  font-family:var(--ff-d); font-size:64px; line-height:1; letter-spacing:-.01em; margin-bottom:4px;
+  font-family: var(--ff-d); font-size: 56px; font-weight: 700;
+  line-height: 1; letter-spacing: -.01em;
+  color: var(--on-light); margin-bottom: 4px;
 }
-.tier-price .f { color:var(--fire); font-size:40px; }
-.tier-mo { font-size:11px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--dim); margin-bottom:28px; }
-.tier-line { width:32px; height:1px; background:var(--fire); margin-bottom:28px; opacity:.5; }
-.tier-headline { font-family:var(--ff-d); font-size:22px; letter-spacing:.05em; text-transform:uppercase; margin-bottom:10px; }
-.tier-sub { font-size:13px; font-weight:300; color:var(--dim); line-height:1.75; margin-bottom:32px; }
-.tier-list { list-style:none; flex:1; }
-.tier-list li {
-  display:flex; align-items:flex-start; gap:12px;
-  padding:10px 0; border-bottom:1px solid rgba(240,236,229,.05);
-  font-size:13px; font-weight:300; line-height:1.5; color:rgba(240,236,229,.75);
+.tier-price .acc { color: var(--fire); }
+.tier-cadence {
+  font-family: var(--ff-d); font-size: 11px; font-weight: 600;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--on-light-dim); margin-bottom: 24px;
 }
-.tier-list li:last-child { border-bottom:none; }
-.tl-dot { width:6px; height:6px; background:var(--fire); border-radius:50%; flex-shrink:0; margin-top:5px; opacity:.7; }
-.tier-cta-wrap { margin-top:36px; }
-.tier-cta {
-  display:block; text-align:center;
-  font-family:var(--ff-d); font-size:14px; letter-spacing:.1em; text-transform:uppercase;
-  padding:14px 24px; border-radius:2px; transition:all .3s var(--ease);
+.tier-desc {
+  font-size: 14px; font-weight: 300; color: var(--on-light-dim);
+  line-height: 1.75; margin-bottom: 28px;
 }
-.tier-cta-primary { background:var(--fire); color:#fff; }
-.tier-cta-primary:hover { background:var(--fire-2); transform:translateY(-2px); box-shadow:0 10px 32px rgba(200,90,30,.3); }
-.tier-cta-ghost { background:transparent; color:var(--dim); border:1px solid rgba(240,236,229,.12); }
-.tier-cta-ghost:hover { color:var(--paper); border-color:rgba(240,236,229,.25); }
+.tier-badge-wrap { margin-bottom: 20px; }
+.tier-badge {
+  display: inline-block;
+  font-family: var(--ff-d); font-size: 10px; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  padding: 5px 12px; background: var(--fire);
+  color: oklch(97% 0.008 82);
+}
 
-/* ADDONS */
-.addons { padding:60px 0 100px; background:var(--ink); border-top:1px solid rgba(240,236,229,.06); }
-.addons-head { margin-bottom:48px; }
-.addons-head h2 { font-family:var(--ff-d); font-size:clamp(36px,4.5vw,56px); line-height:.9; text-transform:uppercase; margin-top:14px; }
-.addons-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; }
-.addon-item { background:var(--ink-2); padding:32px 36px; transition:background .25s; }
-.addon-item:hover { background:var(--ink-3); }
-.addon-name { font-family:var(--ff-d); font-size:20px; letter-spacing:.06em; text-transform:uppercase; margin-bottom:6px; }
-.addon-desc { font-size:12px; font-weight:300; color:var(--dim); line-height:1.75; }
+.tier-features { }
+.tier-feat-lbl {
+  font-family: var(--ff-d); font-size: 10px; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--on-light-dim); margin-bottom: 16px; padding-bottom: 12px;
+  border-bottom: 1px solid oklch(13% 0.01 80 / .1);
+}
+.feat-list { list-style: none; column-count: 2; column-gap: 40px; }
+.feat-list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 9px 0; border-bottom: 1px solid oklch(13% 0.01 80 / .06);
+  font-size: 13px; font-weight: 400; color: var(--on-light-dim);
+  line-height: 1.5; break-inside: avoid;
+}
+.feat-list li:last-child { border-bottom: none; }
+.feat-dot {
+  width: 5px; height: 5px; background: var(--fire); border-radius: 50%;
+  flex-shrink: 0; margin-top: 5px; opacity: .7;
+}
 
-/* NOTE */
-.note-section { padding:0 0 100px; background:var(--ink); }
-.note-inner { border:1px solid rgba(240,236,229,.07); border-left:2px solid var(--fire); padding:36px 40px; max-width:760px; }
-.note-inner h3 { font-family:var(--ff-d); font-size:22px; letter-spacing:.06em; text-transform:uppercase; margin-bottom:12px; }
-.note-inner p { font-size:13px; font-weight:300; color:var(--dim); line-height:1.85; margin-bottom:10px; }
-.note-inner p:last-child { margin-bottom:0; }
+/* ═══════════════════════════════════════════
+   ADD-ONS
+═══════════════════════════════════════════ */
+.addons {
+  background: var(--paper-2);
+  padding: 80px 0;
+  border-top: 1px solid oklch(13% 0.01 80 / .08);
+}
+.addons-head { margin-bottom: 48px; }
+.addons-head .stag { margin-bottom: 16px; }
+.addons-h2 {
+  font-family: var(--ff-d); font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 700; line-height: .95; text-transform: uppercase;
+  color: var(--on-light);
+}
+.addons-rows { }
+.addon-row {
+  display: grid; grid-template-columns: 100px 1fr 1fr;
+  gap: 40px; align-items: start;
+  padding: 28px 0; border-top: 1px solid oklch(13% 0.01 80 / .1);
+}
+.addon-row:last-child { border-bottom: 1px solid oklch(13% 0.01 80 / .1); }
+.addon-n {
+  font-family: var(--ff-d); font-size: 32px; font-weight: 700;
+  line-height: 1; color: oklch(13% 0.01 80 / .1);
+}
+.addon-name {
+  font-family: var(--ff-d); font-size: 20px; font-weight: 700;
+  text-transform: uppercase; color: var(--on-light); line-height: 1.1;
+}
+.addon-desc {
+  font-size: 13px; font-weight: 300; color: var(--on-light-dim);
+  line-height: 1.75;
+}
 
-/* FINAL CTA */
-.cta-final { padding:120px 0; background:var(--ink-2); text-align:center; position:relative; overflow:hidden; }
-.cta-final::before { content:'APPLY'; position:absolute; left:50%; bottom:-30px; transform:translateX(-50%); font-family:var(--ff-d); font-size:260px; text-transform:uppercase; color:transparent; -webkit-text-stroke:1px rgba(240,236,229,.04); pointer-events:none; user-select:none; line-height:1; white-space:nowrap; }
-.ctaf-inner { position:relative; z-index:2; }
-.cta-stag { justify-content:center; margin-bottom:24px; }
-.cta-h2 { font-family:var(--ff-d); font-size:clamp(48px,7vw,92px); line-height:.9; text-transform:uppercase; margin:0 auto 24px; max-width:800px; }
-.cta-h2 .fire { color:var(--fire); }
-.cta-sub { font-size:14px; font-weight:300; color:var(--dim); max-width:400px; margin:0 auto 40px; line-height:1.8; }
-.btn-fire { font-family:var(--ff-d); font-size:14px; letter-spacing:.1em; text-transform:uppercase; display:inline-flex; align-items:center; gap:10px; padding:15px 40px; background:var(--fire); color:#fff; border-radius:2px; transition:all .3s var(--ease); }
-.btn-fire:hover { background:var(--fire-2); transform:translateY(-2px); box-shadow:0 12px 36px rgba(200,90,30,.3); }
-.cta-note { font-size:11px; font-weight:400; letter-spacing:.14em; text-transform:uppercase; color:rgba(240,236,229,.2); margin-top:16px; }
+/* ═══════════════════════════════════════════
+   MEDIA SPEND NOTE
+═══════════════════════════════════════════ */
+.spend-note {
+  background: var(--paper); padding: 80px 0;
+  border-top: 1px solid oklch(13% 0.01 80 / .08);
+}
+.spend-inner { display: grid; grid-template-columns: 100px 1fr; gap: 0; }
+.spend-n {
+  font-family: var(--ff-d); font-size: 72px; font-weight: 700;
+  line-height: 1; color: oklch(13% 0.01 80 / .08);
+}
+.spend-content { }
+.spend-h3 {
+  font-family: var(--ff-d); font-size: 28px; font-weight: 700;
+  text-transform: uppercase; color: var(--on-light); margin-bottom: 20px; line-height: 1.1;
+}
+.spend-body {
+  font-size: 14px; font-weight: 300; color: var(--on-light-dim);
+  line-height: 1.85; max-width: 640px;
+}
+.spend-body p { margin-bottom: 16px; }
+.spend-body p:last-child { margin-bottom: 0; }
 
-/* FOOTER */
-footer { background:var(--ink); border-top:1px solid rgba(240,236,229,.06); padding:32px 0; }
-.foot-inner { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
-.foot-logo { font-family:var(--ff-d); font-size:18px; letter-spacing:.07em; }
-.foot-logo span { color:var(--fire); }
-.foot-links { display:flex; gap:28px; flex-wrap:wrap; }
-.foot-links a { font-size:10px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:rgba(240,236,229,.2); transition:color .2s; }
-.foot-links a:hover { color:var(--dim); }
-.foot-copy { font-size:11px; color:rgba(240,236,229,.18); }
+/* ═══════════════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════════════ */
+.cta-final {
+  background: var(--ink-2); color: var(--on-dark);
+  padding: 120px 0; text-align: center; position: relative; overflow: hidden;
+}
+.cta-ghost {
+  position: absolute; left: -10px; bottom: -40px;
+  font-family: var(--ff-d); font-size: 240px; font-weight: 700;
+  text-transform: uppercase; line-height: 1;
+  color: oklch(93% 0.006 82 / .03); pointer-events: none; user-select: none;
+}
+.ctaf-inner { position: relative; z-index: 2; }
+.ctaf-tag { justify-content: center; margin-bottom: 24px; }
+.ctaf-h2 {
+  font-family: var(--ff-d); font-size: clamp(48px, 8vw, 110px);
+  font-weight: 700; text-transform: uppercase; line-height: .92;
+  color: var(--on-dark); margin: 0 auto 28px; max-width: 900px;
+}
+.ctaf-h2 .acc { color: var(--fire); }
+.ctaf-sub { font-size: 15px; font-weight: 300; color: var(--on-dark-dim); max-width: 400px; margin: 0 auto 40px; line-height: 1.8; }
+.ctaf-note {
+  font-family: var(--ff-d); font-size: 11px; font-weight: 500;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: oklch(93% 0.006 82 / .25); margin-top: 16px;
+}
 
-/* BURGER */
-.burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-.burger span { width: 20px; height: 1.5px; background: var(--paper); }
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer {
+  background: var(--ink);
+  border-top: 1px solid oklch(93% 0.006 82 / .06);
+  padding: 48px 0 24px;
+}
+.foot-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+  padding-bottom: 40px; border-bottom: 1px solid oklch(93% 0.006 82 / .06);
+  margin-bottom: 24px;
+}
+.foot-logo {
+  font-family: var(--ff-d); font-size: 17px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--on-dark); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.foot-desc { font-size: 13px; font-weight: 300; color: var(--on-dark-dim); line-height: 1.8; max-width: 280px; }
+.foot-col-lbl {
+  font-family: var(--ff-d); font-size: 9px; font-weight: 700;
+  letter-spacing: .25em; text-transform: uppercase; color: var(--fire); margin-bottom: 20px;
+}
+.foot-links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.foot-links a {
+  font-family: var(--ff-d); font-size: 11px; font-weight: 500;
+  letter-spacing: .16em; text-transform: uppercase; color: oklch(93% 0.006 82 / .25);
+  transition: color .2s;
+}
+.foot-links a:hover { color: var(--on-dark-dim); }
+.foot-cta-note { font-size: 12px; font-weight: 300; color: var(--on-dark-dim); line-height: 1.8; margin-bottom: 16px; }
+.foot-bottom {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+}
+.foot-copy { font-size: 11px; color: oklch(93% 0.006 82 / .2); }
 
-/* RESPONSIVE */
-@media (max-width: 1024px) { .tiers-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; } .addons-grid { grid-template-columns: 1fr; } .tier-card.featured { transform: none; } }
-@media (max-width: 768px) { 
-  .container { padding: 0 24px; } 
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .tier-body { grid-template-columns: 220px 1fr; gap: 40px; }
+  .addon-row { grid-template-columns: 72px 1fr 1fr; gap: 32px; }
+}
+@media (max-width: 768px) {
+  .container { padding: 0 24px; }
   nav { display: none; }
   .burger { display: flex; }
-  .hdr-apply { display: none; }
+  .hdr-cta { display: none; }
+  .page-hero { padding: 120px 0 60px; }
+  .tier-row { grid-template-columns: 1fr; gap: 0; padding: 48px 0; }
+  .tier-n { font-size: 48px; margin-bottom: 16px; }
+  .tier-body { grid-template-columns: 1fr; gap: 36px; }
+  .feat-list { column-count: 1; }
+  .addon-row { grid-template-columns: 1fr; gap: 8px; }
+  .addon-n { display: none; }
+  .spend-inner { grid-template-columns: 1fr; }
+  .spend-n { display: none; }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+  .foot-grid > :first-child { grid-column: 1/-1; }
+  .cta-final { padding: 80px 0; }
 }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- ─── HEADER ─── -->
 <header id="hdr">
   <div class="container">
     <div class="hdr-inner">
-      <a href="/" class="logo"><span style="width:26px;height:26px;background:var(--fire);display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;letter-spacing:.05em;margin-right:10px;flex-shrink:0;vertical-align:middle;">OG</span>OFFSITE<span class="f">.</span>GROWTH</a>
-      <nav>
+      <a href="/" class="logo">
+        <span class="logo-mark">OG</span>
+        OFFSITE<span style="color:var(--fire);">.</span>GROWTH
+      </a>
+      <nav id="nav">
         <a href="/#about">About</a>
         <a href="/#engine">Services</a>
         <a href="/#process">Process</a>
         <a href="/pricing" class="active">Pricing</a>
-        <a href="/#results">Results</a>
+        <a href="/#faq">FAQ</a>
       </nav>
       <div style="display:flex;align-items:center;gap:16px;">
-        <a href="/#form" class="hdr-apply">Get Started</a>
-        <div class="burger" id="burg"><span></span><span></span><span></span></div>
+        <a href="/#form" class="hdr-cta">Get Started</a>
+        <button class="burger" id="burg" aria-label="Open menu"><span></span><span></span><span></span></button>
       </div>
     </div>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero-p">
-  <div class="container hero-p-inner">
-    <div class="stag r">Investment</div>
-    <h1 class="r d1">Investment in<br><span class="fire">Predictable</span> Growth</h1>
-    <p class="r d2">Three engagement tiers built around where your business is today and where you're taking it. No freelancer rates. No agency bloat.</p>
-    <div class="r d3" style="display:flex;justify-content:center;">
-      <div class="price-disclaimer">
-        <strong>Note:</strong> All tiers are management retainer only. Media spend (Google/Meta ad budget) is separate and goes directly to the platforms.
+<!-- ═══════ PAGE HERO ═══════ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="stag r">Investment</div>
+      <h1 class="page-h1 r d1">Three Tiers.<br><span class="acc">One Market.</span></h1>
+      <p class="page-hero-sub r d2">Built around where your business is today and where you're taking it. Every tier includes strategy, campaign management, creative, and reporting — not just ad spend.</p>
+      <div class="r d3">
+        <div class="media-note">
+          <strong>Note:</strong>&nbsp; Retainer fees cover all strategy and management. Ad spend (Google, Meta) is separate and goes directly to the platforms. We'll size it to your goals.
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TIERS -->
+<!-- ═══════ TIERS ═══════ -->
 <section class="tiers">
   <div class="container">
-    <div class="tiers-grid">
 
-      <!-- TIER 1: STARTER -->
-      <div class="tier-card r d1">
-        <div class="tier-name">Tier One</div>
-        <div class="tier-price">$3<span class="f">K</span></div>
-        <div class="tier-mo">Per Month</div>
-        <div class="tier-line"></div>
-        <div class="tier-headline">Starter Engine</div>
-        <p class="tier-sub">Foundation-layer for operators ready to install their first real acquisition system and build a predictable pipeline from scratch.</p>
-        <ul class="tier-list">
-          <li><div class="tl-dot"></div>Market research &amp; local competitor audit</li>
-          <li><div class="tl-dot"></div>Single-channel paid acquisition (Google or Meta)</li>
-          <li><div class="tl-dot"></div>1 landing page built and optimized</li>
-          <li><div class="tl-dot"></div>Lead tracking &amp; CRM setup</li>
-          <li><div class="tl-dot"></div>Basic automation follow-up sequence</li>
-          <li><div class="tl-dot"></div>Monthly performance report</li>
-          <li><div class="tl-dot"></div>Monthly strategy call</li>
-        </ul>
-        <div class="tier-cta-wrap">
-          <a href="/#form" class="tier-cta tier-cta-ghost">Apply to Work With Us →</a>
+    <!-- TIER 01 -->
+    <div class="tier-row r">
+      <div class="tier-n">01</div>
+      <div class="tier-body">
+        <div class="tier-meta">
+          <div class="tier-label">Tier One</div>
+          <div class="tier-name">Starter Engine</div>
+          <div class="tier-price">$3<span class="acc">K</span></div>
+          <div class="tier-cadence">Per Month</div>
+          <p class="tier-desc">Foundation-layer for operators ready to install their first real acquisition system. You'll get a full single-channel campaign, a landing page built to convert, and lead tracking from day one.</p>
+          <a href="/#form" class="btn-outline">Apply to Work With Us &rarr;</a>
+        </div>
+        <div class="tier-features">
+          <div class="tier-feat-lbl">What's Included</div>
+          <ul class="feat-list">
+            <li><div class="feat-dot"></div>Market research &amp; local competitor audit</li>
+            <li><div class="feat-dot"></div>Single-channel paid acquisition (Google or Meta)</li>
+            <li><div class="feat-dot"></div>1 landing page built and optimized</li>
+            <li><div class="feat-dot"></div>Lead tracking &amp; CRM setup</li>
+            <li><div class="feat-dot"></div>Basic automation follow-up sequence</li>
+            <li><div class="feat-dot"></div>Monthly performance report</li>
+            <li><div class="feat-dot"></div>Monthly strategy call</li>
+          </ul>
         </div>
       </div>
-
-      <!-- TIER 2: GROWTH (FEATURED) -->
-      <div class="tier-card featured r d2">
-        <div class="tier-badge">Most Common</div>
-        <div class="tier-name">Tier Two</div>
-        <div class="tier-price">$5<span class="f">K</span></div>
-        <div class="tier-mo">Per Month</div>
-        <div class="tier-line"></div>
-        <div class="tier-headline">Growth Engine</div>
-        <p class="tier-sub">Full acquisition system for operators doing $500K–$3M who are ready to scale with a complete, multi-channel revenue engine.</p>
-        <ul class="tier-list">
-          <li><div class="tl-dot"></div>Full market strategy &amp; positioning build</li>
-          <li><div class="tl-dot"></div>Multi-channel acquisition (Google + Meta)</li>
-          <li><div class="tl-dot"></div>2–3 landing pages built and tested</li>
-          <li><div class="tl-dot"></div>Full CRM buildout &amp; pipeline tracking</li>
-          <li><div class="tl-dot"></div>Advanced automation &amp; lead nurture sequences</li>
-          <li><div class="tl-dot"></div>Google Business Profile optimization</li>
-          <li><div class="tl-dot"></div>Cost-per-booked-job reporting</li>
-          <li><div class="tl-dot"></div>Bi-weekly strategy calls</li>
-          <li><div class="tl-dot"></div>Quarterly growth review</li>
-        </ul>
-        <div class="tier-cta-wrap">
-          <a href="/#form" class="tier-cta tier-cta-primary">Apply to Work With Us →</a>
-        </div>
-      </div>
-
-      <!-- TIER 3: SCALE -->
-      <div class="tier-card r d3">
-        <div class="tier-name">Tier Three</div>
-        <div class="tier-price">$8<span class="f">–</span>10<span class="f">K</span></div>
-        <div class="tier-mo">Per Month</div>
-        <div class="tier-line"></div>
-        <div class="tier-headline">Scale Engine</div>
-        <p class="tier-sub">Maximum engagement for operators doing $1M–$5M+ who need a full external growth department fully deployed across all channels.</p>
-        <ul class="tier-list">
-          <li><div class="tl-dot"></div>Everything in Growth Engine</li>
-          <li><div class="tl-dot"></div>Dedicated account lead — single point of contact</li>
-          <li><div class="tl-dot"></div>Expanded multi-market or multi-service campaigns</li>
-          <li><div class="tl-dot"></div>Full funnel architecture with A/B testing</li>
-          <li><div class="tl-dot"></div>Deep analytics dashboard &amp; custom reporting</li>
-          <li><div class="tl-dot"></div>Revenue forecasting &amp; pipeline projections</li>
-          <li><div class="tl-dot"></div>Weekly performance calls</li>
-          <li><div class="tl-dot"></div>Priority support &amp; same-day response</li>
-          <li><div class="tl-dot"></div>Annual growth strategy summit</li>
-        </ul>
-        <div class="tier-cta-wrap">
-          <a href="/#form" class="tier-cta tier-cta-ghost">Apply to Work With Us →</a>
-        </div>
-      </div>
-
     </div>
+
+    <!-- TIER 02 -->
+    <div class="tier-row r d1">
+      <div class="tier-n">02</div>
+      <div class="tier-body">
+        <div class="tier-meta">
+          <div class="tier-badge-wrap"><span class="tier-badge">Most Common</span></div>
+          <div class="tier-label">Tier Two</div>
+          <div class="tier-name">Growth Engine</div>
+          <div class="tier-price">$5<span class="acc">K</span></div>
+          <div class="tier-cadence">Per Month</div>
+          <p class="tier-desc">Full acquisition system for operators doing $500K–$3M who want to scale lead volume with a complete, multi-channel revenue engine — and stop babysitting the account themselves.</p>
+          <a href="/#form" class="btn-fire">Apply to Work With Us &rarr;</a>
+        </div>
+        <div class="tier-features">
+          <div class="tier-feat-lbl">What's Included</div>
+          <ul class="feat-list">
+            <li><div class="feat-dot"></div>Full market strategy &amp; positioning build</li>
+            <li><div class="feat-dot"></div>Multi-channel acquisition (Google + Meta)</li>
+            <li><div class="feat-dot"></div>2–3 landing pages built and tested</li>
+            <li><div class="feat-dot"></div>Full CRM buildout &amp; pipeline tracking</li>
+            <li><div class="feat-dot"></div>Advanced automation &amp; lead nurture sequences</li>
+            <li><div class="feat-dot"></div>Google Business Profile optimization</li>
+            <li><div class="feat-dot"></div>Cost-per-booked-job reporting</li>
+            <li><div class="feat-dot"></div>Bi-weekly strategy calls</li>
+            <li><div class="feat-dot"></div>Quarterly growth review</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIER 03 -->
+    <div class="tier-row r d2">
+      <div class="tier-n">03</div>
+      <div class="tier-body">
+        <div class="tier-meta">
+          <div class="tier-label">Tier Three</div>
+          <div class="tier-name">Scale Engine</div>
+          <div class="tier-price">$8<span class="acc">–</span>10<span class="acc">K</span></div>
+          <div class="tier-cadence">Per Month</div>
+          <p class="tier-desc">Maximum engagement for operators doing $1M–$5M+ who need a full external growth department — deployed across all channels, with a dedicated lead and weekly accountability.</p>
+          <a href="/#form" class="btn-outline">Apply to Work With Us &rarr;</a>
+        </div>
+        <div class="tier-features">
+          <div class="tier-feat-lbl">What's Included</div>
+          <ul class="feat-list">
+            <li><div class="feat-dot"></div>Everything in Growth Engine</li>
+            <li><div class="feat-dot"></div>Dedicated account lead — single point of contact</li>
+            <li><div class="feat-dot"></div>Expanded multi-market or multi-service campaigns</li>
+            <li><div class="feat-dot"></div>Full funnel architecture with A/B testing</li>
+            <li><div class="feat-dot"></div>Deep analytics dashboard &amp; custom reporting</li>
+            <li><div class="feat-dot"></div>Revenue forecasting &amp; pipeline projections</li>
+            <li><div class="feat-dot"></div>Weekly performance calls</li>
+            <li><div class="feat-dot"></div>Priority support &amp; same-day response</li>
+            <li><div class="feat-dot"></div>Annual growth strategy summit</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- ADD-ONS -->
+<!-- ═══════ ADD-ONS ═══════ -->
 <section class="addons">
   <div class="container">
     <div class="addons-head r">
-      <div class="stag" style="justify-content:flex-start;">Available Add-ons</div>
-      <h2>Additional Services</h2>
+      <div class="stag">Available Add-ons</div>
+      <h2 class="addons-h2 r d1">Additional<br>Services</h2>
     </div>
-    <div class="addons-grid">
-      <div class="addon-item r d1">
+    <div class="addons-rows">
+      <div class="addon-row r d1">
+        <div class="addon-n">A</div>
         <div class="addon-name">Website Build</div>
-        <p class="addon-desc">Custom conversion-optimized website for your trades business. Designed around your service area, your brand, and your acquisition goals. One-time project fee, separate from retainer.</p>
+        <p class="addon-desc">Custom conversion-optimized website for your trades business. Designed around your service area, your brand, and your acquisition goals. One-time project fee, billed separately from the retainer.</p>
       </div>
-      <div class="addon-item r d2">
+      <div class="addon-row r d2">
+        <div class="addon-n">B</div>
         <div class="addon-name">Reputation Management</div>
-        <p class="addon-desc">Automated review generation, Google Business optimization, and local presence management to build and protect your online reputation as inbound demand increases.</p>
+        <p class="addon-desc">Automated review generation, Google Business optimization, and local presence management. Builds and protects your online reputation as inbound demand increases.</p>
       </div>
-      <div class="addon-item r d3">
+      <div class="addon-row r d3">
+        <div class="addon-n">C</div>
         <div class="addon-name">Email &amp; SMS Nurture</div>
-        <p class="addon-desc">Full lead nurture system for longer-cycle trades — automated sequences that keep your business top of mind until prospects are ready to book.</p>
+        <p class="addon-desc">Full lead nurture system for longer-cycle trades. Automated sequences that keep your business top of mind until prospects are ready to book — without requiring manual follow-up.</p>
       </div>
-      <div class="addon-item r d4">
+      <div class="addon-row r d4">
+        <div class="addon-n">D</div>
         <div class="addon-name">Sales Process Optimization</div>
-        <p class="addon-desc">Audit and improve your close process. We identify where qualified leads drop off and build systems to increase conversion at every stage of the pipeline.</p>
+        <p class="addon-desc">Audit and improve your close process. We identify where qualified leads drop off and build systems to increase conversion at every stage of the pipeline — from first call to signed contract.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- NOTE -->
-<section class="note-section">
+<!-- ═══════ MEDIA SPEND NOTE ═══════ -->
+<section class="spend-note">
   <div class="container">
-    <div class="note-inner r">
-      <h3>A Note on Media Spend</h3>
-      <p>The retainer fees above cover strategy, campaign management, creative, funnel builds, automation, reporting, and all system operations. They do not include your advertising budget — the money that goes directly to Google and Meta to run your ads.</p>
-      <p>We'll recommend a media spend level in your Growth Plan session based on your market, your revenue goals, and the competitive landscape. Most clients at the Growth Engine tier invest $1,500–$4,000/month in media spend alongside the retainer.</p>
-      <p>The total investment — retainer plus media — is what generates the pipeline. We make sure every dollar is accountable.</p>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="cta-final">
-  <div class="container ctaf-inner">
-    <div class="stag cta-stag r">Ready When You Are</div>
-    <h2 class="cta-h2 r d1">Tired of Slow<br>Months? Let's<br><span class="fire">Fix That.</span></h2>
-    <p class="cta-sub r d2">We'll take a look at your market, show you what's possible, and tell you straight whether we can help. No obligation.</p>
-    <a href="/#form" class="btn-fire r d3">Get a Free Assessment <span>→</span></a>
-    <p class="cta-note r d4">$3,000/month to start — one client per trade, per market</p>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="foot-inner" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:48px;align-items:start;padding:48px 0 32px;">
-      <div style="grid-column:1/3;">
-        <div class="foot-logo" style="margin-bottom:16px;">OFFSITE<span>.</span>GROWTH</div>
-        <p style="font-size:13px;font-weight:300;color:var(--dim);line-height:1.8;max-width:300px;margin-bottom:24px;">Marketing partner for trades and construction businesses doing $500K–$5M+. We run your ads, track your leads, and get you more booked jobs every month.</p>
-      </div>
-      <div>
-        <div style="font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--fire);margin-bottom:20px;">Navigation</div>
-        <div class="foot-links" style="flex-direction:column;gap:12px;">
-          <a href="/#about">About</a>
-          <a href="/#engine">Services</a>
-          <a href="/#process">Process</a>
-          <a href="/pricing">Pricing</a>
-          <a href="/#results">Results</a>
-          <a href="/#faq">FAQ</a>
+    <div class="spend-inner r">
+      <div class="spend-n">&dollar;</div>
+      <div class="spend-content">
+        <h3 class="spend-h3">A Note on Media Spend</h3>
+        <div class="spend-body">
+          <p>The retainer fees above cover strategy, campaign management, creative, funnel builds, automation, reporting, and all system operations. They don't include your advertising budget — the money that goes directly to Google and Meta to run your ads.</p>
+          <p>We'll recommend a media spend level in your discovery call based on your market, your revenue goals, and the competitive landscape. Most clients at the Growth Engine tier invest $1,500–$4,000/month in media spend alongside the retainer.</p>
+          <p>The total investment — retainer plus media — is what generates the pipeline. We make sure every dollar is accountable.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FINAL CTA ═══════ -->
+<section class="cta-final">
+  <div class="cta-ghost">GROW</div>
+  <div class="container">
+    <div class="ctaf-inner">
+      <div class="stag ctaf-tag r">Ready When You Are</div>
+      <h2 class="ctaf-h2 r d1">Tired of Slow Months?<br>Let's <span class="acc">Fix That.</span></h2>
+      <p class="ctaf-sub r d2">We'll take a look at your market, show you what's possible, and tell you straight whether we can help. No obligation.</p>
+      <a href="/#form" class="btn-fire r d3">Get a Free Assessment &rarr;</a>
+      <p class="ctaf-note r d4">$3,000/month to start — one client per trade, per market</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
       <div>
-        <div style="font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--fire);margin-bottom:20px;">Get Started</div>
-        <p style="font-size:12px;font-weight:300;color:var(--dim);line-height:1.8;margin-bottom:16px;">One client per trade, per market.<br>Response within 1 business day.</p>
-        <a href="/#form" class="btn-fire" style="font-size:12px;padding:12px 24px;">Schedule a Call →</a>
+        <div class="foot-logo">
+          <span class="logo-mark">OG</span>
+          OFFSITE<span style="color:var(--fire);">.</span>GROWTH
+        </div>
+        <p class="foot-desc">Marketing partner for trades and construction businesses doing $500K–$5M+. We run your ads, track your leads, and get you more booked jobs every month.</p>
+      </div>
+      <div>
+        <div class="foot-col-lbl">Navigation</div>
+        <ul class="foot-links">
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#engine">Services</a></li>
+          <li><a href="/#process">Process</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-col-lbl">Contact</div>
+        <ul class="foot-links">
+          <li><a href="/#form">Apply</a></li>
+          <li><a href="/#form">Schedule a Call</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="foot-col-lbl">Get Started</div>
+        <p class="foot-cta-note">One client per trade, per market.<br>Response within 1 business day.</p>
+        <a href="/#form" class="btn-fire" style="font-size:12px;padding:12px 20px;">Schedule a Call &rarr;</a>
       </div>
     </div>
-    <div style="border-top:1px solid rgba(240,236,229,.06);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
-      <div class="foot-copy">© 2025 Offsite Growth. All rights reserved.</div>
-      <div class="foot-copy" style="font-style:italic;">offsite-growth.com</div>
+    <div class="foot-bottom">
+      <div class="foot-copy">&copy; 2025 Offsite Growth. All rights reserved.</div>
+      <div class="foot-copy" style="font-style:italic;">Reputation is earned. Growth is engineered.</div>
     </div>
   </div>
 </footer>
 
 <script>
+// Sticky header
 const hdr = document.getElementById('hdr');
 window.addEventListener('scroll', () => hdr.classList.toggle('stuck', scrollY > 50), {passive:true});
-const obs = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('on'); obs.unobserve(e.target);} }); }, {threshold:.07, rootMargin:'0px 0px -28px 0px'});
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+}, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
 document.querySelectorAll('.r').forEach(el => obs.observe(el));
 
-// Mobile nav toggle
+// Mobile nav
 const burg = document.getElementById('burg');
-const mobileNav = document.querySelector('nav');
-if (burg && mobileNav) {
+const nav = document.getElementById('nav');
+if (burg && nav) {
   burg.addEventListener('click', () => {
-    const isOpen = mobileNav.classList.contains('mob-open');
-    if (isOpen) {
-      mobileNav.classList.remove('mob-open');
-      mobileNav.removeAttribute('style');
+    const open = nav.classList.contains('mob-open');
+    nav.classList.toggle('mob-open', !open);
+    if (!open) {
+      Object.assign(nav.style, {
+        display:'flex', flexDirection:'column', position:'absolute',
+        top:'100%', left:'0', right:'0', gap:'22px',
+        background:'oklch(13% 0.010 80 / .98)', padding:'24px 40px 32px',
+        borderBottom:'1px solid oklch(93% 0.006 82 / .07)',
+        backdropFilter:'blur(16px)', zIndex:'999'
+      });
     } else {
-      mobileNav.classList.add('mob-open');
-      mobileNav.style.display = 'flex';
-      mobileNav.style.flexDirection = 'column';
-      mobileNav.style.position = 'absolute';
-      mobileNav.style.top = '100%';
-      mobileNav.style.left = '0';
-      mobileNav.style.right = '0';
-      mobileNav.style.background = 'rgba(12,12,12,0.98)';
-      mobileNav.style.padding = '24px 40px 32px';
-      mobileNav.style.gap = '22px';
-      mobileNav.style.borderBottom = '1px solid rgba(240,236,229,0.08)';
-      mobileNav.style.backdropFilter = 'blur(16px)';
-      mobileNav.style.zIndex = '999';
+      nav.removeAttribute('style');
     }
   });
-  mobileNav.querySelectorAll('a').forEach(a => {
+  nav.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
-      mobileNav.classList.remove('mob-open');
-      mobileNav.removeAttribute('style');
+      nav.classList.remove('mob-open');
+      nav.removeAttribute('style');
     });
   });
 }
-
-// Mobile sticky CTA
-const stickyCta = document.createElement('div');
-stickyCta.innerHTML = '<a href="/#form">Schedule a Call →</a>';
-stickyCta.style.cssText = 'display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;padding:14px 24px 24px;background:linear-gradient(to top,rgba(12,12,12,1) 60%,transparent);';
-stickyCta.querySelector('a').style.cssText = 'display:block;text-align:center;background:var(--fire);color:#fff;font-family:var(--ff-d);font-size:14px;letter-spacing:.1em;text-transform:uppercase;padding:16px;border-radius:2px;';
-document.body.appendChild(stickyCta);
-const showSticky = () => {
-  const isMobile = window.innerWidth <= 768;
-  const pastHero = window.scrollY > window.innerHeight * 0.6;
-  stickyCta.style.display = (isMobile && pastHero) ? 'block' : 'none';
-};
-window.addEventListener('scroll', showSticky, { passive: true });
-window.addEventListener('resize', showSticky);
 </script>
 </body>
 </html>
