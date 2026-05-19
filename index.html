@@ -31,7 +31,7 @@ html { scroll-behavior: smooth; }
   --on-dark:      oklch(93% 0.006 82);
   --on-dark-dim:  oklch(58% 0.007 82);
   --on-light:     oklch(13% 0.010 80);
-  --on-light-dim: oklch(42% 0.008 82);
+  --on-light-dim: oklch(38% 0.008 82);
   --ff-d: 'Barlow Semi Condensed', sans-serif;
   --ff-b: 'Barlow', sans-serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -110,7 +110,7 @@ a { text-decoration: none; color: inherit; }
 header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   padding: 24px 0;
-  transition: padding .35s var(--ease), background .35s, border-color .35s;
+  transition: background .35s var(--ease), border-color .35s;
   border-bottom: 1px solid transparent;
   background: transparent;
 }
@@ -141,8 +141,10 @@ nav a {
   color: var(--on-light-dim); transition: color .2s;
 }
 header.stuck nav a { color: var(--on-dark-dim); }
-nav a:hover, nav a.active { color: var(--on-light); }
-header.stuck nav a:hover, header.stuck nav a.active { color: var(--on-dark); }
+nav a:hover { color: var(--on-light); }
+header.stuck nav a:hover { color: var(--on-dark); }
+nav a.active { color: var(--fire); }
+header.stuck nav a.active { color: var(--fire); }
 .hdr-cta {
   font-family: var(--ff-d); font-size: 11px; font-weight: 700;
   letter-spacing: .16em; text-transform: uppercase;
@@ -557,10 +559,16 @@ details:not([open]) .faq-ans-in { display: none; }
   letter-spacing: .1em; text-transform: uppercase;
   padding: 10px 14px; background: transparent; border: none;
   color: var(--on-dark-dim); cursor: pointer; transition: all .2s var(--ease);
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
 }
 .ftab:hover { color: var(--on-dark); }
 .ftab-active { background: var(--fire) !important; color: oklch(97% 0.008 82) !important; }
+.ftab-active .ftab-sub { opacity: .7; }
 .ftab-panel-hidden { display: none; }
+.ftab-sub {
+  display: block; font-family: var(--ff-b); font-size: 9px; font-weight: 400;
+  letter-spacing: .05em; text-transform: none; opacity: .5; margin-top: 2px;
+}
 
 /* HubSpot form overrides */
 .hs-form fieldset { max-width: 100% !important; }
@@ -675,7 +683,6 @@ footer {
   .hero-eyebrow { margin-bottom: 16px; }
   .hero-h1 { margin-bottom: 20px; }
   .hero-sub { font-size: 14px; line-height: 1.65; margin-bottom: 20px; }
-  .hero-stats { display: none; }
   .hero-actions { margin-top: auto; padding-bottom: 28px; flex-direction: column; }
   .hero-actions a { justify-content: center; }
   .hero-actions .btn-outline { display: none; }
@@ -691,9 +698,6 @@ footer {
   .cta-final { padding: 80px 0; }
 }
 @media (max-width: 480px) {
-  .hero-stats { grid-template-columns: 1fr; }
-  .hstat { border-right: none !important; padding-left: 0 !important; }
-  .hstat:not(:first-child) { border-top: 1px solid oklch(13% 0.01 80 / .1); }
   .prob-row, .eng-row, .pstep { grid-template-columns: 44px 1fr; }
   .prob-n, .eng-n, .pn { font-size: 32px; }
 }
@@ -735,20 +739,6 @@ footer {
       <a href="#form" class="btn-fire">Schedule a Call &rarr;</a>
       <a href="#engine" class="btn-outline">How It Works &rarr;</a>
     </div>
-    <div class="hero-stats">
-      <div class="hstat">
-        <div class="hstat-val" data-target="1" data-prefix="$" data-suffix="M+">$1M<span class="acc">+</span></div>
-        <div class="hstat-lbl">Typical Client Revenue</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-val" data-target="30" data-suffix="d">30<span class="acc">d</span></div>
-        <div class="hstat-lbl">To First Leads</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-val">1</div>
-        <div class="hstat-lbl">Client Per Market</div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -757,20 +747,12 @@ footer {
   <div class="ticker-track">
     <div class="ticker-item">More Booked Jobs</div>
     <div class="ticker-item">Fewer Missed Calls</div>
-    <div class="ticker-item">Steady Work Year-Round</div>
-    <div class="ticker-item">No More Guesswork</div>
     <div class="ticker-item">Less Chasing. More Closing.</div>
     <div class="ticker-item">Built for the Trades</div>
-    <div class="ticker-item">Every Lead Tracked</div>
-    <div class="ticker-item">Keep Your Crew Busy</div>
     <div class="ticker-item">More Booked Jobs</div>
     <div class="ticker-item">Fewer Missed Calls</div>
-    <div class="ticker-item">Steady Work Year-Round</div>
-    <div class="ticker-item">No More Guesswork</div>
     <div class="ticker-item">Less Chasing. More Closing.</div>
     <div class="ticker-item">Built for the Trades</div>
-    <div class="ticker-item">Every Lead Tracked</div>
-    <div class="ticker-item">Keep Your Crew Busy</div>
   </div>
 </div>
 
@@ -779,7 +761,6 @@ footer {
   <div class="container">
     <div class="about-inner">
       <div>
-        <div class="stag r" style="color:var(--fire);">01 — Who We Are</div>
         <h2 class="about-h2 r d1">We Handle Your Marketing.<br><span class="acc">You Run Your Business.</span></h2>
         <div class="about-copy r d2">
           <p><strong>Offsite Growth is not a freelancer, a lead broker, or a generalist agency.</strong> We partner with established trades businesses to build and manage the systems that generate qualified calls and booked jobs.</p>
@@ -827,7 +808,6 @@ footer {
 <section class="problem" id="problem">
   <div class="container">
     <div class="prob-head">
-      <div class="stag r">02 — The Problem</div>
       <h2 class="prob-h2 r d1">Why Good<br>Businesses Stay Stuck</h2>
     </div>
     <div class="prob-row r d1">
@@ -852,7 +832,6 @@ footer {
 <section class="engine" id="engine">
   <div class="container">
     <div class="engine-head r">
-      <div class="stag" style="color:var(--fire);">03 — What We Do</div>
       <h2 class="engine-h2">Four Things.<br><em>Done Right.</em></h2>
     </div>
     <div class="eng-row r d1">
@@ -918,7 +897,6 @@ footer {
   <div class="container">
     <div class="who-inner">
       <div>
-        <div class="stag r">04 — Is This For You?</div>
         <h2 class="who-h2 r d1">We Work Best With<br>Established<br>Trade Businesses</h2>
         <div class="r d2">
           <div class="fit-lbl">A good fit if you&hellip;</div>
@@ -1008,7 +986,6 @@ footer {
   <div class="container">
     <div class="proc-inner">
       <div>
-        <div class="stag r">05 — How We Start</div>
         <h2 class="proc-h2 r d1">Up &amp;<br>Running<br>in 90<br>Days.</h2>
         <p class="proc-note r d2">We don't drag it out. Here's exactly what happens after you reach out.</p>
       </div>
@@ -1063,7 +1040,6 @@ footer {
   <div class="container">
     <div class="faq-inner">
       <div>
-        <div class="stag r" style="color:var(--fire);">06 — Questions</div>
         <h2 class="faq-h2 r d1">Straight<br>Answers</h2>
         <p class="faq-note r d2">No runaround. No vague promises. If we're a fit, you'll know it in the first call.</p>
       </div>
@@ -1114,10 +1090,10 @@ footer {
       </div>
       <div class="book-form r d2">
         <div class="form-tabs">
-          <button class="ftab ftab-active" data-tab="apply">Apply by Form</button>
-          <button class="ftab" data-tab="schedule">Schedule a Call</button>
+          <button class="ftab" data-tab="apply">Apply by Form<span class="ftab-sub">Not ready to talk yet</span></button>
+          <button class="ftab ftab-active" data-tab="schedule">Schedule a Call<span class="ftab-sub">20 min, no pitch</span></button>
         </div>
-        <div class="ftab-panel" id="tab-apply">
+        <div class="ftab-panel ftab-panel-hidden" id="tab-apply">
           <div id="hs-form-container"></div>
           <script>
             (function() {
@@ -1136,7 +1112,7 @@ footer {
             })();
           </script>
         </div>
-        <div class="ftab-panel ftab-panel-hidden" id="tab-schedule">
+        <div class="ftab-panel" id="tab-schedule">
           <p style="font-size:13px;font-weight:300;color:var(--on-dark-dim);margin-bottom:20px;line-height:1.7;">Pick a time below. We'll spend 20–30 minutes learning about your business, look at your local market together, and be straight with you about whether we think we can help.</p>
           <div class="calendly-inline-widget"
                data-url="https://calendly.com/peter-offsite-growth/30min"
@@ -1197,8 +1173,8 @@ footer {
       </div>
     </div>
     <div class="foot-bottom">
-      <div class="foot-copy">&copy; 2025 Offsite Growth. All rights reserved.</div>
-      <div class="foot-copy" style="font-style:italic;">Reputation is earned. Growth is engineered.</div>
+      <div class="foot-copy">&copy; 2026 Offsite Growth. All rights reserved.</div>
+      <div class="foot-copy" style="font-style:italic;color:oklch(93% 0.006 82 / .4);">Reputation is earned. Growth is engineered.</div>
     </div>
   </div>
 </footer>
@@ -1292,23 +1268,6 @@ window.addEventListener('scroll', toggleSticky, {passive:true});
 window.addEventListener('resize', toggleSticky);
 
 // Count-up
-document.querySelectorAll('.hstat-val[data-target]').forEach(el => {
-  new IntersectionObserver(([entry], obs) => {
-    if (!entry.isIntersecting) return;
-    obs.disconnect();
-    const target = +el.dataset.target;
-    const prefix = el.dataset.prefix || '';
-    const suffix = el.dataset.suffix || '';
-    const start = performance.now();
-    const tick = now => {
-      const p = Math.min((now - start) / 1200, 1);
-      const ease = 1 - Math.pow(1 - p, 3);
-      el.innerHTML = `${prefix}${Math.round(ease * target)}<span class="acc">${suffix}</span>`;
-      if (p < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  }, {threshold: 0.5}).observe(el);
-});
 </script>
 </body>
 </html>
