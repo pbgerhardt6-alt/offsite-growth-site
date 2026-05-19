@@ -76,6 +76,7 @@ a { text-decoration: none; color: inherit; }
   background: var(--fire-2); border-color: var(--fire-2);
   transform: translateY(-2px); box-shadow: 0 8px 28px oklch(58% 0.19 43 / .28);
 }
+.btn-fire:active { transform: scale(0.97); box-shadow: none; }
 .btn-outline {
   font-family: var(--ff-d); font-size: 13px; font-weight: 700;
   letter-spacing: .16em; text-transform: uppercase;
@@ -85,6 +86,7 @@ a { text-decoration: none; color: inherit; }
   transition: border-color .22s, background .22s;
 }
 .btn-outline:hover { border-color: oklch(13% 0.01 80 / .45); background: oklch(13% 0.01 80 / .04); }
+.btn-outline:active { transform: scale(0.97); }
 .btn-dark {
   font-family: var(--ff-d); font-size: 13px; font-weight: 700;
   letter-spacing: .16em; text-transform: uppercase;
@@ -94,6 +96,7 @@ a { text-decoration: none; color: inherit; }
   transition: background .22s;
 }
 .btn-dark:hover { background: oklch(10% 0.010 80); border-color: oklch(10% 0.010 80); }
+.btn-dark:active { transform: scale(0.97); }
 .btn-outline-light {
   font-family: var(--ff-d); font-size: 13px; font-weight: 700;
   letter-spacing: .16em; text-transform: uppercase;
@@ -103,6 +106,7 @@ a { text-decoration: none; color: inherit; }
   transition: border-color .22s, background .22s;
 }
 .btn-outline-light:hover { border-color: oklch(93% 0.006 82 / .5); background: oklch(93% 0.006 82 / .06); }
+.btn-outline-light:active { transform: scale(0.97); }
 
 /* ═══════════════════════════════════════════
    HEADER
@@ -152,6 +156,7 @@ header.stuck nav a.active { color: var(--fire); }
   color: oklch(97% 0.008 82); transition: background .2s;
 }
 .hdr-cta:hover { background: var(--fire-2); }
+.hdr-cta:active { transform: scale(0.97); }
 .burger {
   display: none; flex-direction: column; gap: 5px;
   cursor: pointer; border: none; background: none; padding: 4px;
@@ -183,7 +188,7 @@ header.stuck .burger span { background: var(--on-dark); }
   font-size: clamp(76px, 11vw, 152px);
   font-weight: 700; line-height: .91; letter-spacing: .01em; text-transform: uppercase;
   color: var(--on-light); margin-bottom: 36px;
-  opacity: 0; animation: up .9s .2s var(--ease) forwards;
+  opacity: 0; animation: up-heavy 1s .2s var(--ease) forwards;
 }
 .hero-h1 .acc { color: var(--fire); }
 .hero-sub {
@@ -216,6 +221,8 @@ header.stuck .burger span { background: var(--on-dark); }
 }
 
 @keyframes up { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:none; } }
+@keyframes up-heavy { from { opacity:0; transform:translateY(44px); } to { opacity:1; transform:none; } }
+@keyframes fadeTab { from { opacity:0; } to { opacity:1; } }
 
 /* ── TICKER ── */
 .ticker {
@@ -516,8 +523,9 @@ header.stuck .burger span { background: var(--on-dark); }
   transition: all .3s var(--ease); color: var(--on-dark-dim);
 }
 details[open] .faq-ico { background: var(--fire); border-color: var(--fire); color: oklch(97% 0.008 82); transform: rotate(180deg); }
-.faq-ans-in { padding: 0 0 24px; font-size: 14px; font-weight: 300; color: var(--on-dark-dim); line-height: 1.85; max-width: 520px; }
-details:not([open]) .faq-ans-in { display: none; }
+.faq-ans-wrap { display: grid; grid-template-rows: 0fr; overflow: hidden; transition: grid-template-rows .32s var(--ease); }
+details[open] .faq-ans-wrap { grid-template-rows: 1fr; }
+.faq-ans-in { min-height: 0; padding: 0 0 24px; font-size: 14px; font-weight: 300; color: var(--on-dark-dim); line-height: 1.85; max-width: 520px; }
 
 /* ═══════════════════════════════════════════
    BOOK — Light
@@ -564,6 +572,7 @@ details:not([open]) .faq-ans-in { display: none; }
 .ftab:hover { color: var(--on-dark); }
 .ftab-active { background: var(--fire) !important; color: oklch(97% 0.008 82) !important; }
 .ftab-active .ftab-sub { opacity: .7; }
+.ftab-panel { animation: fadeTab .22s var(--ease); }
 .ftab-panel-hidden { display: none; }
 .ftab-sub {
   display: block; font-family: var(--ff-b); font-size: 9px; font-weight: 400;
@@ -700,6 +709,38 @@ footer {
 @media (max-width: 480px) {
   .prob-row, .eng-row, .pstep { grid-template-columns: 44px 1fr; }
   .prob-n, .eng-n, .pn { font-size: 32px; }
+}
+
+/* ── MOBILE STICKY CTA ── */
+.sticky-cta {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
+  padding: 14px 24px 24px;
+  background: linear-gradient(to top, oklch(13% 0.010 80) 60%, transparent);
+  transform: translateY(100%);
+  transition: transform .35s var(--ease);
+  pointer-events: none;
+  display: none;
+}
+.sticky-cta.visible { transform: translateY(0); pointer-events: auto; }
+@media (max-width: 768px) { .sticky-cta { display: block; } }
+.sticky-cta a {
+  display: block; text-align: center; background: var(--fire);
+  color: oklch(97% 0.008 82); font-family: var(--ff-d); font-size: 13px;
+  letter-spacing: .14em; text-transform: uppercase; padding: 15px;
+  transition: background .2s;
+}
+.sticky-cta a:active { transform: scale(0.98); }
+
+/* ── REDUCED MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .r { opacity: 1; transform: none; }
+  .hero-eyebrow, .hero-h1, .hero-sub, .hero-actions { opacity: 1; animation: none; }
+  .ticker-track { animation: none; }
 }
 </style>
 </head>
@@ -1046,23 +1087,23 @@ footer {
       <div class="faq-list r d2">
         <details class="faq-row">
           <summary class="faq-btn">What exactly do you do?<span class="faq-ico"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
-          <div class="faq-ans-in">We manage your paid search campaigns on Google and Local Services Ads, build or optimize the landing pages your leads land on, track and manage every inquiry, and maintain your Google Business profile. Each month we review performance, make improvements, and send you a clear report showing what your marketing is producing.</div>
+          <div class="faq-ans-wrap"><div class="faq-ans-in">We manage your paid search campaigns on Google and Local Services Ads, build or optimize the landing pages your leads land on, track and manage every inquiry, and maintain your Google Business profile. Each month we review performance, make improvements, and send you a clear report showing what your marketing is producing.</div></div>
         </details>
         <details class="faq-row">
           <summary class="faq-btn">Do I have to sign a long contract?<span class="faq-ico"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
-          <div class="faq-ans-in">We require a 3-month minimum to allow campaigns time to build momentum and optimize. After that, it's month-to-month. We don't lock clients in — we retain them by producing value, not by contracts.</div>
+          <div class="faq-ans-wrap"><div class="faq-ans-in">We require a 3-month minimum to allow campaigns time to build momentum and optimize. After that, it's month-to-month. We don't lock clients in — we retain them by producing value, not by contracts.</div></div>
         </details>
         <details class="faq-row">
           <summary class="faq-btn">How will I know if it's working?<span class="faq-ico"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
-          <div class="faq-ans-in">Every month you'll get a simple, plain-English report showing: total calls and leads, which turned into booked jobs, and the cost per job. No confusing dashboards — just the numbers that matter to your business.</div>
+          <div class="faq-ans-wrap"><div class="faq-ans-in">Every month you'll get a simple, plain-English report showing: total calls and leads, which turned into booked jobs, and the cost per job. No confusing dashboards — just the numbers that matter to your business.</div></div>
         </details>
         <details class="faq-row">
           <summary class="faq-btn">What does it cost?<span class="faq-ico"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
-          <div class="faq-ans-in">Management starts at $3,000/month depending on scope and market. Ad spend goes directly to the platforms and is separate from our fee. We'll give you an exact quote after our first call.</div>
+          <div class="faq-ans-wrap"><div class="faq-ans-in">Management starts at $3,000/month depending on scope and market. Ad spend goes directly to the platforms and is separate from our fee. We'll give you an exact quote after our first call.</div></div>
         </details>
         <details class="faq-row">
           <summary class="faq-btn">How soon will I start getting calls?<span class="faq-ico"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
-          <div class="faq-ans-in">Once your campaigns and tracking are live, you'll start seeing inquiries come in. It typically takes 60–90 days to fully optimize targeting and see more predictable results. We set expectations upfront so you know what the timeline looks like.</div>
+          <div class="faq-ans-wrap"><div class="faq-ans-in">Once your campaigns and tracking are live, you'll start seeing inquiries come in. It typically takes 60–90 days to fully optimize targeting and see more predictable results. We set expectations upfront so you know what the timeline looks like.</div></div>
         </details>
       </div>
     </div>
@@ -1245,24 +1286,14 @@ if (burg && nav) {
 
 // Mobile sticky CTA
 const stickyCta = document.createElement('div');
+stickyCta.className = 'sticky-cta';
 stickyCta.innerHTML = '<a href="#form">Schedule a Call &rarr;</a>';
-Object.assign(stickyCta.style, {
-  display:'none', position:'fixed', bottom:'0', left:'0', right:'0', zIndex:'300',
-  padding:'14px 24px 24px',
-  background:'linear-gradient(to top, oklch(13% 0.010 80) 60%, transparent)'
-});
-Object.assign(stickyCta.querySelector('a').style, {
-  display:'block', textAlign:'center', background:'var(--fire)',
-  color:'oklch(97% 0.008 82)', fontFamily:'var(--ff-d)', fontSize:'13px',
-  letterSpacing:'.14em', textTransform:'uppercase', padding:'15px'
-});
 document.body.appendChild(stickyCta);
 const formEl = document.getElementById('form');
 const toggleSticky = () => {
-  const mobile = window.innerWidth <= 768;
   const pastHero = window.scrollY > window.innerHeight * 0.6;
   const nearForm = formEl && window.scrollY + window.innerHeight > formEl.offsetTop - 100;
-  stickyCta.style.display = (mobile && pastHero && !nearForm) ? 'block' : 'none';
+  stickyCta.classList.toggle('visible', pastHero && !nearForm);
 };
 window.addEventListener('scroll', toggleSticky, {passive:true});
 window.addEventListener('resize', toggleSticky);
