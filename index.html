@@ -21,6 +21,16 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
+/* ── SKIP LINK ── */
+.skip-link {
+  position: absolute; top: -100%; left: 0; z-index: 9999;
+  background: var(--fire); color: oklch(97% 0.008 82);
+  font-family: var(--ff-d); font-size: 13px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  padding: 14px 24px; transition: top .15s;
+}
+.skip-link:focus { top: 0; }
+
 :root {
   --paper:    oklch(97% 0.008 82);
   --paper-2:  oklch(93% 0.009 82);
@@ -69,7 +79,7 @@ a { text-decoration: none; color: inherit; }
   letter-spacing: .16em; text-transform: uppercase;
   display: inline-flex; align-items: center; gap: 10px;
   padding: 16px 32px; background: var(--fire);
-  color: oklch(97% 0.008 82); border: 2px solid var(--fire);
+  color: var(--paper); border: 2px solid var(--fire);
   transition: background .22s var(--ease), transform .22s var(--ease), box-shadow .22s var(--ease);
 }
 .btn-fire:hover {
@@ -107,6 +117,7 @@ a { text-decoration: none; color: inherit; }
 }
 .btn-outline-light:hover { border-color: oklch(93% 0.006 82 / .5); background: oklch(93% 0.006 82 / .06); }
 .btn-outline-light:active { transform: scale(0.97); }
+.btn-fire--sm { font-size: 12px; padding: 12px 20px; }
 
 /* ═══════════════════════════════════════════
    HEADER
@@ -135,7 +146,7 @@ header.stuck .logo { color: var(--on-dark); }
 .logo-mark {
   width: 26px; height: 26px; background: var(--fire);
   display: inline-flex; align-items: center; justify-content: center;
-  font-size: 10px; font-weight: 700; color: oklch(97% 0.008 82);
+  font-size: 10px; font-weight: 700; color: var(--paper);
   letter-spacing: .04em; flex-shrink: 0;
 }
 nav { display: flex; align-items: center; gap: 32px; }
@@ -143,6 +154,7 @@ nav a {
   font-family: var(--ff-d); font-size: 11px; font-weight: 600;
   letter-spacing: .2em; text-transform: uppercase;
   color: var(--on-light-dim); transition: color .2s;
+  padding: 8px 0;
 }
 header.stuck nav a { color: var(--on-dark-dim); }
 nav a:hover { color: var(--on-light); }
@@ -152,14 +164,14 @@ header.stuck nav a.active { color: var(--fire); }
 .hdr-cta {
   font-family: var(--ff-d); font-size: 11px; font-weight: 700;
   letter-spacing: .16em; text-transform: uppercase;
-  padding: 9px 20px; background: var(--fire);
-  color: oklch(97% 0.008 82); transition: background .2s;
+  padding: 12px 20px; background: var(--fire);
+  color: var(--paper); transition: background .2s;
 }
 .hdr-cta:hover { background: var(--fire-2); }
 .hdr-cta:active { transform: scale(0.97); }
 .burger {
   display: none; flex-direction: column; gap: 5px;
-  cursor: pointer; border: none; background: none; padding: 4px;
+  cursor: pointer; border: none; background: none; padding: 10px;
 }
 .burger span {
   width: 22px; height: 1.5px; display: block;
@@ -201,24 +213,6 @@ header.stuck .burger span { background: var(--on-dark); }
   opacity: 0; animation: up .9s .44s var(--ease) forwards;
 }
 
-.hero-stats {
-  margin-top: auto;
-  border-top: 1px solid oklch(13% 0.01 80 / .1);
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  opacity: 0; animation: up .9s .6s var(--ease) forwards;
-}
-.hstat { padding: 28px 0; }
-.hstat:not(:last-child) { border-right: 1px solid oklch(13% 0.01 80 / .1); padding-right: 32px; }
-.hstat:not(:first-child) { padding-left: 32px; }
-.hstat-val {
-  font-family: var(--ff-d); font-size: 44px; font-weight: 700; line-height: 1;
-  color: var(--on-light); letter-spacing: -.01em; margin-bottom: 4px;
-}
-.hstat-val .acc { color: var(--fire); }
-.hstat-lbl {
-  font-family: var(--ff-d); font-size: 11px; font-weight: 500;
-  letter-spacing: .16em; text-transform: uppercase; color: var(--on-light-dim);
-}
 
 @keyframes up { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:none; } }
 @keyframes up-heavy { from { opacity:0; transform:translateY(44px); } to { opacity:1; transform:none; } }
@@ -233,7 +227,7 @@ header.stuck .burger span { background: var(--on-dark); }
 .ticker-item {
   font-family: var(--ff-d); font-size: 13px; font-weight: 600;
   letter-spacing: .16em; text-transform: uppercase;
-  color: oklch(97% 0.008 82); padding: 0 36px;
+  color: var(--paper); padding: 0 36px;
   display: flex; align-items: center; gap: 16px;
 }
 .ticker-item::after { content: '·'; color: oklch(97% 0.008 82 / .4); }
@@ -261,9 +255,8 @@ header.stuck .burger span { background: var(--on-dark); }
   padding: 24px 0; border-top: 1px solid oklch(93% 0.006 82 / .07);
 }
 .pillars li:last-child { border-bottom: 1px solid oklch(93% 0.006 82 / .07); }
-.pillar-n {
-  font-family: var(--ff-d); font-size: 22px; font-weight: 700;
-  color: var(--fire); line-height: 1; padding-top: 2px;
+.pillar-ico {
+  width: 28px; height: 28px; color: var(--fire); flex-shrink: 0; padding-top: 2px;
 }
 .pillar-title {
   font-family: var(--ff-d); font-size: 17px; font-weight: 600;
@@ -319,11 +312,10 @@ header.stuck .burger span { background: var(--on-dark); }
 }
 .eng-row:last-child { border-bottom: 1px solid oklch(93% 0.006 82 / .07); }
 .eng-row:hover { border-top-color: oklch(58% 0.19 43 / .35); }
-.eng-n {
-  font-family: var(--ff-d); font-size: 44px; font-weight: 700;
-  color: oklch(93% 0.006 82 / .07); line-height: 1; transition: color .25s;
+.eng-ico {
+  width: 36px; height: 36px; color: oklch(93% 0.006 82 / .18); transition: color .25s; flex-shrink: 0;
 }
-.eng-row:hover .eng-n { color: oklch(58% 0.19 43 / .22); }
+.eng-row:hover .eng-ico { color: oklch(58% 0.19 43 / .4); }
 .eng-meta {}
 .eng-label {
   font-family: var(--ff-d); font-size: 10px; font-weight: 600;
@@ -409,7 +401,7 @@ header.stuck .burger span { background: var(--on-dark); }
   font-family: var(--ff-d); font-size: 10px; font-weight: 600;
   letter-spacing: .16em; text-transform: uppercase; color: var(--on-light-dim); margin-top: 4px;
 }
-.wm-sub { font-size: 11px; font-weight: 300; color: oklch(13% 0.01 80 / .35); margin-top: 3px; }
+.wm-sub { font-size: 11px; font-weight: 300; color: var(--on-light-dim); margin-top: 3px; }
 
 /* ═══════════════════════════════════════════
    EXCLUSIVE — Orange
@@ -482,12 +474,12 @@ header.stuck .burger span { background: var(--on-dark); }
 .plat-inner { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
 .plat-lbl {
   font-family: var(--ff-d); font-size: 9px; font-weight: 600;
-  letter-spacing: .22em; text-transform: uppercase; color: oklch(42% 0.008 82 / .5); white-space: nowrap;
+  letter-spacing: .22em; text-transform: uppercase; color: oklch(45% 0.008 82); white-space: nowrap;
 }
 .plat-items { display: flex; gap: 40px; flex-wrap: wrap; align-items: center; }
 .plat-item {
   font-family: var(--ff-d); font-size: 13px; font-weight: 600;
-  letter-spacing: .1em; text-transform: uppercase; color: oklch(42% 0.008 82 / .4);
+  letter-spacing: .1em; text-transform: uppercase; color: oklch(48% 0.008 82);
   transition: color .2s;
 }
 .plat-item:hover { color: var(--on-light-dim); }
@@ -522,7 +514,7 @@ header.stuck .burger span { background: var(--on-dark); }
   display: flex; align-items: center; justify-content: center;
   transition: all .3s var(--ease); color: var(--on-dark-dim);
 }
-details[open] .faq-ico { background: var(--fire); border-color: var(--fire); color: oklch(97% 0.008 82); transform: rotate(180deg); }
+details[open] .faq-ico { background: var(--fire); border-color: var(--fire); color: var(--paper); transform: rotate(180deg); }
 .faq-ans-wrap { display: grid; grid-template-rows: 0fr; overflow: hidden; transition: grid-template-rows .32s var(--ease); }
 details[open] .faq-ans-wrap { grid-template-rows: 1fr; }
 .faq-ans-in { min-height: 0; padding: 0 0 24px; font-size: 14px; font-weight: 300; color: var(--on-dark-dim); line-height: 1.85; max-width: 520px; }
@@ -565,9 +557,9 @@ details[open] .faq-ans-wrap { grid-template-rows: 1fr; }
 .ftab {
   flex: 1; font-family: var(--ff-d); font-size: 12px; font-weight: 600;
   letter-spacing: .1em; text-transform: uppercase;
-  padding: 10px 14px; background: transparent; border: none;
+  padding: 12px 14px; min-height: 44px; background: transparent; border: none;
   color: var(--on-dark-dim); cursor: pointer; transition: all .2s var(--ease);
-  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
 }
 .ftab:hover { color: var(--on-dark); }
 .ftab-active { background: var(--fire) !important; color: oklch(97% 0.008 82) !important; }
@@ -637,7 +629,7 @@ details[open] .faq-ans-wrap { grid-template-rows: 1fr; }
 .ctaf-note {
   font-family: var(--ff-d); font-size: 11px; font-weight: 500;
   letter-spacing: .14em; text-transform: uppercase;
-  color: oklch(93% 0.006 82 / .25); margin-top: 16px;
+  color: oklch(93% 0.006 82 / .55); margin-top: 16px;
 }
 
 /* ═══════════════════════════════════════════
@@ -666,7 +658,7 @@ footer {
 .foot-links { list-style: none; display: flex; flex-direction: column; gap: 11px; }
 .foot-links a {
   font-family: var(--ff-d); font-size: 11px; font-weight: 500;
-  letter-spacing: .16em; text-transform: uppercase; color: oklch(93% 0.006 82 / .25);
+  letter-spacing: .16em; text-transform: uppercase; color: oklch(93% 0.006 82 / .55);
   transition: color .2s;
 }
 .foot-links a:hover { color: var(--on-dark-dim); }
@@ -674,7 +666,8 @@ footer {
 .foot-bottom {
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
 }
-.foot-copy { font-size: 11px; color: oklch(93% 0.006 82 / .2); }
+.foot-copy { font-size: 11px; color: oklch(93% 0.006 82 / .45); }
+.foot-tagline { font-size: 11px; font-style: italic; color: oklch(93% 0.006 82 / .4); }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
@@ -708,7 +701,7 @@ footer {
 }
 @media (max-width: 480px) {
   .prob-row, .eng-row, .pstep { grid-template-columns: 44px 1fr; }
-  .prob-n, .eng-n, .pn { font-size: 32px; }
+  .prob-n, .pn { font-size: 32px; }
 }
 
 /* ── MOBILE STICKY CTA ── */
@@ -725,11 +718,18 @@ footer {
 @media (max-width: 768px) { .sticky-cta { display: block; } }
 .sticky-cta a {
   display: block; text-align: center; background: var(--fire);
-  color: oklch(97% 0.008 82); font-family: var(--ff-d); font-size: 13px;
+  color: var(--paper); font-family: var(--ff-d); font-size: 13px;
   letter-spacing: .14em; text-transform: uppercase; padding: 15px;
   transition: background .2s;
 }
 .sticky-cta a:active { transform: scale(0.98); }
+
+/* ── FOCUS ── */
+:focus-visible { outline: 2px solid var(--fire); outline-offset: 3px; }
+.about :focus-visible, .engine :focus-visible, .faq :focus-visible,
+.book-form :focus-visible, .cta-final :focus-visible { outline-color: var(--on-dark); }
+.exclusive :focus-visible { outline-color: var(--ink); }
+.btn-fire:focus-visible, .hdr-cta:focus-visible { outline-color: var(--ink); }
 
 /* ── REDUCED MOTION ── */
 @media (prefers-reduced-motion: reduce) {
@@ -745,6 +745,7 @@ footer {
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to content</a>
 
 <!-- ─── HEADER ─── -->
 <header id="hdr">
@@ -754,7 +755,7 @@ footer {
         <span class="logo-mark">OG</span>
         OFFSITE<span style="color:var(--fire);">.</span>GROWTH
       </a>
-      <nav id="nav">
+      <nav id="nav" aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#engine">Services</a>
         <a href="#process">Process</a>
@@ -762,11 +763,13 @@ footer {
       </nav>
       <div style="display:flex;align-items:center;gap:16px;">
         <a href="#form" class="hdr-cta">Get Started</a>
-        <button class="burger" id="burg" aria-label="Open menu"><span></span><span></span><span></span></button>
+        <button class="burger" id="burg" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </div>
 </header>
+
+<main id="main-content">
 
 <!-- ═══════ HERO ═══════ -->
 <section class="hero" id="top">
@@ -812,28 +815,28 @@ footer {
       <div class="r d2">
         <ul class="pillars">
           <li class="pillar">
-            <span class="pillar-n">01</span>
+            <span class="pillar-ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
             <div>
               <div class="pillar-title">We Track Booked Jobs — Not Just Clicks</div>
               <div class="pillar-body">Every month we show you how many calls came in, how many turned into booked jobs, and what each one cost you to get.</div>
             </div>
           </li>
           <li class="pillar">
-            <span class="pillar-n">02</span>
+            <span class="pillar-ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
             <div>
               <div class="pillar-title">End-to-End Lead Infrastructure</div>
               <div class="pillar-body">Search ads, Local Services Ads, landing pages, call tracking, and reporting — built as one connected system instead of scattered tools.</div>
             </div>
           </li>
           <li class="pillar">
-            <span class="pillar-n">03</span>
+            <span class="pillar-ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
             <div>
               <div class="pillar-title">For Established Trades Businesses</div>
               <div class="pillar-body">We work with companies already doing strong work in their market. If you have a solid crew and want consistent inbound demand, we can help you scale responsibly.</div>
             </div>
           </li>
           <li class="pillar">
-            <span class="pillar-n">04</span>
+            <span class="pillar-ico"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
             <div>
               <div class="pillar-title">Protected Markets</div>
               <div class="pillar-body">We work with one contractor per trade, per market. If we partner with you, we do not take on your direct competitor.</div>
@@ -876,7 +879,7 @@ footer {
       <h2 class="engine-h2">Four Things.<br><em>Done Right.</em></h2>
     </div>
     <div class="eng-row r d1">
-      <div class="eng-n">01</div>
+      <div class="eng-ico"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
       <div class="eng-meta">
         <div class="eng-label">Search &amp; Local Services Ads</div>
         <div class="eng-title">High-Intent Traffic, Qualified Leads</div>
@@ -884,7 +887,7 @@ footer {
       <p class="eng-body">We run Google Search and Local Services Ads targeting people actively looking for your trade in your service area. You pay for calls that can turn into jobs — not clicks from people browsing.</p>
     </div>
     <div class="eng-row r d2">
-      <div class="eng-n">02</div>
+      <div class="eng-ico"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
       <div class="eng-meta">
         <div class="eng-label">Google Business Profile</div>
         <div class="eng-title">Own Your Local Pack</div>
@@ -892,7 +895,7 @@ footer {
       <p class="eng-body">Your GBP listing is the first thing a homeowner sees when they search your trade. We optimize your profile and build review velocity so you consistently show up at the top of local results.</p>
     </div>
     <div class="eng-row r d3">
-      <div class="eng-n">03</div>
+      <div class="eng-ico"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg></div>
       <div class="eng-meta">
         <div class="eng-label">Lead Infrastructure &amp; CRM</div>
         <div class="eng-title">No Lead Falls Through</div>
@@ -900,7 +903,7 @@ footer {
       <p class="eng-body">We set up call tracking, form tracking, and automated follow-up so every inquiry is captured and followed up. You see exactly where each lead came from, whether it booked, and what it cost.</p>
     </div>
     <div class="eng-row r d4">
-      <div class="eng-n">04</div>
+      <div class="eng-ico"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
       <div class="eng-meta">
         <div class="eng-label">Landing Pages</div>
         <div class="eng-title">Pages Built to Convert</div>
@@ -1011,7 +1014,7 @@ footer {
 
 <!-- ═══════ EXCLUSIVE ═══════ -->
 <section class="exclusive" id="exclusive">
-  <div class="excl-ghost">1</div>
+  <div class="excl-ghost" aria-hidden="true">ONE</div>
   <div class="container">
     <div class="excl-inner r">
       <div class="excl-tag">Markets</div>
@@ -1157,7 +1160,7 @@ footer {
           <p style="font-size:13px;font-weight:300;color:var(--on-dark-dim);margin-bottom:20px;line-height:1.7;">Pick a time below. We'll spend 20–30 minutes learning about your business, look at your local market together, and be straight with you about whether we think we can help.</p>
           <div class="calendly-inline-widget"
                data-url="https://calendly.com/peter-offsite-growth/30min"
-               style="min-width:280px;height:630px;overflow:hidden;">
+               style="min-width:min(280px,100%);width:100%;height:630px;overflow:hidden;">
           </div>
           <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </div>
@@ -1168,7 +1171,7 @@ footer {
 
 <!-- ═══════ FINAL CTA ═══════ -->
 <section class="cta-final">
-  <div class="cta-ghost">GROW</div>
+  <div class="cta-ghost" aria-hidden="true">GROW</div>
   <div class="container">
     <div class="ctaf-inner">
       <div class="stag ctaf-tag r">Ready When You Are</div>
@@ -1179,6 +1182,8 @@ footer {
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ─── FOOTER ─── -->
 <footer>
@@ -1210,12 +1215,12 @@ footer {
       <div>
         <div class="foot-col-lbl">Get Started</div>
         <p class="foot-cta-note">One client per trade, per market.<br>Response within 1 business day.</p>
-        <a href="#form" class="btn-fire" style="font-size:12px;padding:12px 20px;">Schedule a Call &rarr;</a>
+        <a href="#form" class="btn-fire btn-fire--sm">Schedule a Call &rarr;</a>
       </div>
     </div>
     <div class="foot-bottom">
       <div class="foot-copy">&copy; 2026 Offsite Growth. All rights reserved.</div>
-      <div class="foot-copy" style="font-style:italic;color:oklch(93% 0.006 82 / .4);">Reputation is earned. Growth is engineered.</div>
+      <div class="foot-tagline">Reputation is earned. Growth is engineered.</div>
     </div>
   </div>
 </footer>
@@ -1267,6 +1272,8 @@ if (burg && nav) {
   burg.addEventListener('click', () => {
     const open = nav.classList.contains('mob-open');
     nav.classList.toggle('mob-open', !open);
+    burg.setAttribute('aria-expanded', String(!open));
+    burg.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
     if (!open) {
       Object.assign(nav.style, {
         display:'flex', flexDirection:'column', position:'absolute',
@@ -1280,7 +1287,11 @@ if (burg && nav) {
     }
   });
   nav.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => { nav.classList.remove('mob-open'); nav.removeAttribute('style'); });
+    a.addEventListener('click', () => {
+      nav.classList.remove('mob-open'); nav.removeAttribute('style');
+      burg.setAttribute('aria-expanded', 'false');
+      burg.setAttribute('aria-label', 'Open menu');
+    });
   });
 }
 
