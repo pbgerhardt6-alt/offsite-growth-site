@@ -652,15 +652,13 @@ footer {
   nav { display: none; }
   .burger { display: flex; }
   .hdr-cta { display: none; }
-  .hero { padding-top: 100px; }
-  .hero-eyebrow { margin-bottom: 16px; }
-  .hero-h1 { font-size: clamp(44px, 11vw, 80px); margin-bottom: 28px; }
-  .hero-sub { display: none; }
+  .hero { min-height: 100svh; padding-bottom: 0; }
+  .hero-stats { display: none; }
+  .hero-actions { margin-top: auto; padding-bottom: 36px; flex-direction: column; }
+  .hero-actions a { justify-content: center; }
   .hero-actions .btn-outline { display: none; }
   .prob-row, .eng-row { grid-template-columns: 52px 1fr; }
   .prob-body, .eng-body { grid-column: 2; }
-  .hero-stats { grid-template-columns: 1fr 1fr; }
-  .hstat:nth-child(3) { grid-column: 1/-1; border-right: none !important; border-top: 1px solid oklch(13% 0.01 80 / .1); padding-left: 0; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
   .foot-grid > :first-child { grid-column: 1/-1; }
   .about, .problem, .engine, .who, .process, .faq, .book { padding: 72px 0; }
@@ -668,10 +666,6 @@ footer {
   .cta-final { padding: 80px 0; }
 }
 @media (max-width: 480px) {
-  .hero { padding-top: 92px; }
-  .hero-h1 { font-size: 44px; }
-  .hero-actions { flex-direction: column; }
-  .hero-actions a { justify-content: center; }
   .hero-stats { grid-template-columns: 1fr; }
   .hstat { border-right: none !important; padding-left: 0 !important; }
   .hstat:not(:first-child) { border-top: 1px solid oklch(13% 0.01 80 / .1); }
