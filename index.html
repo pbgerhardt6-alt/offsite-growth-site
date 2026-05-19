@@ -18,7 +18,6 @@
 
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230c0c0c'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Arial Black,sans-serif' font-weight='900' font-size='18' fill='%23c85a1e'%3EO%3C/text%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -178,16 +177,15 @@ nav a:hover, nav a.active { color: var(--paper); }
 .hero-sub {
   font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--dim);
   max-width: 500px; margin-bottom: 16px;
-  border-left: 3px solid rgba(200,90,30,0.5); padding-left: 20px;
   opacity: 0; animation: up .9s .32s var(--ease) forwards;
 }
 .hero-excl {
   font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--faint); margin-bottom: 36px;
+  color: var(--dim); margin-bottom: 36px;
   display: flex; align-items: center; gap: 10px;
   opacity: 0; animation: up .9s .38s var(--ease) forwards;
 }
-.hero-excl::before { content: '—'; color: var(--fire); }
+.hero-excl::before { content: ''; width: 16px; height: 1px; background: var(--fire); flex-shrink: 0; }
 .hero-actions {
   display: flex; gap: 20px; align-items: center; flex-wrap: wrap;
   opacity: 0; animation: up .9s .46s var(--ease) forwards;
@@ -251,11 +249,6 @@ body:has(button:hover) .cursor-ring {
 .hstat-val .f { color: var(--fire); }
 .hstat-val[data-target] { transition: none; }
 
-/* ─── MATERIAL ICONS ─── */
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 48;
-  vertical-align: middle;
-}
 
 /* ─── HERO IMAGE ─── */
 .hero-bg {
@@ -357,7 +350,10 @@ body:has(button:hover) .cursor-ring {
   transition: border-color .3s, box-shadow .3s;
 }
 .prob-item:hover { border-color: var(--fire); box-shadow: 0 12px 48px rgba(200,90,30,.1); }
-.prob-num { display: none; }
+.prob-num {
+  font-family: var(--ff-d); font-size: 52px; line-height: 1;
+  color: rgba(26,24,20,0.12); margin-bottom: 16px; letter-spacing: -.02em;
+}
 .prob-icon-wrap { margin-bottom: 18px; }
 .prob-icon-wrap svg { color: var(--fire); }
 .prob-title { font-family: var(--ff-d); font-size: 26px; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 10px; color: var(--cream-text); }
@@ -546,7 +542,7 @@ details[open] .faq-ans-in { display: block; }
 .book-pre {
   font-size: 11px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
   color: var(--dim); padding: 14px 20px;
-  border: 1px solid rgba(240,236,229,.1); border-left: 2px solid var(--fire);
+  background: rgba(200,90,30,0.06); border: 1px solid rgba(200,90,30,0.2);
   margin-bottom: 32px; line-height: 1.6;
 }
 .book-pre strong { color: var(--paper); font-weight: 600; }
@@ -684,24 +680,73 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
 
 .form-row-half { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
-/* ─── ALTERNATING CREAM SECTIONS ─── */
-/* Results — cream */
-.results {
-  background: var(--cream) !important;
-  color: var(--cream-text) !important;
-  border-top: none !important;
+/* ═══════════════════════════════════════════
+   EXCLUSIVITY
+═══════════════════════════════════════════ */
+.exclusivity {
+  padding: 120px 0;
+  background: var(--cream);
+  color: var(--cream-text);
+  overflow: hidden;
 }
-.results .stag { color: var(--fire); }
-.results .stag::before { background: var(--fire); }
-.results .res-grid { border-top-color: rgba(26,24,20,.1); }
-.results .res-block { border-right-color: rgba(26,24,20,.1) !important; border-bottom-color: rgba(26,24,20,.1) !important; }
-.results .res-val { color: var(--cream-text); }
-.results .res-val .fire { color: var(--fire); }
-.results .res-name { color: rgba(26,24,20,.5); }
-.results .res-sub { color: rgba(26,24,20,.3); }
-
-/* Dept — dark for contrast with cream on both sides */
-.dept { background: var(--ink-2) !important; }
+.excl-inner {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.excl-num {
+  font-family: var(--ff-d);
+  font-size: clamp(120px, 18vw, 220px);
+  line-height: 0.85;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(26,24,20,0.1);
+  letter-spacing: -.02em;
+  user-select: none;
+  padding-top: 4px;
+}
+.excl-h2 {
+  font-family: var(--ff-d);
+  font-size: clamp(52px, 7.5vw, 92px);
+  line-height: 0.88;
+  text-transform: uppercase;
+  margin: 16px 0 32px;
+  color: var(--cream-text);
+}
+.excl-body { display: flex; flex-direction: column; gap: 16px; margin-bottom: 36px; }
+.excl-body p {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(26,24,20,0.55);
+  line-height: 1.85;
+  max-width: 540px;
+}
+.excl-body p strong { font-weight: 600; color: var(--cream-text); }
+.excl-signal {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--fire);
+  margin-bottom: 28px;
+}
+.excl-signal::before { content: ''; width: 20px; height: 1px; background: var(--fire); }
+.excl-btn-dark {
+  font-family: var(--ff-d); font-size: 14px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 17px 34px; background: var(--cream-text); color: var(--cream); border-radius: 6px;
+  transition: all .3s var(--ease);
+}
+.excl-btn-dark:hover { opacity: 0.88; transform: translateY(-2px); }
+.exclusivity .stag { color: var(--fire); }
+.exclusivity .stag::before { background: var(--fire); }
+@media (max-width: 768px) {
+  .excl-inner { grid-template-columns: 1fr; gap: 24px; }
+  .excl-num { font-size: 96px; }
+}
 
 </style>
 </head>
@@ -719,7 +764,7 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
         <a href="#engine">Services</a>
         <a href="#process">Process</a>
         <a href="/pricing">Pricing</a>
-        <a href="#results">Results</a>
+        <a href="#exclusive">Markets</a>
       </nav>
       <div style="display:flex;align-items:center;gap:16px;">
         <a href="#form" class="hdr-apply">Get Started</a>
@@ -746,6 +791,7 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
           <a href="#form" class="btn-fire">Schedule a Call <span>→</span></a>
           <a href="#engine" class="btn-ghost">See How It Works <span class="arr">→</span></a>
         </div>
+        <div class="hero-excl">One contractor per trade, per market — we never work with your direct competitor</div>
       </div>
     </div>
 
@@ -799,6 +845,7 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
           <p><strong>Offsite Growth is not a freelancer, a lead broker, or a generalist agency.</strong> We partner with established trades businesses to build and manage the systems that generate qualified calls and booked jobs.</p>
           <p>We set up your tracking, run your search and Local Services campaigns, optimize your landing pages, and monitor every inbound lead. You don't have to manage us. You don't have to guess what's working.</p>
           <p>We measure performance the only way that matters: <strong>how many calls came in, how many turned into booked jobs, and how much revenue they generated.</strong></p>
+          <p style="font-family:var(--ff-d);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:rgba(240,236,229,0.22);margin-top:8px;font-style:italic;">Reputation is earned. Growth is engineered.</p>
         </div>
       </div>
       <div class="cred-right r d3">
@@ -850,25 +897,16 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
     <div class="problems">
       <div class="prob-item r d1">
         <div class="prob-num">01</div>
-        <div class="prob-icon-wrap">
-          <span class="material-symbols-outlined" style="font-size:40px;color:var(--fire);">trending_down</span>
-        </div>
         <div class="prob-title">Slow Months Hit Hard</div>
         <p class="prob-body">Work comes in waves — busy season, then nothing. You're relying on referrals and word of mouth, which works until it doesn't. There's no consistent way to generate new jobs when things slow down.</p>
       </div>
       <div class="prob-item r d2">
         <div class="prob-num">02</div>
-        <div class="prob-icon-wrap">
-          <span class="material-symbols-outlined" style="font-size:40px;color:var(--fire);">money_off</span>
-        </div>
         <div class="prob-title">Ads That Don't Pay Off</div>
         <p class="prob-body">You've tried running ads — or hired someone to do it. Money went out, clicks came in, but the jobs didn't follow. Now it's unclear if the problem was the ads, the leads, or what happened after the call.</p>
       </div>
       <div class="prob-item r d3">
         <div class="prob-num">03</div>
-        <div class="prob-icon-wrap">
-          <span class="material-symbols-outlined" style="font-size:40px;color:var(--fire);">settings_accessibility</span>
-        </div>
         <div class="prob-title">You're the Bottleneck</div>
         <p class="prob-body">You're quoting jobs, managing crews, answering calls, and trying to figure out marketing on top of it. Growth depends on how much you can personally handle — not on a system that runs consistently.</p>
       </div>
@@ -953,29 +991,20 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
   </div>
 </section>
 
-<!-- ═══════ RESULTS ═══════ -->
-<section class="results" id="results">
+<!-- ═══════ EXCLUSIVITY ═══════ -->
+<section class="exclusivity" id="exclusive">
   <div class="container">
-    <div class="stag r">05 — What Changes</div>
-    <div class="res-grid">
-      <div class="res-block r d1">
-        <span class="material-symbols-outlined" style="font-size:36px;color:var(--fire);margin-bottom:16px;display:block;">trending_up</span>
-        <div class="res-val">More Calls<br><span class="fire">Every</span><br>Month</div>
-        <div class="res-name" style="margin-top:14px;">More Predictable Lead Flow</div>
-        <div class="res-sub">Built on structured campaigns — not referrals alone</div>
-      </div>
-      <div class="res-block r d2">
-        <span class="material-symbols-outlined" style="font-size:36px;color:var(--fire);margin-bottom:16px;display:block;">money_off</span>
-        <div class="res-val"><span class="fire">↓</span> Cost</div>
-        <div class="res-val" style="font-size:clamp(28px,3.5vw,46px);margin-top:4px;">Per Booked Job</div>
-        <div class="res-name" style="margin-top:14px;">Smarter Ad Spend</div>
-        <div class="res-sub">Clear tracking shows what's working — and what isn't</div>
-      </div>
-      <div class="res-block r d3">
-        <span class="material-symbols-outlined" style="font-size:36px;color:var(--fire);margin-bottom:16px;display:block;">schedule_send</span>
-        <div class="res-val">Less Time<br><span class="fire">Chasing</span><br>Leads</div>
-        <div class="res-name" style="margin-top:14px;">Faster Response Systems</div>
-        <div class="res-sub">Leads are tracked and contacted quickly — before interest fades</div>
+    <div class="excl-inner">
+      <div class="excl-num r">1</div>
+      <div>
+        <div class="stag r" style="margin-bottom:20px;">Protected Markets</div>
+        <h2 class="excl-h2 r d1">One Contractor<br>Per Trade.<br>Per Market.</h2>
+        <div class="excl-body r d2">
+          <p>When we partner with a roofer in Phoenix, we do not take on another roofer in Phoenix. <strong>Your competitor cannot hire us to run ads against you</strong> — because we won't take that call.</p>
+          <p>This isn't a policy we advertise to sound good. It's how we operate, because exclusive representation means our success is tied directly to yours. One partner per market. One outcome we're measuring.</p>
+        </div>
+        <div class="excl-signal r d3">If your market is available, now is the time to find out</div>
+        <a href="#form" class="excl-btn-dark r d4">Check Market Availability <span>→</span></a>
       </div>
     </div>
   </div>
@@ -986,7 +1015,7 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
   <div class="container">
     <div class="dept-inner">
       <div>
-        <div class="stag r">06 — What You Get</div>
+        <div class="stag r">05 — What You Get</div>
         <h2 class="dept-h2 r d1">Your Marketing<br>Team —<br>Without the Hire</h2>
         <p class="dept-body r d2">Most trades businesses can't justify a full-time marketing hire. We provide the same expertise — someone who understands your business, manages your search and Local Services campaigns, tracks every lead, and optimizes performance — at a fraction of the cost.</p>
         <a href="#form" class="btn-fire r d3">Get a Free Assessment <span>→</span></a>
@@ -1009,7 +1038,7 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
   <div class="container">
     <div class="proc-inner">
       <div>
-        <div class="stag r">07 — How We Start</div>
+        <div class="stag r">06 — How We Start</div>
         <h2 class="proc-h2 r d1">Up &amp;<br>Running<br>in 90<br>Days.</h2>
         <p class="proc-note r d2">We don't drag it out. Here's exactly what happens after you reach out.</p>
         <img src="process-photo.png" alt="Trades professional at work" class="r d3" style="width:100%;margin-top:32px;filter:grayscale(1) brightness(0.75);border-bottom:3px solid var(--fire);display:block;">
@@ -1053,29 +1082,29 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
   <div class="container">
     <div class="faq-inner">
       <div>
-        <div class="stag r">08 — Questions</div>
+        <div class="stag r">07 — Questions</div>
         <h2 class="faq-h2 r d1">Straight<br>Answers</h2>
         <p class="faq-note r d2">No runaround. No vague promises. If we're a fit, you'll know it in the first call.</p>
       </div>
       <div class="faq-list r d2">
         <details class="faq-row">
-          <summary class="faq-btn">What exactly do you do?<span class="faq-ico material-symbols-outlined">expand_more</span></summary>
+          <summary class="faq-btn">What exactly do you do?<span class="faq-ico" aria-hidden="true"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
           <div class="faq-ans-in">We manage your paid search campaigns on Google and Local Services Ads, build or optimize the landing pages your leads land on, track and manage every inquiry, and maintain your Google Business profile. Each month we review performance, make improvements, and send you a clear report showing what your marketing is producing.</div>
         </details>
         <details class="faq-row">
-          <summary class="faq-btn">Do I have to sign a long contract?<span class="faq-ico material-symbols-outlined">expand_more</span></summary>
+          <summary class="faq-btn">Do I have to sign a long contract?<span class="faq-ico" aria-hidden="true"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
           <div class="faq-ans-in">We require a 3-month minimum to allow campaigns time to build momentum and optimize. After that, it's month-to-month. We don't lock clients in — we retain them by producing value, not by contracts.</div>
         </details>
         <details class="faq-row">
-          <summary class="faq-btn">How will I know if it's working?<span class="faq-ico material-symbols-outlined">expand_more</span></summary>
+          <summary class="faq-btn">How will I know if it's working?<span class="faq-ico" aria-hidden="true"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
           <div class="faq-ans-in">Every month you'll get a simple, plain-English report showing: total calls and leads, which turned into booked jobs, and the cost per job. No confusing dashboards — just the numbers that matter to your business.</div>
         </details>
         <details class="faq-row">
-          <summary class="faq-btn">What does it cost?<span class="faq-ico material-symbols-outlined">expand_more</span></summary>
+          <summary class="faq-btn">What does it cost?<span class="faq-ico" aria-hidden="true"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
           <div class="faq-ans-in">Our management fee depends on scope and market, typically $3,000–$10,000 per month. Ad spend goes directly to the platforms and is separate from our fee. We'll give you an exact quote after our first call.</div>
         </details>
         <details class="faq-row">
-          <summary class="faq-btn">How soon will I start getting calls?<span class="faq-ico material-symbols-outlined">expand_more</span></summary>
+          <summary class="faq-btn">How soon will I start getting calls?<span class="faq-ico" aria-hidden="true"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></summary>
           <div class="faq-ans-in">Once your campaigns and tracking are live, you'll start seeing inquiries come in. It typically takes 60–90 days to fully optimize targeting and see more predictable results. We set expectations upfront so you know what the timeline looks like.</div>
         </details>
       </div>
@@ -1177,7 +1206,7 @@ footer { background: var(--ink-2); border-top: 1px solid rgba(240,236,229,.06); 
           <a href="#engine">Services</a>
           <a href="#process">Process</a>
           <a href="/pricing">Pricing</a>
-          <a href="#results">Results</a>
+          <a href="#exclusive">Markets</a>
           <a href="#faq">FAQ</a>
         </div>
       </div>
