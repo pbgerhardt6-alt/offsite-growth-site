@@ -652,6 +652,10 @@ footer {
   nav { display: none; }
   .burger { display: flex; }
   .hdr-cta { display: none; }
+  .hero { padding-top: 100px; }
+  .hero-eyebrow { margin-bottom: 16px; }
+  .hero-h1 { font-size: clamp(44px, 11vw, 80px); margin-bottom: 20px; }
+  .hero-sub { font-size: 14px; margin-bottom: 24px; }
   .prob-row, .eng-row { grid-template-columns: 52px 1fr; }
   .prob-body, .eng-body { grid-column: 2; }
   .hero-stats { grid-template-columns: 1fr 1fr; }
@@ -663,6 +667,8 @@ footer {
   .cta-final { padding: 80px 0; }
 }
 @media (max-width: 480px) {
+  .hero { padding-top: 92px; }
+  .hero-h1 { font-size: 44px; }
   .hero-actions { flex-direction: column; }
   .hero-actions a { justify-content: center; }
   .hero-stats { grid-template-columns: 1fr; }
