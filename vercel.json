@@ -1,6 +1,10 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { "source": "/pricing", "destination": "/#faq", "permanent": true }
+    {
+      "source": "/pricing",
+      "destination": "/#system",
+      "permanent": true
+    }
   ]
 }
